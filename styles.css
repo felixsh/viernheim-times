@@ -700,6 +700,12 @@ footer p {
   margin-top: clamp(2.5rem, 6vw, 5rem);
 }
 
+.chart-filter-section {
+  position: relative;
+  z-index: 5;
+  margin-top: 1rem;
+}
+
 .results-heading {
   margin-bottom: 1.4rem;
 }

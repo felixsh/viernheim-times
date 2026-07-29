@@ -27,46 +27,34 @@
       <button class="view-tab" type="button" data-view-target="results" aria-pressed="false">Race results</button>
       <button class="view-tab" type="button" data-view-target="links" aria-pressed="false">Links</button>
     </nav>
-    <section class="filter-panel" data-dashboard-view="charts" aria-labelledby="filter-heading">
-      <div class="filter-heading">
-        <div>
-          <p class="eyebrow">Shape the field</p>
-          <h2 id="filter-heading">Filters</h2>
+    <section class="chart-filter-section" data-dashboard-view="charts" aria-label="Chart filters">
+      <div class="table-filter-panel">
+        <div class="table-filter">
+          <span class="table-filter-label">Year</span>
+          <div class="segmented-control" id="chart-year-toggle" data-chart-filter="year" role="group"
+            aria-label="Filter charts by year">
+            <button class="is-active" type="button" data-value="all" aria-pressed="true">All</button>
+          </div>
         </div>
-        <button class="reset-button" id="reset-filters" type="button">Reset all</button>
-      </div>
-
-      <div class="filter-grid">
-        <label class="filter-control" for="year-filter">
-          <span>Year</span>
-          <span class="select-wrap">
-            <select id="year-filter">
-              <option value="all">All years</option>
-            </select>
-          </span>
-        </label>
-
-        <label class="filter-control" for="gender-filter">
-          <span>Gender</span>
-          <span class="select-wrap">
-            <select id="gender-filter">
-              <option value="all">All genders</option>
-            </select>
-          </span>
-        </label>
-
-        <label class="filter-control" for="age-filter">
-          <span>Age group</span>
-          <span class="select-wrap">
-            <select id="age-filter">
+        <div class="table-filter">
+          <span class="table-filter-label">Gender</span>
+          <div class="segmented-control" id="chart-gender-toggle" data-chart-filter="gender" role="group"
+            aria-label="Filter charts by gender">
+            <button class="is-active" type="button" data-value="all" aria-pressed="true">All</button>
+          </div>
+        </div>
+        <label class="table-filter" for="chart-age-filter">
+          <span class="table-filter-label">Age group</span>
+          <span class="select-wrap table-select-wrap">
+            <select id="chart-age-filter">
               <option value="all">All age groups</option>
             </select>
           </span>
         </label>
+        <button class="table-reset" id="reset-filters" type="button">Reset</button>
       </div>
 
-      <div class="active-summary" aria-live="polite">
-        <span class="pulse" aria-hidden="true"></span>
+      <div class="table-status chart-filter-status" aria-live="polite">
         <strong id="result-count">Loading results…</strong>
         <span id="active-description">Preparing the field</span>
       </div>
@@ -211,6 +199,7 @@
           <span class="table-filter-label">Year</span>
           <div class="segmented-control" id="table-year-toggle" data-table-filter="year" role="group"
             aria-label="Filter table by year">
+            <button type="button" data-value="all" aria-pressed="false">All</button>
           </div>
         </div>
         <div class="table-filter">

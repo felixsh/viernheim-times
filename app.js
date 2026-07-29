@@ -31,9 +31,9 @@ const state = {
 };
 
 const controls = {
-  year: document.querySelector("#year-filter"),
-  gender: document.querySelector("#gender-filter"),
-  age: document.querySelector("#age-filter"),
+  year: document.querySelector("#chart-year-toggle"),
+  gender: document.querySelector("#chart-gender-toggle"),
+  age: document.querySelector("#chart-age-filter"),
   reset: document.querySelector("#reset-filters"),
   tableYear: document.querySelector("#table-year-toggle"),
   tableGender: document.querySelector("#table-gender-toggle"),
@@ -214,9 +214,11 @@ function populateFilters() {
     .filter((age) => age !== "Unknown" && age !== "Junior")
     .sort(numericSort);
 
-  addOptions(controls.year, years);
-  addOptions(controls.gender, genders, formatGender);
   addOptions(controls.age, ageGroups);
+  addToggleOptions(controls.year, years);
+  setToggleValue(controls.year, state.year);
+  addToggleOptions(controls.gender, genders, formatGender);
+  setToggleValue(controls.gender, state.gender);
   addOptions(controls.tableAge, ageGroups);
   addToggleOptions(controls.tableYear, years);
   state.table.year = years.at(-1);
@@ -322,7 +324,7 @@ function describeFilters() {
     labels.push(state.year);
   }
   if (state.gender !== "all") {
-    labels.push(controls.gender.selectedOptions[0].textContent);
+    labels.push(formatGender(state.gender));
   }
   if (state.age !== "all") {
     labels.push(`age ${state.age}`);
@@ -906,16 +908,26 @@ function switchDashboardView(view) {
   syncResultsHeader();
 }
 
-function handleFilterChange(event) {
-  state[event.target.id.replace("-filter", "")] = event.target.value;
+function handleChartToggle(event) {
+  const button = event.target.closest("button[data-value]");
+  if (!button) {
+    return;
+  }
+  const container = event.currentTarget;
+  state[container.dataset.chartFilter] = button.dataset.value;
+  setToggleValue(container, button.dataset.value);
   render();
 }
 
 function bindEvents() {
   const resultsTableBody = document.querySelector("#results-table-body");
 
-  [controls.year, controls.gender, controls.age].forEach((control) => {
-    control.addEventListener("change", handleFilterChange);
+  [controls.year, controls.gender].forEach((control) => {
+    control.addEventListener("click", handleChartToggle);
+  });
+  controls.age.addEventListener("change", () => {
+    state.age = controls.age.value;
+    render();
   });
 
   document.querySelectorAll(".view-tab").forEach((tab) => {
@@ -947,8 +959,8 @@ function bindEvents() {
     state.year = "all";
     state.gender = "all";
     state.age = "all";
-    controls.year.value = "all";
-    controls.gender.value = "all";
+    setToggleValue(controls.year, "all");
+    setToggleValue(controls.gender, "all");
     controls.age.value = "all";
     render();
   });
