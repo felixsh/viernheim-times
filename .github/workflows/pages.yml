@@ -29,7 +29,11 @@ jobs:
       - name: Prepare static site
         run: |
           mkdir -p _site
-          cp index.html styles.css app.js trialogevent_results_2023_2025.csv _site/
+          find . -maxdepth 1 -type f \
+            \( -name '*.html' -o -name '*.css' -o -name '*.js' \
+            -o -name '*.svg' -o -name '*.png' -o -name '*.ico' \
+            -o -name '*.csv' \) \
+            -exec cp --target-directory=_site {} +
           touch _site/.nojekyll
 
       - name: Configure Pages
