@@ -1,0 +1,760 @@
+﻿Year,Platz,Gender,Startnummer,Name,Verein,Altersklasse,AK_Rang,Nation,Totalzeit,Schwimmen,Wechsel_1,Rad,Wechsel_2,Lauf
+2023,1,female,52,Lea Cagol,SV Würzburg 05,AK 25,1,Bayern,02:10:49.24,19:49,44,01:10:43,42,38:51
+2023,1,male,2,Jakob Breinlinger,Team Nikar Heidelberg,AK 20,1,Baden-Württemberg,01:50:49.65,18:11,42,57:24,34,33:58
+2023,2,female,51,Kathrin Halter,Team Nikar Heidelberg,AK 25,2,Baden-Württemberg,02:11:19.34,20:48,51,01:06:41,54,42:05
+2023,2,male,3,Nils Lorenz,hep sportsteam,AK 20,2,Baden-Württemberg,01:50:59.51,17:58,46,55:27,44,36:04
+2023,3,male,4,Julian Becker,VfL Münster REACard Triathlon Team,AK 20,3,Hessen,01:52:21.83,18:11,43,57:26,46,35:15
+2023,3,female,53,Eleisa Haag,SV Würzburg 05,AK 25,3,GER,02:11:43.63,23:19,52,01:09:09,47,37:36
+2023,4,male,1,Sebastian Kienle,TriTeam Heuchelberg hep Sportsteam,AK 35,1,GER,01:52:58.88,19:41,50,56:52,52,34:43
+2023,4,female,63,Janina Fabriz,Soprema Team TSV Mannheim,AK 20,1,GER,02:14:08.71,21:39,52,01:10:00,45,40:52
+2023,5,male,9,Philipp Dressel-Putz,SC Plauen 06,AK 25,1,Sachsen,01:53:12.51,18:09,48,59:25,41,34:09
+2023,5,female,56,Antonia Seemann,VfL Münster REACard Triathlon Team,JUN,1,Hessen,02:16:35.24,20:45,47,01:12:15,41,42:07
+2023,6,male,5,Tom Holzmann,,AK 25,2,GER,01:53:44.35,20:07,01:02,58:49,45,33:01
+2023,6,female,65,Franziska Richartz,DAV Triathlon Hersbruck,AK 25,4,Bayern,02:16:42.09,25:31,01:03,01:08:14,51,41:03
+2023,7,female,62,Anna Maria Melzer,Team Nikar Heidelberg,AK 25,5,GER,02:16:52.08,23:12,48,01:11:19,01:11,40:22
+2023,7,male,14,Elias Schipperges,TG 48 Schweinfurt,AK 30,1,GER,01:54:19.21,19:48,01:03,56:29,49,36:10
+2023,8,female,55,Kim Heidemann,TCEC Mainz,AK 20,2,Hessen,02:17:48.21,20:12,40,01:13:28,41,42:47
+2023,8,male,21,Robin Schüßler,Triathlon Team DSW Darmstadt,AK 20,4,Hessen,01:57:01.16,18:13,42,01:00:08,39,37:19
+2023,9,female,87,Laura Martin,EOSC Offenbach,AK 30,1,Hessen,02:18:56.91,25:29,58,01:11:31,50,40:08
+2023,9,male,169,Moritz Bickel,Sport-Union Neckarsulm e.V.,AK 25,3,Baden-Württemberg,01:58:41.52,19:53,57,01:00:54,44,36:13
+2023,10,female,105,Relindis Agethen,MTG Mannheim-Triathlon,AK 40,1,Baden-Württemberg,02:19:20.28,24:37,01:21,01:10:38,01:53,40:51
+2023,10,male,241,Holger Körner,Karlsruher Lemminge,AK 30,2,Baden-Württemberg,02:01:43.68,24:24,01:05,01:02:12,47,33:15
+2023,11,female,101,Anna-Lena Klee,TSV Mellrichstadt,AK 40,2,Bayern,02:19:33.78,21:55,01:04,01:12:11,01:04,43:19
+2023,11,male,10,Michael Haas,VfL Pfullingen,AK 25,4,Baden-Württemberg,02:01:57.06,19:55,53,01:04:15,40,36:14
+2023,12,male,18,Nico Steißlinger,Ludwigshafener SV 07,AK 25,5,Baden-Württemberg,02:02:12.62,20:39,47,01:05:24,57,34:25
+2023,12,female,120,Astrid Zunner,Twin Neumarkt,AK 45,1,Bayern,02:21:10.44,24:49,01:26,01:08:20,01:10,45:25
+2023,13,male,180,Justus Wehrhahn,,AK 25,6,GER,02:02:58.03,20:55,01:05,01:03:24,01:03,36:31
+2023,13,female,76,Laura Bareth,Triathlon Wetterau-Friedberg,AK 25,6,GER,02:22:01.50,23:44,01:04,01:11:44,01:05,44:24
+2023,14,male,356,Udo Van Stevendaal,SV Großhansdorf,AK 55,1,GER,02:03:01.48,24:01,57,01:01:04,52,36:07
+2023,14,female,72,Anne Schmidhuber,TSV 1928 Essleben e. V.,JUN,2,Bayern,02:22:10.28,30:03,01:03,01:07:51,52,42:21
+2023,15,male,12,Adrian Hausding,Triathlon Team DSW Darmstadt,JUN,1,Hessen,02:03:19.91,18:51,45,01:05:22,41,37:40
+2023,15,female,98,Marianne Juliane Kulling,TV Fürstenwalde 1990 e.V.,AK 25,7,Brandenburg,02:23:16.23,29:42,01:30,01:09:02,55,42:07
+2023,16,female,106,Kristina Bühler,Soprema Team TSV Mannheim,AK 40,3,Baden-Württemberg,02:24:48.75,26:49,01:33,01:07:28,01:16,47:42
+2023,16,male,159,Henrik Hamm,Soprema Team TSV Mannheim,AK 25,7,Baden-Württemberg,02:03:31.79,21:12,43,01:00:43,49,40:04
+2023,17,male,270,Hendrik Becker,Tri Zack Rostock,AK 40,1,Niedersachsen,02:03:39.12,23:47,46,01:02:03,50,36:13
+2023,17,female,99,Jana Söder,Post-SV Tübingen,AK 25,8,Baden-Württemberg,02:24:51.65,26:50,01:09,01:12:40,49,43:23
+2023,18,male,17,Nicolas Honsowitz,bike-innovations,AK 25,8,Hessen,02:04:12.39,19:42,42,01:04:35,39,38:34
+2023,18,female,113,Michaela Krieger,Schwimmclub Oberursel,AK 45,2,Hessen,02:27:25.94,22:20,56,01:11:42,01:10,51:17
+2023,19,male,220,Alexander Klimek,TG Viktoria Augsburg,AK 30,3,Bayern,02:04:18.19,22:27,50,01:04:02,56,36:03
+2023,19,female,141,Anne Alff,,AK 35,1,Saarland,02:27:58.76,26:27,02:19,01:10:54,01:10,47:08
+2023,20,female,137,Laura Ernst,KSV Baunatal,AK 25,9,Hessen,02:30:06.37,21:35,57,01:16:31,51,50:12
+2023,20,male,178,Paul Braun,Triathlon Team DSW Darmstadt,AK 20,5,GER,02:04:29.96,21:09,49,01:03:15,54,38:22
+2023,21,male,200,Jannik Hollmann,MTG Mannheim-Triathlon,AK 30,4,GER,02:04:38.31,26:00,56,59:52,01:07,36:43
+2023,21,female,75,Lisa Diemer,TSG Kaiserslautern,AK 25,10,Rheinland-Pfalz,02:31:39.26,26:55,01:45,01:19:23,42,42:54
+2023,22,female,66,Simona Fritz,,AK 35,2,GER,02:32:10.13,27:54,55,01:14:50,49,47:42
+2023,22,male,16,Marius Manger,TSV Amicitia Viernheim,AK 20,6,Hessen,02:04:44.39,20:49,44,01:03:36,48,38:47
+2023,23,male,13,Henrik Schmitt,TSV Amicitia Viernheim,AK 20,7,Hessen,02:04:44.53,20:08,45,01:05:58,41,37:12
+2023,23,female,86,Franziska Sprengart,,AK 30,2,GER,02:33:12.35,25:34,01:46,01:15:39,01:04,49:09
+2023,24,female,84,Karolina Stößlein,,AK 30,3,GER,02:33:21.78,33:33,01:59,01:10:30,01:39,45:40
+2023,24,male,7,Simon Breinlinger,Team Nikar Heidelberg,AK 25,9,Baden-Württemberg,02:04:57.76,20:04,43,01:04:18,44,39:08
+2023,25,male,177,Maximilian Pfülb,PowerBärs Rednitzhembach,AK 20,8,Bayern,02:07:19.68,21:55,42,01:04:42,51,39:09
+2023,25,female,111,Susanne Schaffner,Soprema Team TSV 1846 Mannheim,AK 45,3,GER,02:34:13.31,33:13,01:29,01:13:50,57,44:44
+2023,26,female,115,Diana Heise,TSCH Langenau,AK 45,4,Baden-Württemberg,02:34:47.86,28:58,01:15,01:15:40,01:14,47:40
+2023,26,male,168,Christoph Hohenfeld,Soprema Team TSV Mannheim,AK 25,10,Baden-Württemberg,02:07:40.75,19:57,01:17,01:05:29,49,40:08
+2023,27,male,265,Thomas Schlohmann,TSG Maxdorf,AK 40,2,GER,02:07:43.52,23:44,52,01:04:38,01:13,37:16
+2023,27,female,123,Claudia Gralki,LTC Wangen,AK 50,1,Baden-Württemberg,02:35:52.28,25:21,01:28,01:13:16,01:28,54:19
+2023,28,male,328,Matthias Heineke,AMTV Hamburg,AK 50,1,Hamburg,02:08:15.59,20:06,57,01:05:53,01:08,40:11
+2023,28,female,91,Anne Vormwald,LSV Ladenburg,AK 30,4,GER,02:36:58.98,28:23,01:29,01:19:32,01:06,46:28
+2023,29,female,82,Anna Steinmann,MTG Mannheim-Triathlon,AK 30,5,GER,02:37:14.46,26:24,01:36,01:19:21,58,48:55
+2023,29,male,11,Matthias Thome,TSV Amicitia Viernheim,AK 25,11,Hessen,02:08:17.00,25:14,41,01:05:58,49,35:35
+2023,30,male,370,Tobias Oelmaier,KTT 01,AK 55,2,Nordrhein-Westfalen,02:08:34.55,21:32,50,01:04:43,47,40:42
+2023,30,female,80,Franziska Walterspiel,SV Nikar Heidelberg,AK 25,11,GER,02:37:24.18,27:02,01:41,01:16:08,01:24,51:09
+2023,31,female,122,Meike Jaeger,Tri-Team Freiburg,AK 50,2,Baden-Württemberg,02:37:28.37,29:16,53,01:17:18,56,49:05
+2023,31,male,309,Martin Drüke,Soprema Team TSV Mannheim,AK 45,1,Baden-Württemberg,02:10:12.83,26:27,01:07,01:03:12,01:19,38:07
+2023,32,male,346,Michael Böhler,MTV Kronberg Triathlon,AK 50,2,GER,02:10:16.79,20:58,47,01:08:37,59,38:55
+2023,32,female,103,Nina Grimmer,MTG Mannheim-Triathlon,AK 40,4,GER,02:38:22.88,30:29,01:19,01:18:20,52,47:22
+2023,33,female,138,Julia Jost,,AK 25,12,Rheinland-Pfalz,02:39:12.96,23:46,02:11,01:21:43,01:44,49:48
+2023,33,male,391,Stefan Marx,DJK Triathlon Andernach,AK 40,3,GER,02:10:18.41,25:46,59,01:04:59,01:05,37:29
+2023,34,male,212,Julius Schülein,Ludwigshafener SV 07,AK 30,5,GER,02:10:35.86,25:27,57,01:03:14,01:18,39:39
+2023,34,female,83,Nastassja Lang,Life Park Max Ingolstadt e.V.,AK 30,6,Bayern,02:39:24.91,30:05,02:19,01:16:18,01:44,48:58
+2023,35,female,139,Christin Neske,MTG Mannheim-Triathlon,AK 30,7,GER,02:40:02.22,26:59,02:08,01:18:07,01:29,51:19
+2023,35,male,226,Felix Fellhauer,VfL Sindelfingen Tria,AK 35,2,Baden-Württemberg,02:10:50.41,23:20,59,01:04:50,01:17,40:24
+2023,36,female,94,Sophia Iwantscheff,Kurpfalz Wanderers,AK 30,8,GER,02:40:03.68,29:49,01:41,01:12:50,01:00,54:43
+2023,36,male,167,Nils Reckemeier,RRV Hameln,AK 25,12,GER,02:10:51.28,22:13,37,01:06:59,50,40:12
+2023,37,male,170,Denis Bogasiu,Dorsheim Highlanders e.V.,AK 25,13,GER,02:11:07.60,19:19,01:45,01:08:45,58,40:20
+2023,37,female,88,Jana Kamer,Team JaFi,AK 30,9,Baden-Württemberg,02:40:34.72,32:28,02:52,01:15:51,01:58,47:25
+2023,38,male,303,Lars Bogott,RSC AUTO BROSCH Kempten,AK 50,3,Bayern,02:11:33.34,25:35,01:17,01:05:31,01:14,37:56
+2023,38,female,92,Luise Lorenz,Ludwigshafener SV 07,AK 30,10,Rheinland-Pfalz,02:40:42.93,32:27,02:01,01:17:37,01:14,47:23
+2023,39,male,272,Rainer Armbrüster,United Runners of Pfalz,AK 40,4,Rheinland-Pfalz,02:11:59.22,24:55,01:44,01:03:39,02:06,39:35
+2023,39,female,116,Katja Haubach,Ludwigshafener SV 07,AK 45,5,Rheinland-Pfalz,02:42:28.59,27:41,01:46,01:21:46,01:06,50:09
+2023,40,male,223,Carsten Oehler,TSV Krofdorf-Gleiberg,AK 30,6,Hessen,02:12:03.75,27:48,58,01:05:23,01:04,36:50
+2023,40,female,118,Benita Rösl-Degner,TSG Maxdorf,AK 45,6,Rheinland-Pfalz,02:42:37.20,29:05,02:10,01:18:37,01:37,51:08
+2023,41,male,377,Rolf Lautenbacher,Kraichgau-Triathlon e.V.,AK 55,3,Baden-Württemberg,02:12:13.21,23:49,01:35,01:04:13,59,41:37
+2023,41,female,107,Johanna Bieneck,,AK 40,5,Baden-Württemberg,02:42:43.72,28:39,01:40,01:23:23,01:10,47:51
+2023,42,male,20,Sebastian Meiß,VfL Münster REACard Triathlon Team,JUN,2,Hessen,02:12:33.46,19:39,48,01:11:04,44,40:18
+2023,42,female,134,Monica Rinne,Ute Mückel Triathlon e.V.,AK 60,1,Baden-Württemberg,02:43:54.52,28:44,02:06,01:18:10,01:40,53:14
+2023,43,male,175,Malte Kolb,TV Forst Triathlon,AK 25,14,Hessen,02:13:17.83,24:42,53,01:06:29,01:19,39:54
+2023,43,female,131,Steffi Meyers,M.Gladbacher TV 1848 e.V.,AK 55,1,Nordrhein-Westfalen,02:45:35.81,30:05,01:12,01:19:46,01:07,53:25
+2023,44,female,142,Sandra Herzing,EOSC Offenbach,AK 40,6,Hessen,02:45:47.22,30:53,01:44,01:21:45,01:33,49:52
+2023,44,male,251,Dominic Jung,LTF Theeltal,AK 40,5,Saarland,02:13:28.00,,,,,
+2023,45,female,127,Susanne Grabau,Turnerschaft 1863 Germersheim,AK 55,2,Rheinland-Pfalz,02:45:58.27,30:27,01:31,01:17:49,01:39,54:32
+2023,45,male,219,Felix Leube,Ludwigshafener SV 07,AK 30,7,Rheinland-Pfalz,02:13:28.65,25:48,55,01:05:12,01:04,40:29
+2023,46,male,162,Jan Luca Oechler,Eintracht Frankfurt Triathlon,AK 25,15,Hessen,02:13:30.33,25:24,01:10,01:04:11,01:14,41:31
+2023,46,female,95,Daniela Helfrich,,AK 35,3,Baden-Württemberg,02:47:15.44,35:24,02:21,01:20:07,01:41,47:42
+2023,47,female,140,Christin Mehlhorn,RC Hattersheim,AK 30,11,GER,02:47:40.31,27:13,02:34,01:20:59,01:29,55:25
+2023,47,male,282,Uwe Heller,Kraichgau-Triathlon e.V.,AK 45,2,Baden-Württemberg,02:13:36.60,20:40,01:43,01:05:52,01:39,43:42
+2023,48,female,108,Petra Becker,Ludwigshafener SV 07,AK 40,7,Rheinland-Pfalz,02:50:21.30,30:01,01:50,01:28:44,54,48:52
+2023,48,male,290,Patrick Kratz,Team-MPowerment,AK 40,6,Rheinland-Pfalz,02:13:57.12,28:37,01:19,01:00:41,01:29,41:51
+2023,49,female,73,Britta Paus,,AK 20,3,Baden-Württemberg,02:51:32.19,34:28,01:30,01:18:02,01:26,56:06
+2023,49,male,308,Axel Mehrtens,SV Eintracht Hepstedt/Breddorf,AK 45,3,Niedersachsen,02:14:25.56,26:01,01:23,01:04:37,01:06,41:18
+2023,50,male,211,Paul Bussmann,,AK 30,8,GER,02:14:36.78,24:52,01:19,01:05:02,57,42:26
+2023,50,female,114,Ute Jarzombek,TSG Maxdorf,AK 45,7,Rheinland-Pfalz,02:51:50.85,29:04,02:27,01:27:36,01:14,51:29
+2023,51,male,277,Sven Reininger,Ludwigshafener SV 07,AK 40,7,Rheinland-Pfalz,02:15:00.48,24:16,01:12,01:05:18,01:30,42:44
+2023,51,female,132,Birgit Schillinger,TSV 1895 Oftersheim,AK 60,2,GER,02:52:16.46,32:36,02:19,01:23:49,01:37,51:55
+2023,52,male,179,Jan Windischmann,TV Goldbach,AK 20,9,Bayern,02:15:12.71,24:37,01:03,01:04:31,01:13,43:48
+2023,52,female,145,Tanja Wittmann,TSG Maxdorf,AK 50,3,Rheinland-Pfalz,02:53:02.90,33:38,01:58,01:22:43,01:36,53:07
+2023,53,female,100,Chiara Wingler,Team-MPowerment,AK 25,13,Rheinland-Pfalz,02:58:06.90,28:47,01:45,01:21:52,01:09,01:04:33
+2023,53,male,248,Nico Krackl,,AK 35,3,Rheinland-Pfalz,02:15:18.29,25:24,01:54,01:08:12,01:19,38:29
+2023,54,male,260,Jens Walter,KSV Reichelsheim,AK 40,8,Hessen,02:15:28.79,23:32,01:43,01:06:08,51,43:14
+2023,54,female,71,Sarah Scholler,SSCtriLandau,JUN,3,Rheinland-Pfalz,02:59:28.04,29:53,01:30,01:27:23,01:19,59:23
+2023,55,female,97,Matilde Cappelletti,,AK 25,14,GER,03:01:21.01,28:54,02:17,01:34:00,01:50,54:20
+2023,55,male,263,Andrea Aretini,Ski Club Heidelberg Triathlon,AK 40,9,Baden-Württemberg,02:16:20.37,28:03,57,01:07:30,01:02,38:48
+2023,56,female,124,Manuela Hofbauer-Strmecki,SG Reisensburg-Leinheim,AK 50,4,Bayern,03:01:39.72,30:53,01:26,01:22:49,01:25,01:05:06
+2023,56,male,314,Tobias Rop,Tricon Wörth,AK 45,4,Rheinland-Pfalz,02:16:22.61,25:49,01:31,01:05:32,01:43,41:47
+2023,57,male,353,David Polak,TSG Kleinostheim,AK 55,4,Bayern,02:16:50.89,24:20,01:23,01:08:50,01:12,41:05
+2023,57,female,136,Berenike Gensior,Krefelder Kanu Klub,AK 65,1,Nordrhein-Westfalen,03:04:31.45,38:33,01:46,01:26:53,01:58,55:21
+2023,58,male,319,Carsten Glinsmann,SV Eintracht Hepstedt/Breddorf,AK 45,5,Niedersachsen,02:17:17.15,26:40,01:15,01:06:48,57,41:37
+2023,58,female,102,Saskia Aegerter,,AK 40,8,Rheinland-Pfalz,03:06:43.51,31:03,02:13,01:29:29,01:35,01:02:23
+2023,59,male,244,Moritz Stößlein,TSV Altenfurt,AK 30,9,Bayern,02:17:44.15,27:09,02:20,01:06:52,01:31,39:52
+2023,59,female,125,Daniela Fälschle,SG Reisensburg-Leinheim,AK 55,3,Bayern,03:08:18.59,35:03,01:42,01:30:23,01:24,59:46
+2023,60,female,126,Johanna Mayer,SG Reisensburg-Leinheim,AK 55,4,Bayern,03:08:35.75,33:35,03:00,01:32:19,01:48,57:53
+2023,60,male,202,Tobias Knetsch,TSG Weinheim,AK 30,10,Baden-Württemberg,02:18:03.53,29:25,01:02,01:03:36,55,43:05
+2023,61,male,340,Tony Clare,SV Gelnhausen 1924 e.V.,AK 50,4,Hessen,02:18:27.21,30:20,01:04,01:07:08,01:01,38:54
+2023,61,female,121,Berit Geiger,SCNeustadt,AK 50,5,Rheinland-Pfalz,03:11:09.50,32:12,02:33,01:33:54,01:49,01:00:41
+2023,62,female,74,Kirsten Blohm,,AK 20,4,GER,03:12:49.46,31:48,02:30,01:29:40,01:44,01:07:07
+2023,62,male,203,Kay Christian Ackermann,Team Nikar Heidelberg,AK 30,11,Baden-Württemberg,02:18:34.37,24:44,59,01:07:47,01:28,43:36
+2023,63,male,232,Simon Sokolski,Ludwigshafener SV 07,AK 35,4,Rheinland-Pfalz,02:18:36.14,26:20,48,01:06:20,46,44:22
+2023,63,female,93,Jana Fischer,Sisu Training,AK 30,12,Hessen,03:12:56.68,37:09,03:24,01:29:15,01:55,01:01:13
+2023,64,female,130,Annette Hofmann,SG Reisensburg-Leinheim,AK 55,5,Bayern,03:14:03.69,38:59,02:17,01:31:15,01:09,01:00:23
+2023,64,male,152,Oliver Maas,Soprema Team TSV Mannheim,AK 20,10,Baden-Württemberg,02:18:36.42,24:03,01:05,01:11:59,59,40:30
+2023,65,male,240,Jonas Peter,Nonplusultra Esslingen,AK 35,5,Baden-Württemberg,02:18:43.85,27:27,50,01:06:18,57,43:11
+2023,65,female,135,Marianne Kühmel-Saleh,Tria Echterdingen,AK 60,3,Baden-Württemberg,03:18:38.51,28:23,01:35,01:35:19,01:56,01:11:25
+2023,66,male,19,Maik Heinrich,TC-Chaos Viernheim,AK 45,6,Hessen,02:18:56.73,24:46,58,01:08:53,59,43:20
+2023,66,female,96,Christina Müller,DFS Betriebssport,AK 35,4,Hessen,03:19:55.93,36:17,03:56,01:37:29,01:17,01:00:56
+2023,67,male,149,Nathan Maeyaert,,AK 20,11,GER,02:18:57.92,27:55,02:33,01:05:56,01:41,40:52
+2023,67,female,133,Marion Lengsfeld,TV Hatzenbühl - Triathlon,AK 60,4,Rheinland-Pfalz,03:25:39.88,34:53,02:26,01:40:25,02:01,01:05:54
+2023,68,male,209,Lukas Köhler,,AK 30,12,Hessen,02:18:57.94,28:17,01:16,01:07:31,01:10,40:43
+2023,68,female,112,Katrin Fleischer,,AK 45,8,GER,03:36:02.36,40:24,02:04,01:44:16,01:39,01:07:39
+2023,69,female,77,Lea Büker,DLRG Fürth/Odw.,AK 25,15,Hessen,03:40:45.21,37:05,02:51,01:40:57,01:55,01:17:57
+2023,69,male,225,Felix Vogel,Team Nikar Heidelberg,AK 30,13,Baden-Württemberg,02:18:58.98,25:47,01:06,01:08:53,01:10,42:02
+2023,70,male,369,Ralf Räpple,TV Herxheim,AK 55,5,Rheinland-Pfalz,02:19:02.61,25:11,01:09,01:06:48,01:30,44:24
+2023,71,male,320,Markus Broich,Erdinger Active Team,AK 45,7,GER,02:19:10.63,24:36,01:14,01:08:11,01:14,43:55
+2023,72,male,259,Hannes Fenchel,,AK 40,10,Baden-Württemberg,02:19:10.77,25:24,01:36,01:05:28,01:33,45:09
+2023,73,male,218,Felix Tober,Soprema Team TSV Mannheim,AK 30,14,GER,02:19:15.26,25:51,01:04,01:09:17,02:06,40:57
+2023,74,male,153,Tim Bremser,team-naunheim.de,AK 20,12,Hessen,02:19:21.07,21:50,01:30,01:04:43,01:04,50:14
+2023,75,male,31,Michael Dreißigacker,TSV Amicitia Viernheim,AK 50,5,Hessen,02:19:24.91,26:29,01:02,01:06:04,01:08,44:41
+2023,76,male,351,Juergen Metzner,Ski-Club Koenigsbrunn,AK 55,6,Bayern,02:19:34.54,23:36,59,01:10:36,01:21,43:02
+2023,77,male,267,Dirk Theile,TV Bommersheim,AK 40,11,GER,02:19:45.67,23:43,01:40,01:11:33,01:12,41:37
+2023,78,male,322,Mark Hoffmann,MTG Mannheim-Triathlon,AK 45,8,Baden-Württemberg,02:19:55.30,25:26,01:29,01:08:26,01:34,43:00
+2023,79,male,253,Adam Kaffenberger,FC 07 Bensheim,AK 40,12,Hessen,02:19:59.91,26:54,01:00,01:08:42,01:08,42:15
+2023,80,male,390,Christoph Netzer,,AK 40,13,GER,02:20:16.11,25:59,01:06,01:08:31,58,43:42
+2023,81,male,206,Johannes Bingen,Nonplusultra Esslingen,AK 30,15,Bayern,02:20:40.12,25:13,01:30,01:07:05,52,46:00
+2023,82,male,233,Dennis Albers,,AK 35,6,Baden-Württemberg,02:20:44.87,26:31,02:13,01:07:38,01:22,43:00
+2023,83,male,274,Axel Betschinski,,AK 40,14,Nordrhein-Westfalen,02:20:54.92,28:23,01:30,01:08:33,01:23,41:05
+2023,84,male,283,Matthias Jarr,Tri Post Trier,AK 45,9,Rheinland-Pfalz,02:21:21.92,28:18,01:20,01:08:41,01:04,41:58
+2023,85,male,238,Julien Biege,SV Nikar Heidelberg,AK 35,7,Baden-Württemberg,02:21:25.75,23:06,51,01:10:49,01:22,45:17
+2023,86,male,172,Alexander Vongries,TSG Kleinostheim,AK 25,16,Bayern,02:21:29.07,27:34,02:05,01:07:44,54,43:12
+2023,87,male,236,Sebastian Reuter,,AK 35,8,GER,02:21:49.86,27:55,01:32,01:08:41,01:18,42:23
+2023,88,male,367,Udo Mittelstädt,Tri-Team Freiburg,AK 55,7,Baden-Württemberg,02:21:54.45,26:46,01:17,01:08:32,01:00,44:19
+2023,89,male,164,Maximilian Stanischewski,,AK 25,17,Baden-Württemberg,02:22:00.59,27:39,02:23,01:07:36,01:49,42:33
+2023,90,male,347,Martin Gralki,LTC Wangen,AK 50,6,Baden-Württemberg,02:22:48.57,28:54,01:29,01:08:29,01:01,42:55
+2023,91,male,205,Stephan Sinzig,SG Nußloch 1887 e.V.,AK 30,16,GER,02:22:53.62,24:15,01:47,01:11:47,01:06,43:58
+2023,92,male,407,Michael Oefler,Triathlon-Team Hagen,AK 60,1,Nordrhein-Westfalen,02:22:59.54,24:34,01:48,01:08:17,01:19,47:01
+2023,93,male,273,Olli Knapp,,AK 40,15,GER,02:23:00.55,26:58,01:51,01:06:02,01:17,46:52
+2023,94,male,160,Leon Ruddat,,AK 25,18,GER,02:23:03.76,28:10,01:52,01:08:43,01:07,43:11
+2023,95,male,230,Philippe Stegmann,LifePark Max Ingolstadt e.V.,AK 35,9,Bayern,02:23:28.55,28:22,01:43,01:06:40,01:29,45:14
+2023,96,male,216,Sebastian Körner,LSV Ladenburg,AK 30,17,Baden-Württemberg,02:23:30.10,26:35,01:48,01:11:43,01:16,42:08
+2023,97,male,395,Rene Wieczorek,SV Nikar Heidelberg,AK 50,7,GER,02:23:45.35,27:06,01:37,01:11:54,01:44,41:24
+2023,98,male,378,Christian Wolfarth,Twin Neumarkt,AK 55,8,Bayern,02:23:48.77,28:33,01:36,01:07:47,01:09,44:43
+2023,99,male,344,Volker Hain,TSG Kleinostheim,AK 50,8,Bayern,02:24:44.20,25:24,01:34,01:06:47,01:07,49:52
+2023,100,male,268,Christian Klefenz,ASG Tria Hockenheim,AK 40,16,Baden-Württemberg,02:24:47.36,27:04,01:11,01:08:58,01:12,46:22
+2023,101,male,173,Markus Volk,SG Hohensachsen,AK 25,19,Baden-Württemberg,02:25:02.62,22:07,02:05,01:13:39,01:22,45:49
+2023,102,male,222,Erik Schöfer,,AK 30,18,GER,02:25:03.51,27:39,01:50,01:09:16,01:31,44:47
+2023,103,male,221,Simon Hoffmann,SSV Mutterstadt,AK 30,19,Rheinland-Pfalz,02:25:15.89,27:03,01:02,01:08:16,01:44,47:10
+2023,104,male,417,Ralf Laermann Laermann,TV 1848 Mönchengladbach e.V.,AK 65,1,Nordrhein-Westfalen,02:25:43.10,27:58,01:02,01:10:38,56,45:09
+2023,105,male,262,Bodo Butz,Erdinger Active Team,AK 40,17,GER,02:25:49.12,27:03,01:58,01:06:07,01:31,49:10
+2023,106,male,311,Philip Stöver,,AK 45,10,Rheinland-Pfalz,02:26:03.37,27:48,01:31,01:09:38,01:41,45:25
+2023,107,male,338,Christian Bechtel,TSV Frickenhausen,AK 50,9,GER,02:26:05.85,26:01,01:16,01:11:19,01:03,46:26
+2023,108,male,150,Michael Reder,,AK 20,13,Baden-Württemberg,02:26:09.67,28:50,01:56,01:12:18,01:05,42:00
+2023,109,male,271,Markus Schwarzer,,AK 40,18,GER,02:26:27.12,29:23,01:56,01:08:48,56,45:24
+2023,110,male,301,Jan Haar,SV Eintracht Hepstedt/Breddorf,AK 45,11,Hessen,02:27:01.77,28:12,01:10,01:08:16,01:17,48:06
+2023,111,male,198,Maurice Bourgeon,,AK 30,20,GER,02:27:11.28,29:46,02:04,01:06:08,01:17,47:56
+2023,112,male,252,Philipp Müller,TriClub MK,AK 40,19,Baden-Württemberg,02:27:13.35,29:16,01:12,01:11:10,51,44:44
+2023,113,male,227,Jens Fiederlein,MTG Mannheim-Triathlon,AK 35,10,GER,02:27:14.39,26:48,01:14,01:11:58,01:14,46:00
+2023,114,male,392,Frank Erle,LSV Ladenburg,AK 50,10,GER,02:27:21.92,30:49,01:10,01:07:06,01:27,46:49
+2023,115,male,288,Christoph Burgermeister,Power&Pace,AK 40,20,Baden-Württemberg,02:27:31.86,29:53,01:06,01:08:25,01:25,46:42
+2023,116,male,15,Ruben Werle,TSVE 1890 Bielefeld e.V.,AK 20,14,Nordrhein-Westfalen,02:27:39.57,25:12,46,01:13:33,50,47:18
+2023,117,male,158,Julius Trasselli,,AK 25,20,Baden-Württemberg,02:27:39.98,25:13,01:54,01:11:01,57,48:34
+2023,118,male,156,Marvin Schulte,TSG 1861 Kaiserslautern,AK 25,21,Rheinland-Pfalz,02:27:51.94,28:02,01:40,01:12:18,59,44:52
+2023,119,male,242,Nico Distler,SFC Wahnsinnspadler e.V.,AK 30,21,Baden-Württemberg,02:27:56.05,26:46,02:11,01:12:02,01:05,45:52
+2023,120,male,406,Klaus Rumrich,SPV 1912 Seligenstadt,AK 60,2,Hessen,02:28:15.86,25:18,01:09,01:08:30,01:04,52:14
+2023,121,male,46,Matthias Gutperle,,AK 50,11,Hessen,02:28:31.18,30:31,02:07,01:07:38,01:21,46:54
+2023,122,male,266,Stefan Jockisch,,AK 40,21,Baden-Württemberg,02:28:51.15,26:22,02:17,01:09:08,01:17,49:47
+2023,123,male,28,Robin Schäfer,Body Attack Viernheim,AK 20,15,Hessen,02:29:08.36,28:27,01:09,01:13:58,02:46,42:48
+2023,124,male,333,Kai Heppert,,AK 50,12,Hessen,02:29:09.96,29:35,01:48,01:10:26,01:13,46:07
+2023,125,male,380,Jan Von Recum,Ludwigshafener SV 07,AK 55,9,Rheinland-Pfalz,02:29:14.26,25:50,01:21,01:13:23,01:53,46:47
+2023,126,male,35,Sebastian Weißwange,TSV Amicitia Viernheim,AK 45,12,Baden-Württemberg,02:30:04.75,31:03,01:55,01:10:57,01:12,44:57
+2023,127,male,312,Holger Colditz,RV03 Bürstadt,AK 45,13,Hessen,02:30:08.70,27:04,01:04,01:15:08,59,45:53
+2023,128,male,432,Uwe Wenzel,SV Nikar Heidelberg,AK 60,3,GER,02:30:39.94,28:39,02:01,01:11:25,01:48,46:46
+2023,129,male,389,Matthias Zierle,BSFG Porsche Triathlon,AK 55,10,Baden-Württemberg,02:30:51.61,29:09,02:00,01:09:58,01:32,48:12
+2023,130,male,166,Florian Freier,SSCtriLandau,AK 25,22,Rheinland-Pfalz,02:31:02.04,26:31,02:07,01:13:20,01:12,47:52
+2023,131,male,161,Ron Buchholz,,AK 25,23,Baden-Württemberg,02:31:05.83,32:12,02:16,01:09:05,01:12,46:20
+2023,132,male,279,Laurenz Mönnig,Eintracht Frankfurt Triathlon,AK 40,22,Hessen,02:31:31.66,29:11,03:23,01:12:48,02:17,43:52
+2023,133,male,386,Thorsten Hellwig,TV 1860 Mußbach,AK 55,11,Rheinland-Pfalz,02:31:34.71,24:59,01:03,01:11:52,01:02,52:38
+2023,134,male,381,Alexander Laclare,VfL Sindelfingen Triathlon,AK 55,12,Baden-Württemberg,02:31:38.89,24:27,01:54,01:15:30,01:21,48:26
+2023,135,male,284,Holger Klugmann,Triathlon Team DSW Darmstadt,AK 50,13,Hessen,02:31:40.03,29:42,01:14,01:05:40,01:18,53:46
+2023,136,male,171,Luis Frey,,AK 25,24,GER,02:32:16.29,31:27,02:16,01:14:50,01:21,42:22
+2023,137,male,415,Klaus Eckhardt,team-naunheim.de,AK 65,2,Hessen,02:32:30.47,29:26,02:09,01:09:28,01:25,50:02
+2023,138,male,423,Martin Burkhardt,TV 1860 Mußbach,AK 70,1,Rheinland-Pfalz,02:32:34.27,27:08,01:24,01:14:19,01:14,48:29
+2023,139,male,315,Marc Naumann,Erdinger Active Team,AK 45,14,Hessen,02:32:36.23,29:44,59,01:12:36,01:24,47:53
+2023,140,male,163,Marvin Rheinheimer,Team-MPowerment,AK 25,25,Rheinland-Pfalz,02:32:48.57,29:26,02:11,01:12:11,01:20,47:40
+2023,141,male,207,Finn-Hendrik Kamer,Team JaFi,AK 30,22,Baden-Württemberg,02:32:48.81,32:36,02:01,01:11:50,01:18,45:03
+2023,142,male,401,Michael Roth,,AK 60,4,Rheinland-Pfalz,02:33:42.47,,,01:14:34,01:38,46:28
+2023,143,male,360,Helmut Sprengel,SV Hellas Brühl,AK 55,13,GER,02:34:12.62,23:21,02:06,01:15:47,01:28,51:30
+2023,144,male,420,Gerd Scheibe,SPV 1912 Seligenstadt,AK 65,3,Hessen,02:34:32.53,26:30,01:17,01:13:54,01:23,51:28
+2023,145,male,258,Hendrik Wolff,TSV 1895 Oftersheim,AK 40,23,GER,02:34:41.41,32:20,02:22,01:12:36,01:47,45:36
+2023,146,male,416,Klaus-Peter Bucher,Kraichgau-Triathlon e.V.,AK 65,4,GER,02:34:41.81,30:16,01:33,01:13:25,01:32,47:55
+2023,147,male,412,Stefan Ohm,SSCtriLandau,AK 60,5,Rheinland-Pfalz,02:34:48.28,31:37,01:35,01:13:17,01:50,46:29
+2023,148,male,317,Sascha Völpel,Ludwigshafener SV 07,AK 45,15,Rheinland-Pfalz,02:35:07.66,28:16,01:09,01:14:54,01:57,48:51
+2023,149,male,44,Sven Walther,,AK 25,26,Hessen,02:35:15.41,29:11,03:26,01:13:07,01:30,48:01
+2023,150,male,383,Stefan Liu,SV Großhansdorf,AK 55,14,Schleswig-Holstein,02:35:20.66,28:46,01:03,01:16:13,01:33,47:45
+2023,151,male,257,Till Montag,DUC Darmstadt,AK 40,24,Hessen,02:35:22.87,28:44,01:26,01:12:39,01:32,51:01
+2023,152,male,321,Thorsten Bernauer,,AK 45,16,Hessen,02:36:08.12,31:56,02:57,01:14:50,01:31,44:54
+2023,153,male,336,Jens Emmrich,Garbsener SC,AK 50,14,Niedersachsen,02:36:17.51,31:08,01:39,01:12:09,01:31,49:50
+2023,154,male,363,Bertold Biffar,TV 1860 Mußbach,AK 55,15,Rheinland-Pfalz,02:36:25.01,31:02,01:22,01:16:00,01:41,46:20
+2023,155,male,289,Marcel Bier,SV Hellas Brühl,AK 40,25,GER,02:37:47.54,27:15,01:58,01:15:20,01:16,51:58
+2023,156,male,246,Tobias Bracht,,AK 35,11,GER,02:37:54.96,32:34,03:04,01:11:01,01:40,49:35
+2023,157,male,364,Joachim Reising,TSG Kleinostheim,AK 55,16,Bayern,02:37:58.15,33:23,01:53,01:15:20,01:02,46:20
+2023,158,male,326,Frank Leopold,TSG Kleinostheim,AK 50,15,GER,02:38:13.05,33:30,03:01,01:08:42,02:38,50:22
+2023,159,male,357,Andreas Brenner,DZ BANK runners,AK 55,17,Baden-Württemberg,02:38:32.26,32:28,02:29,01:16:06,01:40,45:49
+2023,160,male,39,Pedro Leischwitz,ASG Tria Hockenheim,AK 65,5,Baden-Württemberg,02:38:34.89,31:26,01:28,01:11:12,01:11,53:17
+2023,161,male,217,Stefan Bürle,Bürle Metallbau GmbH,AK 30,23,Baden-Württemberg,02:38:38.44,32:02,02:48,01:16:02,01:34,46:12
+2023,162,male,425,Hans Ludwig Sattler,TCEC Mainz,AK 70,2,Rheinland-Pfalz,02:38:41.99,24:32,01:56,01:18:17,01:43,52:13
+2023,163,male,199,Thomas Horst,,AK 30,24,Rheinland-Pfalz,02:38:57.62,32:11,02:12,01:15:30,01:45,47:19
+2023,164,male,243,Raoul Andrieux,,AK 30,25,Baden-Württemberg,02:39:32.77,28:44,02:41,01:15:30,01:54,50:43
+2023,165,male,310,Frank Brettel,NPAC Running Crew Cologne,AK 45,17,Baden-Württemberg,02:39:50.31,30:35,02:35,01:17:26,01:27,47:47
+2023,166,male,30,Benjamin Bläß,TC-Chaos Viernheim,AK 40,26,Hessen,02:40:14.76,28:02,01:46,01:14:47,01:56,53:43
+2023,167,male,337,Peter Jockisch,,AK 50,16,Baden-Württemberg,02:40:46.83,31:00,02:30,01:15:26,01:19,50:31
+2023,168,male,335,Uwe Hofmann,TSG Kleinostheim,AK 50,17,Bayern,02:41:23.76,30:35,02:10,01:14:34,01:33,52:31
+2023,169,male,261,Andreas Lippach,,AK 40,27,GER,02:41:29.02,30:53,02:18,01:13:11,01:46,53:21
+2023,170,male,419,Gerhard Kronavetter,Kraichgau-Triathlon e.V.,AK 65,6,Baden-Württemberg,02:42:27.65,33:39,01:31,01:15:37,01:33,50:07
+2023,171,male,45,Andreas Lauer,,AK 45,18,Hessen,02:42:30.64,34:49,01:54,01:11:25,02:02,52:20
+2023,172,male,373,Achim Herbstreuth,,AK 55,18,Baden-Württemberg,02:42:32.59,30:00,02:17,01:14:21,01:33,54:21
+2023,173,male,379,Guido Vongries,TSG Kleinostheim,AK 55,19,Bayern,02:43:00.45,34:33,02:19,01:20:01,01:05,45:02
+2023,174,male,327,Uwe Hartmann,DJK Triathlon Andernach,AK 50,18,Rheinland-Pfalz,02:43:31.35,28:32,02:58,01:18:55,01:54,51:12
+2023,175,male,255,Julien Klein,Die Bsssoys,AK 40,28,Hessen,02:43:51.13,31:34,02:32,01:13:35,01:53,54:17
+2023,176,male,214,Gabriel Geier,MTG Mannheim-Triathlon,AK 30,26,GER,02:44:19.72,29:24,01:56,01:20:34,01:38,50:47
+2023,177,male,342,Andreas Höfert,SV Hellas Brühl,AK 50,19,Baden-Württemberg,02:44:24.13,37:58,02:22,01:15:50,01:38,46:36
+2023,178,male,26,Karlheinz Stumpf,TC-Chaos Viernheim,AK 70,3,Hessen,02:44:54.82,32:39,01:45,01:17:03,01:31,51:56
+2023,179,male,404,Lutz Straub,VfL Sindelfingen Triathlon,AK 60,6,Baden-Württemberg,02:45:00.40,,,01:18:00,01:25,53:32
+2023,180,male,435,Roland Käshammer,Tria Team TB Freistett,AK 70,4,Baden-Württemberg,02:45:21.50,35:57,01:24,01:17:30,01:15,49:15
+2023,181,male,394,Leon Umstätter,MFC 08 Lindenhof,AK 20,16,GER,02:46:08.77,29:53,02:52,01:23:16,59,49:08
+2023,182,male,329,Jörn Schlichting,,AK 50,20,Baden-Württemberg,02:46:43.16,35:54,01:58,01:21:01,01:17,46:33
+2023,183,male,402,Martin Dägele,DLRG Schifferstadt,AK 60,7,Rheinland-Pfalz,02:49:11.53,30:46,02:30,01:14:53,02:53,58:09
+2023,184,male,256,Andreas Eichler,Die Bsssoys,AK 40,29,Hessen,02:49:14.60,36:35,02:10,01:17:32,01:48,51:09
+2023,185,male,25,Otto Alter,TSV Amicitia Viernheim,AK 65,7,Hessen,02:49:39.75,,,01:18:55,58,59:37
+2023,186,male,393,Florian Fuchs,MFC 08 Lindenhof,AK 50,21,GER,02:49:47.53,33:06,04:06,01:20:21,01:46,50:28
+2023,187,male,287,Max Dalichow,,AK 45,19,Baden-Württemberg,02:49:50.98,34:49,01:55,01:17:32,01:41,53:53
+2023,188,male,38,Werner Ahl,MTG Mannheim-Triathlon,AK 60,8,Baden-Württemberg,02:50:02.64,34:16,01:46,01:20:12,01:10,52:38
+2023,189,male,307,Stefan Gustafsson,,AK 45,20,Baden-Württemberg,02:50:33.17,28:53,02:27,01:16:03,03:19,59:51
+2023,190,male,418,Gerd Rönz,Soprema Team TSV 1846 Mannheim,AK 65,8,Hessen,02:50:47.52,36:23,02:37,01:16:23,01:45,53:39
+2023,191,male,403,Markus Körner,LSV Ladenburg,AK 60,9,Baden-Württemberg,02:50:53.86,35:34,02:25,01:17:42,01:35,53:37
+2023,192,male,376,Robert Spiegel,,AK 55,20,Rheinland-Pfalz,02:51:17.04,31:35,01:22,01:23:00,01:46,53:34
+2023,193,male,43,Tim Schaefer,,AK 25,27,GER,02:51:23.45,35:03,02:08,01:21:56,01:30,50:46
+2023,194,male,372,Andreas Dolch,,AK 55,21,Rheinland-Pfalz,02:51:40.04,33:31,01:54,01:21:44,01:48,52:43
+2023,195,male,294,Tobias Horstmann,,AK 45,21,Rheinland-Pfalz,02:51:54.50,32:25,02:07,01:19:39,02:01,55:42
+2023,196,male,424,Winfried Molz,Tri-Team Freiburg,AK 70,5,Baden-Württemberg,02:51:58.98,32:27,02:11,01:20:14,01:50,55:16
+2023,197,male,33,Marko Schäfer,TSV Amicitia Viernheim,AK 55,22,Hessen,02:52:46.14,35:05,01:43,01:17:50,02:14,55:54
+2023,198,male,280,Jens Lorenz,,AK 45,22,Baden-Württemberg,02:53:03.08,29:45,03:05,01:20:44,01:46,57:43
+2023,199,male,341,Ulrich Bähr,,AK 50,22,Baden-Württemberg,02:53:21.90,31:10,03:09,01:18:47,02:11,58:04
+2023,200,male,247,Michael Krumm,SRH Campus Sports e.V.,AK 35,12,Baden-Württemberg,02:53:56.67,30:06,02:25,01:16:14,01:52,01:03:19
+2023,201,male,374,Thomas Geiger,SCNeustadt,AK 55,23,Rheinland-Pfalz,02:54:15.71,31:05,01:47,01:20:49,02:03,58:31
+2023,202,male,215,Kai Boschert,,AK 30,27,Baden-Württemberg,02:54:57.19,30:38,03:19,01:19:01,02:04,59:55
+2023,203,male,181,Matthias Möck,SV Mötzingen,AK 25,28,Baden-Württemberg,02:55:50.97,31:15,02:32,01:25:54,01:34,54:35
+2023,204,male,204,Tim Müller,Ludwigshafener SV 07,AK 30,28,Rheinland-Pfalz,02:56:36.28,29:03,01:01,01:20:57,01:21,01:04:14
+2023,205,male,208,Marc Warnecke,,AK 30,29,GER,02:57:13.53,40:45,01:01,01:22:31,01:15,51:41
+2023,206,male,237,Tobias Nath,,AK 35,13,GER,02:58:11.55,35:10,01:59,01:24:07,02:19,54:36
+2023,207,male,42,Nicolai Simon,,AK 20,17,GER,02:58:35.91,32:42,02:13,01:21:51,01:53,59:56
+2023,208,male,40,Michael Fey,SV TRICITY Darmstadt e. V.,AK 60,10,Hessen,02:59:18.80,37:25,01:47,01:22:03,01:07,56:56
+2023,209,male,27,Joachim Heibel,,AK 55,24,Hessen,03:00:39.03,45:49,04:21,01:18:17,01:18,50:54
+2023,210,male,269,Marco Hammer,,AK 40,30,Baden-Württemberg,03:01:09.07,39:15,02:23,01:24:13,02:27,52:51
+2023,211,male,413,Manfred Goschler,noblemotions,AK 60,11,Rheinland-Pfalz,03:04:33.00,38:00,02:00,01:23:21,01:40,59:32
+2023,212,male,345,Irfan Sarwar,TSG Weinheim,AK 50,23,Baden-Württemberg,03:04:42.31,31:08,02:10,01:28:34,01:36,01:01:14
+2023,213,male,388,Olaf Barthel,TV 1860 Mußbach,AK 55,25,Rheinland-Pfalz,03:04:44.98,29:06,02:34,01:30:23,01:41,01:01:00
+2023,214,male,426,Hermann Dorner,TuS Griesheim Triathlon,AK 75,1,GER,03:05:15.07,39:47,01:43,01:24:36,01:38,57:31
+2023,215,male,421,Ferdinand Karnath,TuS Neukölln Berlin,AK 70,6,Berlin,03:05:45.01,34:19,03:45,01:28:48,02:00,56:53
+2023,216,male,359,Thomas Klotz,Team erdinger Alkoholfrei,AK 55,26,Hessen,03:06:36.46,42:17,03:47,01:29:41,02:26,48:25
+2023,217,male,422,Volker Mayer,,AK 70,7,Baden-Württemberg,03:08:29.35,31:07,02:53,01:33:01,02:46,58:42
+2023,218,male,155,Daniel Bokler,Erdinger Active Team,AK 20,18,Nordrhein-Westfalen,03:28:53.05,43:04,02:05,01:25:42,01:12,01:16:50
+2023,219,male,361,Marcus Zeppenfeld,,AK 55,27,Bern,03:34:26.34,34:56,04:41,01:27:20,02:38,01:24:51
+2023,220,male,430,Gerhard Müller,TDM-Franken,AK 75,2,Bayern,03:38:24.45,52:06,04:10,01:28:51,03:10,01:10:07
+2023,221,male,429,Jürgen Knapp,Djk-feudenheim,AK 75,3,Baden-Württemberg,03:46:46.00,46:54,02:14,01:34:25,01:44,01:21:29
+2023,222,male,343,Livius Hinz,,AK 50,24,Hessen,03:53:20.09,38:21,03:23,01:41:40,01:12,01:28:44
+2023,DNF,male,23,Frank Horlacher,Team Nikar Heidelberg,AK 55,DNF,Baden-Württemberg,,22:35,52,,,
+2023,DNF,male,405,Jörg Ter Veer,Tri-Team Heuchelberg,AK 60,DNF,Baden-Württemberg,,31:26,01:28,01:14:06,01:16,
+2023,DNF,male,368,Christian Martin,RC Vorwärts Speyer,AK 55,DNF,Rheinland-Pfalz,,29:14,01:08,,,
+2023,DNF,male,151,Mauritz Ehry,VfL Münster REACard Triathlon Team,JUN,DNF,Hessen,,22:35,39,01:08:19,47,
+2023,DNF,female,67,Silke Heidemann,TSV Amicitia Viernheim,AK 55,DNF,Hessen,,22:46,01:03,,,
+2023,DSQ,female,146,Cornelia Heinrich,Turnerschaft 1863 Germersheim,AK 55,DSQ,Rheinland-Pfalz,03:29:35.77,37:38,05:51,01:37:15,01:26,01:07:25
+2023,DSQ,male,411,Johan Willems,,AK 60,DSQ,GER,02:34:47.28,32:16,01:58,01:26:23,02:08,32:02
+2024,1,female,1,Ursula Trützschler,Team Nikar Heidelberg,AK 25-29,1,GER,02:05:21.54,19:52,40,01:08:15,45,35:49
+2024,1,male,14,Elias Schipperges,TG 48 Schweinfurt,AK 30-34,1,GER,01:53:55.47,19:53,57,56:30,46,35:49
+2024,2,female,3,Kathrin Halter,SV Nikar Heidelberg,AK 25-29,2,Baden-Württemberg,02:06:13.80,20:29,49,01:05:02,47,39:06
+2024,2,male,12,Uwe Drescher,Triathlon Team DSW Darmstadt,AK 30-34,2,GER,01:55:06.91,20:39,41,58:32,43,34:31
+2024,3,female,4,Saskia Haug,Karlsruher Lemminge,AK 25-29,3,GER,02:07:37.15,21:42,46,01:08:14,47,36:08
+2024,3,male,33,Matthias Betz,TG 48 Schweinfurt,AK 20-24,1,Bayern,01:55:17.67,18:47,37,01:00:28,44,34:41
+2024,4,female,5,Kim Heidemann,TCEC Mainz,AK 20-24,1,Hessen,02:07:45.62,21:11,42,01:07:44,42,37:26
+2024,4,male,20,Adrian Hausding,Triathlon Team DSW Darmstadt,AK 18-19,1,Hessen,01:56:25.55,18:45,44,01:00:59,46,35:11
+2024,5,male,16,Tom Holzmann,LLG Wonnegau,AK 25-29,1,GER,01:56:26.83,20:37,01:05,01:01:29,58,32:17
+2024,5,female,70,Laura Chacon Biebach,DSW Darmstadt,AK 35-39,1,GER,02:14:00.51,25:52,01:15,01:07:42,01:24,37:47
+2024,6,male,15,David Koser,Team Nikar Heidelberg,AK 18-19,2,Baden-Württemberg,01:59:31.50,19:38,44,01:02:41,41,35:47
+2024,6,female,7,Caroline Fey,TSV Amicitia Viernheim,AK 35-39,2,GER,02:16:15.08,20:34,51,01:07:53,59,45:58
+2024,7,male,11,Steffen Kundel,TSV Amicitia Viernheim,AK 35-39,1,GER,02:00:05.52,20:56,40,01:02:00,44,35:45
+2024,7,female,6,Delia Blaess,TSV Amicitia Viernheim,AK 25-29,4,GER,02:25:44.95,21:53,44,01:17:24,01:12,44:31
+2024,8,female,63,Franziska Sprengart,REA Card Triathlon Team TuS Griesheim,AK 30-34,1,GER,02:27:48.01,23:55,01:25,01:15:22,01:03,46:03
+2024,8,male,31,Kevin Antoni,ETSV Lauda,AK 30-34,3,Baden-Württemberg,02:01:30.14,20:12,52,01:02:51,01:12,36:23
+2024,9,female,65,Line Brenzel,MTG Mannheim Triathlon,AK 30-34,2,Baden-Württemberg,02:30:08.65,26:51,01:43,01:15:50,01:35,44:09
+2024,9,male,22,Robert Schönberger,1. Licher-Triathlonverein,AK 20-24,2,GER,02:05:51.41,22:36,48,01:02:57,44,38:46
+2024,10,female,57,Franziska Veit,TSV Dettingen Erms / Abt. Radsport,AK 25-29,5,Baden-Württemberg,02:30:24.60,26:57,01:28,01:15:04,01:31,45:24
+2024,10,male,137,Mathias Gumprich,SSCtri Landau,AK 30-34,4,Rheinland-Pfalz,02:08:22.39,21:05,50,01:09:47,01:00,35:40
+2024,11,male,38,Marius Manger,TSV Amicitia Viernheim,AK 20-24,3,GER,02:08:49.04,21:50,43,01:06:13,50,39:13
+2024,11,female,8,Elli Campbell,TSV Amicitia Viernheim,AK 20-24,2,Baden-Württemberg,02:32:20.08,26:23,51,01:19:48,01:03,44:15
+2024,12,female,53,Maria Gasser,TCEC Mainz,AK 20-24,3,Rheinland-Pfalz,02:33:06.68,31:21,01:51,01:16:33,01:14,42:07
+2024,12,male,21,Eliano Hoppe,Tri-Team Heuchelberg,AK 18-19,3,Baden-Württemberg,02:09:10.04,22:39,01:03,01:04:40,01:03,39:45
+2024,13,female,54,Aurelia Kuhn,Tri-Team SSV Ettlingen,AK 20-24,4,Baden-Württemberg,02:33:55.57,22:23,01:00,01:19:31,01:17,49:44
+2024,13,male,178,Thomas Schlohmann,TSG Maxdorf,AK 40-44,1,Rheinland-Pfalz,02:09:11.06,24:39,47,01:04:56,01:25,37:24
+2024,14,male,136,Tobias Renz,,AK 30-34,5,GER,02:09:55.34,26:09,49,01:04:54,01:00,37:03
+2024,14,female,52,Britta Paus,SV Nikar Heidelberg,AK 20-24,5,Baden-Württemberg,02:34:28.34,31:26,01:12,01:14:12,01:39,45:59
+2024,15,male,17,Simon Sokolski,Ludwigshafener SV 07,AK 35-39,2,Rheinland-Pfalz,02:10:34.83,24:12,41,01:06:01,46,38:54
+2024,15,female,81,Anne Begemann-Crezelius,Tri Post Trier,AK 45-49,1,Rheinland-Pfalz,02:34:55.89,30:03,01:14,01:19:02,01:19,43:17
+2024,16,male,204,Sven Reininger,Ludwigshafener SV 07,AK 45-49,1,Rheinland-Pfalz,02:14:04.61,23:44,01:19,01:07:07,01:15,40:39
+2024,16,female,59,Lisa Diemer,TSG 1861 Kaiserslautern,AK 25-29,6,Rheinland-Pfalz,02:35:36.73,27:02,01:59,01:20:05,01:26,45:04
+2024,17,male,117,Patrick Jung,SV Nikar Heidelberg,AK 25-29,2,Baden-Württemberg,02:14:24.97,24:55,01:42,01:09:31,01:25,36:51
+2024,17,female,75,Johanna Bieneck,Team Brunnenpfad,AK 40-44,1,Baden-Württemberg,02:41:33.05,29:00,01:36,01:23:23,01:11,46:23
+2024,18,female,9,Lana Helt,TSV Amicitia Viernheim,AK 25-29,7,GER,02:49:25.13,26:22,01:05,01:23:56,54,57:08
+2024,18,male,13,Henrik Schmitt,TSV Amicitia Viernheim,AK 20-24,4,GER,02:14:41.38,21:09,44,01:08:10,01:07,43:31
+2024,19,female,61,Paula Hoffmeister-Wittmann,,AK 25-29,8,Baden-Württemberg,02:50:06.53,33:00,01:55,01:17:21,01:43,56:07
+2024,19,male,170,Bastian Zuber,LSV Ladenburg,AK 40-44,2,Baden-Württemberg,02:14:43.95,26:17,01:00,01:04:13,01:27,41:46
+2024,20,female,80,Alexandra Reeg,SC Güttersbach,AK 45-49,2,Hessen,02:51:02.80,31:32,01:57,01:27:01,01:35,48:57
+2024,20,male,182,Lukas Köhler,algemarin Team SV Traisa,AK 30-34,6,GER,02:15:56.72,28:02,57,01:05:52,01:05,40:00
+2024,21,female,55,Alicia Brözel,,AK 25-29,9,Baden-Württemberg,02:52:46.19,32:50,02:10,01:23:05,02:01,52:40
+2024,21,male,113,Leon Ruddat,MTG Mannheim,AK 25-29,3,GER,02:16:29.01,26:39,54,01:08:37,01:05,39:14
+2024,22,male,122,Christian Netuschil,,AK 30-34,7,GER,02:16:59.15,23:58,59,01:10:04,01:08,40:50
+2024,22,female,77,Julia Apel,,AK 40-44,2,Hessen,02:53:19.64,27:17,02:36,01:27:14,01:48,54:24
+2024,23,female,51,Antonia Heiming,,AK 20-24,6,Hessen,03:00:44.30,31:13,04:40,01:33:19,53,50:39
+2024,23,male,173,Dirk Theile,TV Bommersheim,AK 40-44,3,Baden-Württemberg,02:17:16.01,23:25,01:14,01:11:03,01:11,40:23
+2024,24,female,58,Isabel Schütte,,AK 25-29,10,Baden-Württemberg,03:00:53.53,31:06,02:02,01:30:08,01:19,56:18
+2024,24,male,104,Oliver Maas,Soprema Team TSV Mannheim,AK 20-24,5,Baden-Württemberg,02:18:12.98,25:46,01:04,01:10:25,01:18,39:39
+2024,25,female,71,Sabine Morawetz,LSV Ladenburg,AK 35-39,3,Baden-Württemberg,03:01:18.78,31:15,01:50,01:32:52,01:08,54:13
+2024,25,male,211,Finbarr Collins,SV Nikar Heidelberg,AK 50-54,1,Baden-Württemberg,02:18:38.60,25:51,01:21,01:10:46,01:29,39:11
+2024,26,male,133,Simo Gvero,,AK 30-34,8,Hessen,02:18:40.04,24:01,01:07,01:11:22,01:01,41:09
+2024,26,female,85,Ulrike Bickert,SG Arheilgen-Triathlon,AK 50-54,1,Hessen,03:02:46.57,33:44,03:18,01:32:13,02:00,51:31
+2024,27,male,27,Maik Heinrich,TC Chaos Viernheim,AK 50-54,2,Hessen,02:18:46.92,26:18,48,01:09:55,01:00,40:45
+2024,27,female,78,Magdalena Haynes,TSG Weinheim,AK 40-44,3,GER,03:10:36.55,33:39,01:58,01:31:44,02:08,01:01:07
+2024,28,female,67,Alyzée Brehm-Monbrun,Soprema Team TSV Mannheim,AK 30-34,3,Baden-Württemberg,03:13:46.98,35:22,02:51,01:34:15,01:53,59:25
+2024,28,male,158,Jonas Kerner,Hildener AT,AK 35-39,3,Nordrhein-Westfalen,02:19:05.91,25:51,01:25,01:05:16,01:30,45:03
+2024,29,female,74,Dounia Karroum,,AK 40-44,4,Hessen,03:15:32.96,41:43,02:52,01:31:50,02:13,56:54
+2024,29,male,26,Louis Bugert,TSV Amicitia Viernheim,AK 18-19,4,Hessen,02:19:08.99,24:16,57,01:12:12,52,40:51
+2024,30,male,181,Christoph Netzer,,AK 40-44,4,GER,02:19:19.22,26:43,01:15,01:08:56,01:32,40:53
+2024,30,female,76,Kati Ehli,MTG Mannheim,AK 40-44,5,Baden-Württemberg,03:16:40.34,38:57,02:31,01:34:16,01:31,59:25
+2024,31,male,25,Robin Thome,TSV Amicitia Viernheim,AK 18-19,5,Hessen,02:19:32.58,26:35,52,01:07:09,42,44:14
+2024,31,female,88,Annette Kraus,,AK 55-59,1,Baden-Württemberg,03:23:23.19,38:51,04:07,01:32:33,03:51,01:04:01
+2024,32,female,69,Corinna Klaes,,AK 35-39,4,Baden-Württemberg,03:23:31.13,39:28,02:38,01:44:27,02:37,54:21
+2024,32,male,153,Dennis Albers,ERDINGER Active Team,AK 35-39,4,GER,02:20:01.58,26:33,01:57,01:09:34,01:22,40:35
+2024,33,male,42,Peter Schulteis,REA Card TuS Griesheim Triathlon,AK 55-59,1,Hessen,02:20:03.07,23:44,01:44,01:09:11,01:23,44:01
+2024,34,male,115,Michael Rhein,,AK 25-29,4,Hessen,02:20:49.14,25:33,02:09,01:08:57,01:25,42:45
+2024,35,male,19,Olli Knapp,,AK 45-49,2,GER,02:21:03.52,26:18,01:29,01:06:45,01:29,45:02
+2024,36,male,177,Sebastian Steger,Triathlon Team DSW Darmstadt,,,Hessen,02:21:20.62,25:58,01:13,01:10:22,01:03,42:44
+2024,37,male,206,Timo Rudolph,,AK 45-49,3,Hessen,02:22:13.05,26:25,01:11,01:10:14,01:01,43:22
+2024,38,male,167,Simeon Iwantscheff,Kurpfalz Wanderers,AK 35-39,5,GER,02:22:22.09,26:22,01:46,,,42:52
+2024,39,male,128,Kevin Roswora,,AK 30-34,9,Hessen,02:22:44.23,27:41,01:09,01:10:56,01:10,41:48
+2024,40,male,138,Raphael Goll,,AK 30-34,10,GER,02:22:45.87,29:53,59,01:08:15,57,42:41
+2024,41,male,118,Patrick Reitter,Bestzeit Podcast,AK 25-29,5,Baden-Württemberg,02:22:47.32,31:33,03:34,01:09:12,01:40,36:48
+2024,42,male,43,Marco Bellanti,TSV Amicitia Viernheim,AK 45-49,4,Hessen,02:23:03.80,27:01,01:33,01:08:03,01:07,45:19
+2024,43,male,207,Jörg-Peter Beermann,REA Card Triathlon Team TuS Griesheim,AK 45-49,5,Hessen,02:23:39.29,27:21,01:31,01:11:27,01:06,42:14
+2024,44,male,129,Lukas Meffert,Flinke Füße,AK 30-34,11,GER,02:23:41.98,31:12,01:47,01:09:19,01:22,40:01
+2024,45,male,166,Philipp Seltzer,Kurpfalz Wanderers,AK 35-39,6,Hessen,02:24:02.01,26:38,02:08,01:08:00,01:39,45:37
+2024,46,male,180,Michael König,Ludwigshafener SV 07,AK 40-44,5,Rheinland-Pfalz,02:24:13.03,26:36,01:23,01:10:46,02:20,43:08
+2024,47,male,139,Sebastian Körner,LSV Ladenburg,AK 30-34,12,Baden-Württemberg,02:24:17.70,26:22,01:21,01:13:52,51,41:51
+2024,48,male,116,Moritz Ness,Cinnamons Run,AK 25-29,6,Baden-Württemberg,02:24:58.12,29:20,02:29,01:14:27,01:39,37:03
+2024,49,male,201,Holger Colditz,RV03 Bürstadt,AK 45-49,6,Hessen,02:25:10.69,27:29,01:12,01:10:47,58,44:44
+2024,50,male,179,Tobias Knoll,,AK 40-44,6,GER,02:25:21.10,29:36,01:36,01:11:26,01:16,41:27
+2024,51,male,215,Roland Rohde,TSG 78 Heidelberg,AK 50-54,3,Baden-Württemberg,02:25:52.94,25:43,01:29,01:16:34,01:21,40:45
+2024,52,male,108,Sebastian Eckel,,AK 25-29,7,Baden-Württemberg,02:26:20.60,29:10,01:37,01:08:19,01:19,45:55
+2024,53,male,172,Dennis Schmidt,Team Erdinger Alkoholfrei,AK 40-44,7,Baden-Württemberg,02:26:29.73,26:18,01:25,01:10:45,02:09,45:52
+2024,54,male,29,Robin Schäfer,Body Attack Viernheim,AK 25-29,8,Hessen,02:26:37.28,26:23,58,01:16:25,01:31,41:20
+2024,55,male,164,Sebastian Reuter,,AK 35-39,7,GER,02:26:50.68,29:36,01:27,01:11:48,01:07,42:52
+2024,56,male,151,Benjamin Engel,TF Feuerbach,AK 35-39,8,GER,02:26:54.97,30:02,01:47,01:10:17,01:28,43:20
+2024,57,male,127,Jannick Heins,,AK 30-34,13,GER,02:27:04.31,26:17,02:10,01:10:55,01:33,46:09
+2024,58,male,30,Matthias Gutperle,Chaos Viernheim,AK 50-54,4,Hessen,02:27:10.57,29:22,01:51,01:10:37,01:41,43:39
+2024,59,male,135,Tobias Knetsch,TSG Weinheim,AK 30-34,14,Baden-Württemberg,02:27:36.71,31:33,01:20,01:07:13,52,46:38
+2024,60,male,154,Fabian Horsch,RSV Heidelberg,AK 35-39,9,Baden-Württemberg,02:27:38.94,27:40,01:09,01:10:09,01:16,47:24
+2024,61,male,131,Markus Volk,SG Hohensachsen,AK 30-34,15,Baden-Württemberg,02:28:21.55,23:19,01:32,01:16:30,02:05,44:55
+2024,62,male,160,Martin Beck,,AK 35-39,10,GER,02:28:35.13,30:13,01:20,01:12:19,01:44,42:59
+2024,63,male,106,Ruben Wiedemann,RV03 Bürstadt,AK 20-24,6,Hessen,02:28:56.68,26:56,01:17,01:16:35,53,43:15
+2024,64,male,156,Florian Reiner,VfB Stuttgart 1893 e. V.,AK 35-39,11,Baden-Württemberg,02:31:02.47,31:02,01:15,01:13:17,01:22,44:06
+2024,65,male,123,Daniel Blechschmitt,Schorlewanderer e.V.,AK 30-34,16,GER,02:31:25.06,32:56,01:18,01:09:56,01:22,45:53
+2024,66,male,130,Manuel Bachmann,TSG KLEINOSTHEIM,AK 30-34,17,Bayern,02:32:08.57,26:22,01:34,01:17:27,01:24,45:21
+2024,67,male,261,Thomas Kaufmann,SC Güttersbach,AK 55-59,2,Hessen,02:32:34.88,31:39,01:48,01:11:29,01:47,45:51
+2024,68,male,254,Helmut Sprengel,SV Hellas Brühl,AK 55-59,3,Baden-Württemberg,02:32:54.87,23:39,01:54,01:16:04,02:07,49:10
+2024,69,male,132,Patrick Koch,Quadrate Turbo Crew,AK 30-34,18,GER,02:34:17.46,30:15,01:55,01:15:35,01:05,45:27
+2024,70,male,28,Andreas Lauer,SG Stern Stuttgart,AK 45-49,7,GER,02:35:38.30,33:20,01:27,01:10:24,02:00,48:27
+2024,71,male,213,Mathias Michel,Eintracht Frankfurt Triathlon,AK 50-54,5,Hessen,02:36:19.53,29:20,02:22,01:16:05,01:17,47:15
+2024,72,male,165,Simon Hoffmann,SSV Mutterstadt,AK 35-39,12,Rheinland-Pfalz,02:36:20.26,27:47,01:20,01:15:00,01:33,50:40
+2024,73,male,103,Nick Kaspers,,AK 20-24,7,Baden-Württemberg,02:36:33.08,29:14,03:43,01:11:04,01:42,50:50
+2024,74,male,134,Stefan Tunkl,Quadrate Turbo Crew,AK 30-34,19,Baden-Württemberg,02:36:54.68,28:43,01:48,01:17:13,56,48:14
+2024,75,male,175,Marcel Ritter,,AK 40-44,8,GER,02:37:20.13,29:31,01:51,01:18:53,01:12,45:53
+2024,76,male,152,Christoph Lichtenberger,SCHücking,AK 35-39,13,Rheinland-Pfalz,02:37:34.36,29:32,01:25,01:14:39,01:09,50:49
+2024,77,male,176,Matthias Schlappner,,AK 40-44,9,Hessen,02:38:08.48,31:44,01:15,01:12:39,01:14,51:16
+2024,78,male,219,Jörn Schlichting,Team Brunnenpfad,AK 50-54,6,Baden-Württemberg,02:38:16.00,33:15,01:44,01:17:51,01:30,43:56
+2024,79,male,267,Michael Roth,,AK 60-64,1,Rheinland-Pfalz,02:38:27.45,30:15,01:42,01:17:29,02:11,46:50
+2024,80,male,109,David Jelin,,AK 25-29,9,Baden-Württemberg,02:39:25.06,25:38,01:10,01:12:37,01:36,58:24
+2024,81,male,274,Uwe Hartmann,,AK 65-69,1,Baden-Württemberg,02:40:48.59,32:10,02:35,01:18:06,02:37,45:20
+2024,82,male,120,Tom Freter,,AK 25-29,10,Baden-Württemberg,02:42:13.52,34:10,02:31,01:10:39,02:43,52:10
+2024,83,male,252,Andreas Brenner,DZ BANK runners,AK 55-59,4,Baden-Württemberg,02:42:28.95,32:44,02:34,01:19:11,01:45,46:14
+2024,84,male,162,Sebastian Hirsch,,AK 35-39,14,Hessen,02:42:36.05,27:51,01:00,01:16:44,01:24,55:37
+2024,85,male,40,Pedro Leischwitz,ASG Tria Hockenheim,AK 65-69,2,GER,02:44:26.36,33:16,01:34,01:14:48,01:15,53:33
+2024,86,male,110,Enrico Trunk,,AK 25-29,11,Baden-Württemberg,02:44:39.52,32:38,02:13,01:19:10,49,49:49
+2024,87,male,210,Dirk Hagmaier,,AK 50-54,7,Baden-Württemberg,02:45:28.85,28:21,01:50,01:19:19,01:42,54:16
+2024,88,male,114,Marvin Forina,,AK 25-29,12,Hessen,02:46:47.36,31:51,02:32,01:24:51,01:54,45:39
+2024,89,male,157,Henning Wolter,SRL Triathlon Koblenz,AK 35-39,15,Rheinland-Pfalz,02:48:35.22,33:01,01:10,01:25:26,01:30,47:28
+2024,90,male,119,Simon Herbst,,AK 25-29,13,Rheinland-Pfalz,02:48:36.07,25:47,01:57,01:21:28,01:34,57:50
+2024,91,male,169,Ahmet Karaoglu,,AK 40-44,10,GER,02:51:30.85,36:30,03:19,01:18:53,02:28,50:20
+2024,92,male,270,Markus Körner,LSV Ladenburg,AK 60-64,2,Baden-Württemberg,02:52:10.59,35:36,02:17,01:19:02,01:47,53:28
+2024,93,male,39,Werner Ahl,MTG Mannheim,AK 65-69,3,Baden-Württemberg,02:53:11.16,33:18,01:49,01:23:12,01:51,53:01
+2024,94,male,125,Felix Borchers,SV Darmstadt 98,AK 30-34,20,GER,02:53:11.45,33:49,02:01,01:29:24,47,47:10
+2024,95,male,124,Daniel Helfert,Quadrate Turbo Crew,AK 30-34,21,Baden-Württemberg,02:53:28.40,24:35,01:42,01:26:11,01:35,59:25
+2024,96,male,202,Jens Lorenz,,AK 45-49,8,Baden-Württemberg,02:53:45.24,30:44,03:04,01:21:53,01:38,56:26
+2024,97,male,37,Karlheinz Stumpf,TC Chaos Viernheim,AK 70-74,1,Hessen,02:55:31.74,34:07,01:59,01:24:21,01:58,53:06
+2024,98,male,271,Matti Jäkel,,AK 60-64,3,Hessen,02:56:20.54,37:23,02:27,01:22:29,02:27,51:34
+2024,99,male,216,Tobias Horstmann,,AK 50-54,8,Rheinland-Pfalz,02:56:36.27,33:21,01:58,01:22:24,02:10,56:43
+2024,100,male,265,Hannes Klein,TSG Wiesloch,AK 60-64,4,Baden-Württemberg,02:57:44.07,36:18,01:58,01:23:03,02:27,53:58
+2024,101,male,44,Joachim Heibel,TSV Amicitia Viernheim,AK 55-59,5,Hessen,02:58:01.98,43:49,03:18,01:18:22,01:41,50:51
+2024,102,male,263,Georg Klein,TSV Baden Triathlon,AK 55-59,6,Baden-Württemberg,02:59:09.99,36:32,02:50,01:27:15,02:21,50:11
+2024,103,male,273,Manfred Goschler,noblemotions,AK 65-69,4,Rheinland-Pfalz,02:59:53.25,37:35,01:59,01:22:09,02:02,56:08
+2024,104,male,41,Kurt Trabold,XXXLutz,AK 65-69,5,Bayern,03:00:41.88,33:45,03:31,01:25:04,01:33,56:48
+2024,105,male,163,Sebastian Debatin,,AK 35-39,16,Baden-Württemberg,03:01:05.78,33:43,02:05,01:22:42,07:16,55:19
+2024,106,male,268,Stephan Leutner,,AK 60-64,5,Rheinland-Pfalz,03:01:33.25,26:38,01:58,01:23:13,02:03,01:07:41
+2024,107,male,259,Robert Spiegel,,AK 55-59,7,Rheinland-Pfalz,03:03:17.25,33:32,01:42,01:28:56,01:51,57:16
+2024,108,male,46,Michael Fey,Tri City Darmstadt,AK 60-64,6,Hessen,03:03:21.48,38:26,01:54,01:25:12,01:11,56:38
+2024,109,male,36,Michael Kunzmann,TC Chaos Viernheim,AK 65-69,6,Rheinland-Pfalz,03:09:23.97,39:26,02:40,01:25:09,02:20,59:48
+2024,110,male,257,Michael Slabon,SC Neukirchen,AK 55-59,8,Hessen,03:10:50.44,39:01,01:56,01:29:34,02:16,58:03
+2024,111,male,218,Heiko König,DLRG,AK 50-54,9,Hessen,03:20:28.32,36:15,04:19,01:36:24,01:12,01:02:18
+2024,112,male,34,Erik Berbner,,AK 25-29,14,Hessen,03:21:20.26,39:10,03:09,01:39:39,01:13,58:09
+2024,DNF,male,111,Gabriel Sardain,CAEG Grevenmacher,AK 25-29,DNF,not available,,21:21,01:02,,,
+2024,DNF,male,203,Matthias Schmitt,Ludwigshafener SV 07,AK 45-49,DNF,Rheinland-Pfalz,,32:35,01:32,,,
+2024,DNF,female,64,Jana Lohr,,AK 30-34,DNF,GER,,26:22,01:53,01:44:29,,
+2025,1,male,11,Jakob Breinlinger,Aera Sports Team / Team Nikar Heidelberg,AK 25,1,GER,01:54:04.47,18:09,38,01:00:04,42,34:31
+2025,1,female,2,Kim Lea Heidemann,TSV Amicitia Viernheim,AK 20,1,GER,02:09:04.29,19:57,50,01:10:32,39,37:06
+2025,2,male,104,Thorben Scholl,TSG Schwäbisch Hall,AK 20,1,GER,01:55:20.04,18:19,40,01:00:55,49,34:37
+2025,2,female,4,Janina Fabriz,,AK 25,1,GER,02:11:43.72,21:26,48,01:10:12,46,38:31
+2025,3,male,18,David Koser,Team Nikar Heidelberg,JUN,1,GER,01:58:15.48,18:43,45,01:03:52,38,34:17
+2025,3,female,3,Kathrin Halter,SV Nikar Heidelberg,AK 25,2,GER,02:15:36.57,19:57,51,01:12:50,48,41:10
+2025,4,male,14,Julian Becker,VfL Münster REACard Triathlon Team,AK 25,2,GER,01:58:50.87,18:08,01:00,01:05:50,01:00,32:52
+2025,4,female,5,Jordan Tissink,Vfl Munster,AK 20,2,GER,02:17:21.01,22:34,01:00,01:13:16,57,39:34
+2025,5,male,286,Jonas Uster,DSW 12 Darmstadt Triathlon,AK 25,3,GER,01:59:04.43,20:10,39,01:04:22,35,33:18
+2025,5,female,7,Laura Chacon Biebach,,AK 35,1,GER,02:21:42.64,25:08,01:07,01:16:49,59,37:39
+2025,6,male,12,Tom Holzmann,LLG Wonnegau,AK 30,1,GER,01:59:22.58,19:54,01:06,01:05:30,49,32:03
+2025,6,female,96,Lisa Kohl,SV Nikar Heidelberg,AK 20,3,GER,02:32:02.65,27:46,01:46,01:19:15,01:30,41:45
+2025,7,female,77,Anna Minges,,AK 30,1,GER,02:32:27.69,25:23,02:28,01:20:04,01:40,42:52
+2025,7,male,13,Adrian Hausding,DSW12 Darmstadt Triathlon,AK 20,2,GER,01:59:33.08,18:11,51,01:06:12,42,33:37
+2025,8,male,17,Max Fetzer,Mengen`s Triathleten,AK 30,2,GER,02:01:47.11,18:15,38,01:07:44,55,34:15
+2025,8,female,64,Rebecca Huckestein,Triathlon Wetterau-Friedberg,AK 30,2,GER,02:33:54.57,24:29,01:01,01:23:27,01:16,43:41
+2025,9,female,8,Franziska Veit,#TeamThiloBickert,AK 25,3,GER,02:36:43.93,26:43,01:15,01:19:52,01:30,47:23
+2025,9,male,25,Jonas Hofmann,DSW12 Darmstadt Triathlon,AK 25,4,GER,02:02:07.78,19:56,41,01:05:56,44,34:50
+2025,10,male,114,Henrik Hamm,Soprema Team TSV Mannheim,AK 25,5,GER,02:03:35.91,20:37,45,01:03:09,46,38:18
+2025,10,female,51,Vivien Güssregen,,AK 20,4,GER,02:38:14.26,28:28,02:39,01:22:27,43,43:57
+2025,11,female,71,Louisa Kanwischer,,AK 20,5,GER,02:39:29.70,29:11,01:28,01:21:33,01:07,46:10
+2025,11,male,26,Nico Steißlinger,Ludwigshafener SV 07,AK 25,6,GER,02:05:05.67,21:06,38,01:08:26,44,34:11
+2025,12,male,110,Oskar Weber,LC Marathon Rotenburg,AK 20,3,GER,02:05:20.23,18:06,37,01:09:24,51,36:22
+2025,12,female,73,Lioba Poppe,,AK 25,4,GER,02:40:01.73,27:43,02:47,01:22:43,01:22,45:26
+2025,13,female,52,Maja Walter,RSC Untermosel,AK 20,6,GER,02:40:07.95,23:36,01:58,01:26:39,58,46:56
+2025,13,male,318,Martin Wonke,Team EAM KSV Baunatal,AK 40,1,GER,02:07:51.04,24:39,01:01,01:06:22,01:07,34:42
+2025,14,male,27,Simon Breinlinger,Team Nikar Heidelberg,AK 25,7,GER,02:09:15.00,20:06,39,01:09:44,45,38:01
+2025,14,female,74,Kirsten Nagel,Poseidon Koblenz,AK 30,3,GER,02:42:02.55,25:28,01:02,01:22:15,01:43,51:34
+2025,15,female,70,Nicole Blameuser,Die Blameyer`s,AK 35,2,GER,02:42:11.30,30:40,02:05,01:26:10,01:14,42:02
+2025,15,male,417,Claudius Pyrlik,Placeworkers Triathlon Team Gießen,AK 50,1,GER,02:09:32.80,21:30,53,01:08:41,48,37:40
+2025,16,male,124,Fabian Rosmann,TeamP3,AK 25,8,GER,02:09:48.85,23:39,57,01:06:14,45,38:13
+2025,16,female,56,Ricarda Walkenbach,spaß,AK 25,5,GER,02:43:05.64,29:47,02:00,01:22:30,01:26,47:22
+2025,17,female,68,Luise Lorenz,Ludwigshafener SV 07,AK 35,3,GER,02:45:11.03,34:44,02:02,01:23:14,01:11,44:00
+2025,17,male,120,Noah Steigmiller,BaderMainzl TriTeam TSV 1860 Rosenheim,AK 25,9,GER,02:09:55.29,25:10,42,01:07:08,01:01,35:54
+2025,18,male,16,Henrik Schmitt,TSV Amicitia Viernheim,AK 20,4,GER,02:10:15.98,19:51,39,01:11:59,44,37:02
+2025,18,female,55,Victoria Pech,LSV Ladenburg,AK 20,7,GER,02:47:28.55,30:05,01:58,01:26:02,01:20,48:03
+2025,19,male,145,Christoph Hohenfeld,Soprema Team TSV Mannheim,AK 30,3,GER,02:10:49.66,19:36,01:16,01:10:47,53,38:17
+2025,19,female,58,Magdalena Wald,,AK 25,6,GER,02:48:34.19,25:11,52,01:25:59,01:10,55:22
+2025,20,male,131,David Wecht,TSG Weinheim,AK 30,4,GER,02:10:53.90,22:34,01:17,01:09:08,01:25,36:29
+2025,20,female,79,Johanna Bieneck,Team Brunnenpfad,AK 40,1,GER,02:50:03.50,27:02,01:50,01:31:22,01:21,48:28
+2025,21,male,230,Hendrik Meth,Soprema Team TSV Mannheim,AK 50,2,GER,02:11:39.70,24:34,01:12,01:07:39,01:10,37:04
+2025,21,female,86,Christine Aichele,LSV Ladenburg,AK 45,1,GER,02:50:19.10,28:35,01:44,01:29:29,01:31,49:00
+2025,22,male,328,Raffael Berger,TRIA-TEAM Bruchköbel,AK 40,2,GER,02:13:36.09,21:04,46,01:09:03,01:09,41:34
+2025,22,female,82,Corinna Huber,TV Germania St Ilgen,AK 40,2,GER,02:51:27.03,32:42,01:56,01:28:16,01:21,47:12
+2025,23,male,171,Simon Sokolski,Ludwigshafener SV 07,AK 35,1,GER,02:14:26.58,23:42,01:09,01:11:06,48,37:41
+2025,23,female,97,Paula Kastl,,AK 20,8,GER,02:52:55.37,32:11,02:13,01:25:26,01:21,51:44
+2025,24,female,29,Caera Campbell,TSV Amicitia Viernheim,JUN,1,GER,02:55:30.63,31:31,02:42,01:30:58,01:00,49:19
+2025,24,male,421,Christoph Heubel,Schwimmclub Oberursel,AK 55,1,GER,02:14:48.64,23:36,54,01:07:37,52,41:49
+2025,25,female,28,Elli Campbell,TSV Amicitia Viernheim,AK 20,9,GER,02:55:31.25,31:31,02:41,01:30:50,01:09,49:20
+2025,25,male,204,Hannes Fenchel,,AK 40,3,GER,02:14:54.51,23:54,44,01:09:35,01:04,39:37
+2025,26,male,227,Matthias Küchler,Eintracht Fankfurt Triathlon,AK 50,3,GER,02:15:11.14,24:32,48,01:10:47,01:09,37:55
+2025,26,female,98,Louisa Sinn,SSCtri Landau,AK 20,10,GER,02:55:50.76,28:29,02:58,01:31:57,01:22,51:04
+2025,27,female,9,Ina Mahlmann,TSV Amicitia Viernheim,AK 25,7,GER,02:56:16.57,25:25,01:14,01:31:53,01:06,56:38
+2025,27,male,166,Julius Schülein,Ludwigshafener SV 07,AK 35,2,GER,02:15:21.85,25:53,52,01:09:02,01:10,38:24
+2025,28,male,311,Daniel Kilb,Schwimmclub Oberursel,AK 40,4,GER,02:15:46.50,23:38,48,01:07:50,53,42:37
+2025,28,female,95,Christine Ober,Hausarztzentrum am Metznerpark,AK 40,3,GER,02:56:39.71,36:03,02:52,01:27:23,02:02,48:19
+2025,29,female,62,Bettina Haueisen,TV Planegg-Krailling,AK 30,4,GER,02:57:15.60,30:04,02:39,01:31:44,01:43,51:05
+2025,29,male,351,Eric Kappes,algemarin Team SV Traisa,AK 50,4,GER,02:15:46.83,21:21,56,01:11:56,50,40:43
+2025,30,female,67,Isabel Fisches,LSV Ladenburg,AK 35,4,GER,02:57:35.64,32:11,01:38,01:29:43,01:22,52:41
+2025,30,male,164,Jonas Kerner,,AK 35,3,GER,02:16:28.30,23:00,01:07,01:08:22,01:11,42:48
+2025,31,female,66,Annika Schiffner,,AK 30,5,GER,02:59:02.00,28:03,02:21,01:34:01,01:00,53:37
+2025,31,male,303,Matthias Stücher,DSW12 Darmstadt,AK 40,5,GER,02:16:39.18,27:22,48,01:08:23,01:09,38:57
+2025,32,female,94,Maike Schirmer,VfL Sindelfingen Triathlon,AK 60,1,GER,03:01:02.46,29:38,01:43,01:27:58,01:21,01:00:22
+2025,32,male,219,Martin Drüke,Soprema Team TSV Mannheim,AK 45,1,GER,02:17:05.88,24:44,01:06,01:11:21,01:08,38:46
+2025,33,male,309,Dominik Herold,Schwimmclub Oberursel,AK 40,6,GER,02:17:30.60,21:05,46,01:13:31,01:21,40:47
+2025,33,female,83,Dounia Karroum,,AK 40,4,GER,03:03:24.72,32:12,02:17,01:34:59,02:09,51:47
+2025,34,male,306,Karsten Kannenberg,Fun-Ball Dortelweil,AK 55,2,GER,02:17:37.50,22:07,01:08,01:10:39,54,42:49
+2025,34,female,63,Lisa Gündo?Du,Team G²,AK 30,6,GER,03:04:07.12,33:11,02:01,01:34:38,01:10,53:07
+2025,35,female,84,Sabrina Lautenschläger,,AK 40,5,GER,03:07:53.26,28:57,03:30,01:30:56,01:43,01:02:47
+2025,35,male,173,Robert Meyer,,AK 25,10,GER,02:17:52.81,25:21,01:45,01:14:57,42,35:07
+2025,36,male,210,Sven Reininger,Ludwigshafener SV 07,AK 45,2,GER,02:17:59.64,22:54,52,01:12:28,01:04,40:41
+2025,36,female,89,Nadine Meltzow,Tria-Team Bruchköbel e.V.,AK 45,2,GER,03:09:21.78,26:18,01:47,01:32:45,01:51,01:06:40
+2025,37,female,60,Leonie Julia Hermann,Eintracht Fankfurt Triathlon,AK 25,8,GER,03:13:26.63,33:00,04:33,01:35:53,03:28,56:32
+2025,37,male,314,Tobias Behle,SG Elz-Limbach,AK 50,5,GER,02:18:20.01,20:55,52,01:12:57,01:20,42:16
+2025,38,female,53,Laura De Riese,,AK 20,11,GER,03:13:36.58,27:11,01:44,01:35:18,01:22,01:08:01
+2025,38,male,216,Christoph Netzer,SV Nikar Heidelberg,AK 45,3,Cote D`Ivoire,02:19:02.46,25:05,01:04,01:11:21,01:09,40:23
+2025,39,female,61,Laura Schüller,,AK 30,7,GER,03:19:04.65,35:59,03:41,01:35:33,03:06,01:00:45
+2025,39,male,175,Thomas Schlohmann,TSG Maxdorf,AK 40,7,GER,02:19:03.59,23:45,01:26,01:11:26,01:54,40:32
+2025,40,male,167,Sebastian Schnitzler,TRIDENT Racing Team e.V.,AK 35,4,GER,02:19:10.07,27:25,45,01:11:29,01:11,38:20
+2025,40,female,91,Ulrike Bickert,#TeamThiloBickert,AK 50,1,GER,03:19:25.61,34:02,05:11,01:46:35,03:09,50:28
+2025,41,female,435,Susanne Niebler,TSV Amicitia Viernheim,AK 50,2,GER,03:19:45.32,34:56,01:43,01:39:52,01:21,01:01:53
+2025,41,male,174,Jan-Niklas Diehl,Triathlon Wetterau,AK 30,5,GER,02:19:32.96,24:29,56,01:12:55,57,40:15
+2025,42,male,105,Paul Kahlin,RSC Untermosel,AK 20,5,GER,02:19:33.93,23:37,01:26,01:14:15,01:22,38:53
+2025,42,female,92,Stefania Poli,SC Oberursel,AK 55,1,GER,03:21:52.97,37:49,02:27,01:40:16,01:47,59:33
+2025,43,male,322,Carlos Yela,TG Tria Rüsselsheim,AK 50,6,ESP,02:19:40.77,23:18,52,01:12:03,01:04,42:23
+2025,43,female,93,Beate Brink,Eintracht Fankfurt Triathlon,AK 55,2,GER,03:40:15.06,36:03,02:37,01:48:23,01:59,01:11:13
+2025,44,female,90,Katja Weisel,,AK 50,3,GER,03:52:36.68,44:37,02:18,01:53:46,01:54,01:10:01
+2025,44,male,156,David Brunner,MTG Mannheim Triathlon,AK 35,5,GER,02:19:50.97,24:39,01:26,01:12:37,51,40:17
+2025,45,male,213,Dirk Theile,TV Bommersheim,AK 45,4,GER,02:20:01.84,22:42,01:07,01:13:56,01:16,41:00
+2025,46,male,24,Maik Heinrich,TC Chaos Viernheim,AK 50,7,GER,02:20:39.77,25:20,55,01:12:53,51,40:40
+2025,47,male,411,Patrick Jordan,Fun-Ball Dortelweil,AK 50,8,GER,02:20:40.00,25:10,01:47,01:09:29,01:10,43:04
+2025,48,male,316,Till Ziegler,SG Elz-Limbach,AK 45,5,GER,02:20:43.92,25:29,01:10,01:12:12,01:17,40:35
+2025,49,male,310,Benedikt Küstermann,Schwimmclub Oberursel,AK 45,6,GER,02:20:46.40,23:39,53,01:12:28,01:09,42:37
+2025,50,male,21,Jan Werner,TSV Amicitia Viernheim,AK 20,6,GER,02:20:54.20,21:29,01:18,01:15:00,59,42:08
+2025,51,male,352,Christian Kunkelmann,algemarin Team SV Traisa,AK 40,8,GER,02:21:10.27,23:58,41,01:14:15,54,41:22
+2025,52,male,415,Stefan Weller,LC Olympia Wiesbaden,AK 50,9,GER,02:21:14.80,26:57,55,01:11:46,53,40:43
+2025,53,male,43,Peter Schulteis,REA Card Triathlon Team TUS Griesheim,AK 60,1,GER,02:21:45.66,21:01,01:28,01:14:32,01:19,43:25
+2025,54,male,192,Jens Walter,KSV Reichelsheim,AK 40,9,GER,02:22:12.33,24:48,01:16,01:12:10,01:00,42:58
+2025,55,male,143,Moritz Ness,Cinnamons Tri,AK 30,6,GER,02:22:12.63,25:57,01:57,01:14:40,02:10,37:28
+2025,56,male,329,Dejan Jazbinsek,TSV Krofdorf-Gleiberg,AK 45,7,GER,02:23:01.71,27:51,01:05,01:12:51,01:02,40:12
+2025,57,male,422,Tobias Knobbe,Schwimmclub Oberursel,AK 50,10,GER,02:23:02.42,24:24,01:07,01:12:51,59,43:41
+2025,58,male,10,Peter Brandmüller,TSV Amicitia Viernheim,AK 60,2,GER,02:24:13.14,21:01,01:29,01:13:11,59,47:33
+2025,59,male,163,Tim Hillmer,SSC Karlsruhe,AK 35,6,GER,02:24:22.00,26:11,01:01,01:14:47,01:08,41:15
+2025,60,male,325,Thorsten Lauck,TRIA-TEAM Bruchköbel,AK 40,10,GER,02:24:25.45,25:35,01:20,01:15:20,01:00,41:10
+2025,61,male,305,Markus Dreßler,Fun-Ball Dortelweil,AK 40,11,GER,02:24:40.61,23:34,01:35,01:17:31,01:04,40:56
+2025,62,male,409,Antonio Miranda,Fun-Ball Dortelweil,AK 55,3,POR,02:25:23.14,23:47,58,01:15:10,01:05,44:23
+2025,63,male,410,Andreas Braun,Fun-Ball Dortelweil,AK 60,3,GER,02:25:51.08,24:28,01:01,01:13:28,01:17,45:37
+2025,64,male,326,Stephan Nolte,TRIA-TEAM Bruchköbel,AK 55,4,GER,02:26:05.88,26:02,01:04,01:14:22,01:25,43:12
+2025,65,male,308,Andreas Kraut,Fun-Ball Dortelweil,AK 50,11,GER,02:26:21.63,27:06,01:45,01:13:24,01:08,42:58
+2025,66,male,119,Maximilian Litterst,Team Nikar Heidelberg,AK 25,11,GER,02:26:25.81,22:35,01:30,01:15:01,01:13,46:06
+2025,67,male,113,Janis Holz,,AK 25,12,GER,02:27:26.99,30:50,01:04,01:15:52,01:30,38:10
+2025,68,male,130,Jan-Philipp Wächter,Team SISU-Training,AK 30,7,GER,02:27:49.87,27:26,02:04,01:15:15,01:21,41:43
+2025,69,male,402,Tim Adolphs,Eintracht Frankfurt,AK 50,12,GER,02:28:02.88,27:16,55,01:17:01,01:15,41:35
+2025,70,male,160,Fabian Horsch,SG Poseidon Eppelheim,AK 35,7,GER,02:28:08.86,25:56,01:07,01:15:23,01:20,44:22
+2025,71,male,321,Torsten Becker,TG Tria Rüsselsheim,AK 50,13,GER,02:28:25.09,20:51,01:13,01:21:05,01:10,44:06
+2025,72,male,23,Robin Thome,TSV Amicitia Viernheim,AK 20,7,GER,02:28:36.40,27:33,49,01:18:19,45,41:10
+2025,73,male,30,Ruben Werle,TSVE 1890 Bielefeld e. V.,AK 20,8,GER,02:28:43.83,25:16,59,01:17:28,53,44:07
+2025,74,male,319,Mirco Schwalm,Team EAM KSV Baunatal,AK 45,8,GER,02:28:50.52,26:29,01:08,01:13:18,01:15,46:40
+2025,75,male,289,Oliver Schmitt,SportELSCH,AK 40,12,GER,02:28:56.44,26:03,01:41,01:17:21,01:33,42:18
+2025,76,male,22,Michael Dreißigacker,TSV Amicitia Viernheim,AK 50,14,GER,02:29:03.45,27:08,01:18,01:15:16,55,44:26
+2025,77,male,121,Lukas Schulz,SK Neptun Leimen,AK 25,13,GER,02:29:07.90,23:11,02:01,01:13:26,01:18,49:11
+2025,78,male,323,Frank Hoffmann,TG Tria Rüsselsheim,AK 45,9,GER,02:29:18.21,25:42,01:07,01:12:24,01:06,48:59
+2025,79,male,140,Tom Göhler,,AK 30,8,GER,02:29:36.65,27:38,01:17,01:16:18,01:07,43:16
+2025,80,male,423,Torsten Witzke,Schwimmclub Oberursel,AK 50,15,GER,02:30:11.20,23:22,01:51,01:18:25,01:40,44:53
+2025,81,male,436,Matthias Lehnertz,TSV Amicitia Viernheim,AK 50,16,GER,02:30:43.80,26:06,01:03,01:16:31,01:25,45:38
+2025,82,male,152,Daniel Waschkowski,TV 1860 Mußbach,AK 35,8,GER,02:30:47.26,27:19,01:32,01:15:05,01:03,45:48
+2025,83,male,32,Matthias Gutperle,Chaos,AK 55,5,GER,02:31:02.18,27:27,01:56,01:17:17,01:11,43:11
+2025,84,male,372,Anselm Schüle,SG Arheilgen,AK 40,13,GER,02:31:16.53,25:31,01:36,01:15:50,01:27,46:52
+2025,85,male,359,Gero Jung,Eintracht Frankfurt II,AK 40,14,GER,02:31:38.52,28:06,01:40,01:17:25,01:21,43:06
+2025,86,male,332,Jörg Käß,TSV Krofdorf-Gleiberg,AK 50,17,GER,02:32:38.96,27:37,02:15,01:19:24,01:47,41:35
+2025,87,male,301,Markus Lohnes,DSW12 Darmstadt,AK 55,6,GER,02:32:40.22,28:24,02:50,01:17:18,01:35,42:33
+2025,88,male,269,Thomas Wiedl,TV Bretten Triathlon,AK 60,4,GER,02:33:06.93,25:20,02:07,01:16:25,01:38,47:36
+2025,89,male,407,Andre Schiemenowski,EOSC Offenbach Triathlon,AK 50,18,GER,02:33:09.20,27:11,01:28,01:16:53,01:31,46:06
+2025,90,male,331,Kai Arne Nickolaus,TSV Krofdorf-Gleiberg,AK 45,10,GER,02:33:43.47,28:30,01:24,01:14:47,01:40,47:22
+2025,91,male,272,Stefan Ohm,SSCtri,AK 65,1,GER,02:33:46.62,26:55,02:19,01:16:54,02:04,45:34
+2025,92,male,353,Michael Meder,algemarin Team SV Traisa,AK 60,5,GER,02:34:07.34,23:14,01:18,01:21:19,01:10,47:06
+2025,93,male,412,Martin Frerichs,Fun-Ball Dortelweil,AK 55,7,GER,02:34:09.24,29:04,01:43,01:19:26,01:13,42:43
+2025,94,male,361,Maria Mai,Eintracht Frankfurt II,AK 40,15,GER,02:34:32.08,24:20,01:25,01:21:04,01:43,46:00
+2025,95,male,312,David Hecker,Schwimmclub Oberursel,AK 40,16,GER,02:34:37.74,26:55,01:30,01:19:35,01:09,45:28
+2025,96,male,176,Matthias Orth,Ludwigshafener SV 07,AK 40,17,GER,02:34:43.12,27:39,01:10,01:22:07,01:09,42:38
+2025,97,male,282,Christian Ehmann,LSV Ladenburg,AK 40,18,GER,02:34:54.10,28:59,01:35,01:18:49,01:18,44:13
+2025,98,male,381,Richard Offord,Tri-Force Fulda e.V.,AK 55,8,USA,02:35:19.46,31:48,01:41,01:16:52,01:14,43:44
+2025,99,male,432,Lars Friedmann,TRIA-TEAM Bruchköbel,AK 50,19,GER,02:35:29.66,29:15,01:51,01:16:39,01:33,46:11
+2025,100,male,137,Vincent Ego,,AK 30,9,GER,02:35:41.81,28:09,01:42,01:18:41,49,46:20
+2025,101,male,158,Finn Ratz,,AK 35,9,GER,02:35:51.29,27:50,03:05,01:15:30,01:51,47:35
+2025,102,male,424,Claudia Richter,Schwimmclub Oberursel,AK 50,20,GER,02:35:54.03,24:37,01:17,01:22:35,01:10,46:15
+2025,103,male,187,Matthias Gabriel,HC Bad Homburg,AK 40,19,GER,02:35:54.36,27:25,01:31,01:17:21,54,48:43
+2025,104,male,437,Timo Zenke,Wassersportvereinigung Cassel e.V.,AK 50,21,GER,02:36:25.94,32:05,01:54,01:16:12,01:38,44:36
+2025,105,male,31,Andreas Lauer,SG STERN STUTTGART,AK 45,11,GER,02:36:31.58,30:30,01:19,01:14:35,01:55,48:12
+2025,106,male,214,Armin Elzer,Erdinger Active Team,AK 45,12,GER,02:36:35.51,26:48,53,01:20:42,01:15,46:57
+2025,107,male,376,Dirk Bröll,SKV Mörfelden Team MöWathlon,AK 50,22,GER,02:36:40.82,28:28,01:23,01:19:22,58,46:29
+2025,108,male,307,Jörg Cebulla,Fun-Ball Dortelweil,AK 55,9,GER,02:36:43.19,30:11,01:54,01:19:03,01:23,44:12
+2025,109,male,208,Martin Meinel,Ludwigshafener SV 07,AK 45,13,GER,02:36:49.49,27:02,46,01:19:25,01:07,48:29
+2025,110,male,170,Andriy Romanov,,AK 35,10,GER,02:37:10.15,27:16,02:20,01:21:05,02:27,44:02
+2025,111,male,420,Frank Lotz,Placeworkers Triathlon Team Gießen,AK 55,10,GER,02:37:15.44,25:25,01:04,01:20:41,01:14,48:51
+2025,112,male,201,Henning Wolter,SRL Triathlon Koblenz,AK 40,20,GER,02:37:31.84,29:39,01:03,01:19:36,01:23,45:50
+2025,113,male,186,Marcel Salein,Hausarztzentrum am Metznerpark Frankenthal,AK 40,21,GER,02:37:33.06,27:58,02:27,01:19:01,01:16,46:51
+2025,114,male,401,Lothar Matzat,Eintracht Frankfurt,AK 60,6,GER,02:37:49.04,25:16,01:13,01:24:16,01:19,45:45
+2025,115,male,433,Joachim Zemke,TSV Amicitia Viernheim,AK 65,2,GER,02:37:53.01,23:46,01:52,01:16:57,01:34,53:44
+2025,116,male,127,Jens Marienfeldt,,AK 30,10,GER,02:37:59.31,29:41,02:07,01:21:01,01:16,43:54
+2025,117,male,431,Ulrich Hausch,TRIA-TEAM Bruchköbel,AK 50,23,GER,02:38:29.25,33:10,01:56,01:18:13,01:22,43:48
+2025,118,male,211,Daniel Birke,Team Zoot Europe,AK 45,14,GER,02:39:37.55,31:48,02:56,01:17:27,01:46,45:40
+2025,119,male,168,Michael Meinzer,SG Hohensachsen,AK 35,11,GER,02:39:55.32,23:23,01:56,01:24:14,01:02,49:20
+2025,120,male,382,Nico Schymanski,Tri-Force Fulda e.V.,AK 45,15,GER,02:40:00.92,27:15,02:06,01:23:12,01:45,45:42
+2025,121,male,264,Hagen Koch,REA Card Triathlon Team TUS Griesheim,AK 60,7,GER,02:40:15.69,28:16,02:10,01:21:56,01:31,46:22
+2025,122,male,367,Mathias Metzger,REA Card Triathlonteam TuS Griesheim,AK 50,24,GER,02:40:16.93,30:37,02:10,01:19:50,01:15,46:24
+2025,123,male,430,Erwin Völker,TRIA-TEAM Bruchköbel,AK 55,11,GER,02:40:28.98,27:50,01:45,01:18:24,01:36,50:53
+2025,124,male,416,Andreas Zangenfeind,LC Olympia Wiesbaden,AK 55,12,GER,02:40:29.58,28:10,01:52,01:22:43,01:07,46:37
+2025,125,male,185,Peter Stürzel,Ludwigshafener SV 07,AK 40,22,GER,02:40:34.20,28:42,01:40,01:23:51,01:33,44:48
+2025,126,male,205,Tobias Gerlach,,AK 40,23,GER,02:40:36.50,30:58,02:28,01:16:46,01:35,48:49
+2025,127,male,206,Dirk Zimmermann,Ski Club Heidelberg Triathlon,AK 40,24,GER,02:40:49.82,30:53,01:04,01:19:23,01:21,48:08
+2025,128,male,126,Knut Figaj,,AK 30,11,GER,02:41:12.70,24:21,02:02,01:22:08,01:21,51:20
+2025,129,male,362,Andreas Dada,Eintracht Frankfurt II,AK 45,16,GER,02:41:25.21,27:50,02:05,01:24:50,01:18,45:22
+2025,130,male,413,Benjamin Collins,LC Olympia Wiesbaden,AK 50,25,GER,02:41:27.73,28:20,01:31,01:25:30,01:02,45:04
+2025,131,male,177,Hendrik Wolff,LSV Ladenburg,AK 40,25,GER,02:41:33.12,32:18,02:32,01:15:22,02:40,48:41
+2025,132,male,33,Robin Schäfer,Body Attack Viernheim,AK 25,14,GER,02:41:35.23,27:28,50,01:28:20,01:32,43:25
+2025,133,male,106,Matteo Spreiter,,AK 20,9,GER,02:41:36.24,32:41,02:25,01:23:07,01:25,41:58
+2025,134,male,155,Marcus Schaffranka,,AK 35,12,GER,02:41:45.38,29:30,02:54,01:20:10,01:42,47:29
+2025,135,male,183,Claudius Haase,,AK 40,26,GER,02:42:02.16,29:22,02:50,01:21:36,01:33,46:41
+2025,136,male,233,Christoph Merbach,,AK 45,17,GER,02:42:09.50,29:06,02:00,01:22:33,01:34,46:56
+2025,137,male,371,Guido Götz,SG Arheilgen,AK 50,26,GER,02:42:15.07,27:44,01:26,01:19:14,01:59,51:52
+2025,138,male,226,Kai Heppert,,AK 50,27,GER,02:42:31.38,28:30,02:44,01:21:48,01:53,47:36
+2025,139,male,111,Hendrik Rapp,Triathlon Team DSW Darmstadt,AK 25,15,GER,02:42:32.34,23:31,01:37,01:19:46,01:25,56:13
+2025,140,male,285,Stefan Fesenbeck,TV-Bretten Triathlon,AK 35,13,GER,02:42:54.41,27:37,01:19,01:26:47,01:00,46:11
+2025,141,male,39,Paul Herbel,TSV Amicitia Viernheim,AK 25,16,GER,02:42:55.60,25:29,02:31,01:23:38,01:59,49:18
+2025,142,male,317,Eike Niemeyer,Team EAM KSV Baunatal,AK 50,28,GER,02:43:02.63,26:55,02:17,01:23:55,01:20,48:35
+2025,143,male,134,Johannes Hayn,TSV Mannheim Hockey,AK 30,12,GER,02:43:05.21,27:43,01:38,01:21:03,01:29,51:12
+2025,144,male,222,Jörn Schlichting,Team Brunnenpfad,AK 50,29,GER,02:43:08.15,31:32,02:18,01:24:17,01:30,43:31
+2025,145,male,434,Jürgen Thome,TSV Amicitia Viernheim,AK 55,13,GER,02:43:43.80,32:48,55,01:20:33,01:18,48:09
+2025,146,male,263,Michael Roth,,AK 60,8,GER,02:43:59.28,28:37,01:46,01:25:20,01:45,46:31
+2025,147,male,136,David Perales,SC Wiesbaden 1911,AK 30,13,GER,02:44:00.91,27:49,02:14,01:27:19,56,45:42
+2025,148,male,181,Marcel Ritter,,AK 40,27,GER,02:44:23.97,26:40,01:52,01:25:00,01:40,49:11
+2025,149,male,221,Matthias Schmitt,Ludwigshafener SV 07,AK 50,30,GER,02:44:31.94,28:07,01:33,01:24:39,01:07,49:05
+2025,150,male,128,Henrik Franke,MTG Mannheim Triathlon,AK 30,14,GER,02:44:55.31,31:32,01:34,01:20:35,02:02,49:12
+2025,151,male,439,Frank Rudolph,Wassersportvereinigung Cassel e.V.,AK 55,14,GER,02:45:01.26,30:23,01:48,01:23:34,01:13,48:03
+2025,152,male,209,Thomas Borrmann,,AK 45,18,GER,02:45:04.96,31:15,02:36,01:22:23,01:10,47:40
+2025,153,male,41,Pedro Leischwitz,Kraichgau Triathlon e. V.,AK 65,3,GER,02:45:14.09,28:58,02:08,01:19:17,01:11,53:40
+2025,154,male,38,Nicolai Simon,,AK 25,17,GER,02:45:29.09,31:15,02:05,01:22:25,01:50,47:54
+2025,155,male,363,Ralf Moebus,Fun-Ball Dortelweil,AK 60,9,GER,02:45:32.19,30:32,02:59,01:21:14,01:37,49:10
+2025,156,male,191,Alexander Schöffel,,AK 40,28,GER,02:45:34.13,30:45,01:03,01:22:34,01:09,50:03
+2025,157,male,380,Thomas Müller,Tri-Force Fulda e.V.,AK 45,19,GER,02:45:39.11,28:07,01:17,01:24:38,02:27,49:10
+2025,158,male,283,Werner Ahl,MTG Mannheim,AK 65,4,GER,02:46:15.88,28:26,02:47,01:22:33,01:46,50:43
+2025,159,male,259,Justus Benrath,,AK 55,15,GER,02:46:27.50,31:46,01:29,01:20:07,01:48,51:17
+2025,160,male,279,Frank Richter,SG Egelsbach Triathlon,AK 55,16,GER,02:46:38.25,27:57,02:26,01:23:59,01:19,50:57
+2025,161,male,379,Peter Seemann,Tri-Force Fulda e.V.,AK 55,17,GER,02:46:47.98,28:43,01:33,01:24:02,01:30,50:59
+2025,162,male,220,Frank Ellrich,Katholischer Musikverein Fürfeld,AK 45,20,GER,02:46:48.94,32:30,02:04,01:21:05,01:16,49:53
+2025,163,male,320,Achim Hänlein,Team EAM KSV Baunatal,AK 60,10,GER,02:46:55.67,28:22,01:27,01:21:34,01:11,54:21
+2025,164,male,304,Maren Grimm,DSW12 Darmstadt,AK 55,18,GER,02:46:58.77,24:31,01:34,01:30:48,57,49:08
+2025,165,male,35,Kevin Rombach,Jans Erben,AK 30,15,GER,02:47:09.90,31:02,02:15,01:27:23,01:29,45:00
+2025,166,male,428,Uwe Neumeyer,TG Hanau,AK 60,11,GER,02:47:50.99,33:20,03:08,01:17:53,01:39,51:50
+2025,167,male,366,Jochen Menzen,Fun-Ball Dortelweil,AK 55,19,GER,02:48:01.35,31:03,02:02,01:23:15,01:30,50:11
+2025,168,male,302,Thomas Rupp,DSW12 Darmstadt,AK 55,20,GER,02:48:14.14,34:04,01:46,01:17:40,01:30,53:14
+2025,169,male,195,Lukas Lewandowski,,AK 40,29,GER,02:48:35.21,29:47,01:17,01:20:24,01:39,55:28
+2025,170,male,138,Maximilian Lachmann,,AK 30,16,GER,02:48:35.55,29:33,03:22,01:22:44,02:14,50:42
+2025,171,male,315,Sandro Crisolli,SG Elz-Limbach,AK 40,30,GER,02:48:49.83,28:43,01:57,01:34:52,01:40,41:37
+2025,172,male,375,David Millward,SKV Mörfelden Team MöWathlon,AK 40,31,GBR,02:49:03.73,33:18,01:15,01:21:56,01:26,51:08
+2025,173,male,36,Benjamin Bläß,Chaos,AK 45,21,GER,02:49:49.49,27:11,02:06,01:22:58,01:37,55:57
+2025,174,male,44,Joachim Heibel,TSV Amicitia Viernheim,AK 60,12,GER,02:50:06.10,35:29,05:01,01:19:01,01:20,49:15
+2025,175,male,273,Uwe Hartmann,,AK 65,5,GER,02:50:13.48,28:16,03:53,01:28:11,02:32,47:21
+2025,176,male,357,Lothar Spachmann,Eintracht Frankfurt,AK 55,21,GER,02:50:35.93,27:40,02:13,01:24:33,02:18,53:51
+2025,177,male,116,Marcel Frey,,AK 25,18,GER,02:51:46.32,28:38,02:08,01:27:41,01:01,52:18
+2025,178,male,277,Thomas Blumenrath,,AK 55,22,GER,02:51:57.97,30:48,02:34,01:28:33,01:51,48:11
+2025,179,male,239,Hans Michael Eberle,SV TRICITY Darmstadt,AK 55,23,GER,02:51:58.77,33:15,02:06,01:23:55,01:42,51:00
+2025,180,male,123,Jan Selonke,,AK 25,19,GER,02:52:01.97,26:12,02:23,01:32:00,01:30,49:56
+2025,181,male,125,Florian Mattheier,,AK 25,20,GER,02:52:26.50,25:30,01:57,01:30:51,01:37,52:31
+2025,182,male,276,Achim Herbstreuth,,AK 55,24,GER,02:52:28.23,29:55,02:22,01:23:15,01:41,55:15
+2025,183,male,159,Bastian Altemeier,,AK 35,14,GER,02:52:29.25,27:40,01:43,01:24:18,01:17,57:31
+2025,184,male,406,Rainer Winter,EOSC Offenbach Triathlon,AK 60,13,GER,02:52:33.42,30:06,02:03,01:24:09,01:28,54:47
+2025,185,male,229,Michael Lotz,,AK 50,31,GER,02:52:36.38,30:38,01:54,01:27:32,01:37,50:55
+2025,186,male,378,Wolfgang Rubarth,SKV Mörfelden Team MöWathlon,AK 65,6,GER,02:52:59.10,32:40,02:01,01:26:44,01:27,50:07
+2025,187,male,154,Niklas Berger,,AK 35,15,GER,02:53:00.18,29:51,02:27,01:29:12,01:58,49:32
+2025,188,male,404,Kirsten Krauthäuser,Eintracht Frankfurt,AK 50,32,GER,02:53:08.54,29:38,01:13,01:26:36,01:11,54:30
+2025,189,male,280,Martin Dägele,DLRG Schifferstadt,AK 60,14,GER,02:53:15.46,30:33,02:35,01:21:24,01:45,56:58
+2025,190,male,108,Robin Leiber,,AK 20,10,GER,02:53:19.49,33:28,02:57,01:29:21,01:16,46:17
+2025,191,male,236,Alexander Walk,,AK 50,33,GER,02:53:48.90,31:05,02:35,01:25:26,01:55,52:47
+2025,192,male,118,Leonard Bek,,AK 25,21,GER,02:53:49.51,31:29,02:13,01:26:13,01:23,52:31
+2025,193,male,141,Florian Balb,WFM Tri-Team Stadtwerke Mühlacker,AK 30,17,GER,02:54:05.37,29:04,02:18,01:29:11,01:12,52:20
+2025,194,male,364,Stefan Rheindorf,Fun-Ball Dortelweil,AK 60,15,GER,02:54:13.16,34:40,03:03,01:28:18,01:34,46:38
+2025,195,male,115,Mathias Backes,SG HD-Kirchheim,AK 25,22,GER,02:54:14.93,30:58,04:05,01:29:21,54,48:56
+2025,196,male,202,Alex Lautenschläger,,AK 40,32,GER,02:54:22.22,27:37,03:36,01:27:59,02:22,52:48
+2025,197,male,260,Sven Rohwedder,TV 1863 Groß-Zimmern,AK 60,16,GER,02:55:37.48,24:52,01:51,01:26:33,02:08,01:00:13
+2025,198,male,189,Jan Maier,Team Get Fit,AK 40,33,GER,02:55:37.62,27:21,02:51,01:32:20,01:12,51:53
+2025,199,male,373,Torsten Velde,SG Arheilgen,AK 60,17,GER,02:56:22.08,33:42,01:47,01:27:34,01:51,51:28
+2025,200,male,265,Markus Körner,LSV Ladenburg,AK 60,18,GER,02:56:28.27,29:28,03:18,01:28:28,01:46,53:28
+2025,201,male,103,Max Kleefisch,,AK 20,11,GER,02:56:40.06,29:44,03:40,01:22:56,02:11,58:09
+2025,202,male,426,Bernd Sauerwein,TG Hanau,AK 55,25,GER,02:56:48.91,29:27,03:06,01:25:42,01:35,56:58
+2025,203,male,212,Jan Donnecker,Eintracht Fankfurt Triathlon,AK 45,22,GER,02:56:59.20,33:58,03:00,01:28:58,01:50,49:13
+2025,204,male,287,Ivo Schmohl,,AK 35,16,GER,02:57:24.82,36:53,02:48,01:23:04,01:55,52:44
+2025,205,male,355,Markus Theis,Eintracht Frankfurt,AK 45,23,GER,02:57:48.87,30:55,01:26,01:31:15,01:38,52:34
+2025,206,male,42,Karlheinz Stumpf,Chaos,AK 70,1,GER,02:58:06.26,29:59,02:48,01:30:47,01:36,52:56
+2025,207,male,223,Michael Büschel,,AK 50,34,GER,02:58:18.88,28:12,02:00,01:30:02,02:10,55:54
+2025,208,male,165,Florian Streckert,,AK 35,17,GER,02:58:55.29,29:35,04:09,01:34:21,02:05,48:45
+2025,209,male,144,Lukas Beckmann,#TeamThiloBickert,AK 30,18,GER,02:58:57.96,29:18,01:37,01:29:59,01:27,56:36
+2025,210,male,405,Peter Naber,EOSC Offenbach Triathlon,AK 55,26,GER,02:59:10.07,26:50,01:51,01:40:52,01:22,48:15
+2025,211,male,369,Uwe Cassel,REA Card Triathlonteam TuS Griesheim,AK 55,27,GER,02:59:11.47,32:42,02:27,01:32:33,01:27,50:02
+2025,212,male,139,Janek Stiebing,,AK 30,19,GER,02:59:16.93,28:58,02:49,01:29:58,02:09,55:22
+2025,213,male,254,Jörn-Peter Halle,SV TRICITY Darmstadt,AK 60,19,GER,02:59:17.49,31:09,03:31,01:28:31,01:50,54:16
+2025,214,male,270,Lutz Straub,VfL Sindelfingen Triathlon,AK 60,20,GER,02:59:34.84,26:37,01:33,01:30:58,01:07,59:19
+2025,215,male,225,Stephan Heiderich,Stay Alive,AK 50,35,GER,03:00:05.29,33:46,03:23,01:28:43,02:01,52:12
+2025,216,male,172,Florian Vetter,,AK 35,18,GER,03:00:55.15,30:40,01:49,01:35:40,01:44,51:02
+2025,217,male,360,Florian Erbacher,Eintracht Frankfurt II,AK 40,34,GER,03:00:57.51,38:28,04:53,01:26:43,01:44,49:09
+2025,218,male,419,Stefan Göttinger,Placeworkers Triathlon Team Gießen,AK 55,28,GER,03:01:25.75,31:03,02:41,01:29:49,01:51,56:01
+2025,219,male,40,Fabian Jendrzej,,AK 25,23,GER,03:02:08.29,39:07,02:53,01:29:38,02:00,48:30
+2025,220,male,374,Karsten Herisch,SG Arheilgen,AK 55,29,GER,03:02:31.60,34:10,03:18,01:32:44,01:30,50:49
+2025,221,male,440,Jens Werrbach,Wassersportvereinigung Cassel e.V.,AK 55,30,GER,03:02:56.44,35:17,02:21,01:27:29,02:11,55:38
+2025,222,male,370,Peter Jakob,REA Card Triathlonteam TuS Griesheim,AK 60,21,GER,03:03:01.18,32:48,01:32,01:32:28,02:27,53:46
+2025,223,male,438,Valeriy Zenzin,Wassersportvereinigung Cassel e.V.,AK 50,36,GER,03:03:14.31,36:02,01:51,01:32:45,01:20,51:16
+2025,224,male,271,Manfred Goschler,noblemotions,AK 65,7,GER,03:03:30.23,31:36,02:39,01:30:32,02:15,56:28
+2025,225,male,324,Markus Dangmann,TG Tria Rüsselsheim,AK 55,31,GER,03:03:49.57,37:23,01:50,01:34:56,01:06,48:34
+2025,226,male,217,Tobias Schulte,Marathon Club Menden,AK 45,24,GER,03:04:58.46,39:09,03:14,01:31:38,01:57,49:00
+2025,227,male,161,Martin Lang,,AK 35,19,GER,03:05:04.46,33:12,02:12,01:32:19,01:34,55:47
+2025,228,male,157,Ignacio Zabala,,AK 35,20,GER,03:05:39.84,29:04,04:07,01:34:15,01:44,56:29
+2025,229,male,281,Hermann Dorner,TuS Griesheim,AK 75,1,GER,03:05:51.23,35:11,03:34,01:27:49,02:23,56:54
+2025,230,male,218,Clemens Reusch,,AK 45,25,GER,03:06:25.12,34:18,03:41,01:39:38,01:03,47:45
+2025,231,male,266,Andre Duperret,TriCity Darmstadt,AK 60,22,GER,03:06:34.08,33:12,01:48,01:28:05,01:47,01:01:42
+2025,232,male,354,Heike Hechler,algemarin Team SV Traisa,AK 50,37,GER,03:06:58.01,31:20,02:08,01:36:55,01:11,55:24
+2025,233,male,237,Tobias Horstmann,,AK 50,38,GER,03:07:55.03,32:38,02:27,01:30:13,02:01,01:00:36
+2025,234,male,284,Markus Könn,ASG Tria Hockenheim,AK 55,32,GER,03:07:59.47,36:27,03:33,01:27:20,02:02,58:37
+2025,235,male,45,Gerald Schug,TSV Amicitia Viernheim,AK 60,23,GER,03:08:27.03,27:27,04:29,01:31:21,01:38,01:03:32
+2025,236,male,182,Holger Schmeißer,,AK 40,35,GER,03:08:50.94,31:14,04:39,01:37:31,02:34,52:52
+2025,237,male,356,Caprice Weissenrieder,Eintracht Frankfurt,AK 45,26,GER,03:09:16.95,30:02,03:10,01:41:01,02:02,53:01
+2025,238,male,377,Martin Kohm,SKV Mörfelden Team MöWathlon,AK 55,33,GER,03:09:36.55,36:22,02:49,01:30:41,01:38,58:06
+2025,239,male,232,Dieter Ulber,FSV 08 Steinbach Ts.,AK 50,39,GER,03:10:27.35,24:52,01:31,01:33:38,01:31,01:08:55
+2025,240,male,427,Ralf Schlaeger,TG Hanau,AK 60,24,GER,03:11:14.50,29:40,02:57,01:40:32,01:40,56:25
+2025,241,male,258,Thomas Klotz,Erdinger Active Team,AK 55,34,GER,03:12:05.85,,,,02:23,50:02
+2025,242,male,215,Christoph Ebert,,AK 45,27,GER,03:12:27.60,33:24,03:17,01:37:25,01:40,56:41
+2025,243,male,132,Andrii Pogorielov,,AK 30,20,GER,03:12:40.96,30:01,02:46,01:40:45,02:38,56:30
+2025,244,male,256,Oliver Nigge,,AK 55,35,GER,03:13:17.30,33:11,03:53,01:34:29,02:17,59:27
+2025,245,male,261,Fabrizio Cau,RTC Frechen,AK 55,36,GER,03:13:39.70,30:55,02:21,01:37:34,02:08,01:00:41
+2025,246,male,37,Marco Martella,,AK 30,21,GER,03:14:01.84,35:14,02:33,01:26:10,01:26,01:08:38
+2025,247,male,274,Klaus Heeger,TSV Ubstadt,AK 65,8,GER,03:14:04.99,39:19,05:54,01:28:47,01:33,58:31
+2025,248,male,278,Georg Klein,TSV Baden Triathlon,AK 55,37,GER,03:14:09.46,36:46,04:47,01:36:40,02:01,53:55
+2025,249,male,133,Frederik Haas,,AK 30,22,GER,03:14:51.16,33:29,03:25,01:34:03,01:43,01:02:11
+2025,250,male,135,Vaclav Splichal,,AK 30,23,GER,03:14:53.84,34:14,02:41,01:45:46,02:01,50:11
+2025,251,male,255,Johannes Moeller,Ludwigshafener SV 07,AK 55,38,GER,03:16:50.42,36:15,03:32,01:29:29,03:11,01:04:23
+2025,252,male,330,Michael Mitkov,TSV Krofdorf-Gleiberg,AK 50,40,GER,03:17:38.08,28:48,02:33,01:36:41,02:07,01:07:29
+2025,253,male,368,Matthias Fengler,REA Card Triathlonteam TuS Griesheim,AK 55,39,GER,03:23:36.03,44:56,03:35,01:37:26,02:04,55:35
+2025,254,male,358,Alexander Markert,Eintracht Frankfurt,AK 50,41,GER,03:24:43.90,27:49,03:39,01:45:31,02:02,01:05:42
+2025,255,male,252,Markus Boss,,AK 55,40,GER,03:29:34.90,38:10,02:29,01:39:38,02:29,01:06:48
+2025,256,male,403,Thorsten Grimm,Eintracht Frankfurt,AK 55,41,GER,03:30:29.06,30:57,02:54,01:45:14,01:57,01:09:27
+2025,257,male,288,David Wolf,,AK 40,36,GER,03:42:17.45,44:42,02:46,01:42:36,02:09,01:10:04
+2025,258,male,228,Frank Dünkelberg,1. FC Kaiserslautern,AK 50,42,GER,03:52:36.41,44:36,04:03,01:51:46,02:10,01:10:01
+2025,DNF,male,429,Peter Kern,TRIA-TEAM Bruchköbel,AK 60,DNF,GER,,28:35,01:09,01:20:41,01:43,
+2025,DNF,male,234,Justin Ross,,AK 45,DNF,GER,,30:11,03:45,01:41:52,01:50,
+2025,DNF,male,414,Joachim Petry,LC Olympia Wiesbaden,AK 50,DNF,GER,,,,,,
+2025,DNF,male,253,Gregor Lindemann,,AK 55,DNF,GER,,,,,,
+2025,DNF,male,425,Andreas Dietrich,TG Hanau,AK 60,DNF,GER,,31:33,03:23,01:34:59,02:50,
+2025,DNS,male,313,Günther Rothmayer,SG Elz-Limbach,AK 60,DNS,GER,,,,,,
+2025,DNS,male,418,Simone Pyrlik,Placeworkers Triathlon Team Gießen,AK 50,DNS,GER,,,,,,
+2025,DNS,male,327,,TRIA-TEAM Bruchköbel,,,GER,,,,,,
+2025,DNS,male,408,,,,,GER,,,,,,
+2025,DSQ,female,59,Jule Zeit,Keiner,AK 25,DSQ,GER,02:52:35.67,28:34,01:51,01:28:45,01:03,52:22
+2025,DSQ,male,267,Peter Gallinger,Team G²,AK 60,DSQ,GER,02:59:05.59,37:12,04:25,01:19:59,01:54,55:35
+2025,DSQ,male,101,Dominik Komlac,ouw Club,AK 20,DSQ,GER,02:32:30.30,27:04,02:00,01:15:50,02:13,45:23

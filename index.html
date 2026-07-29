@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Explore swim, transition, bike, run, and finish-time distributions from the Viernheim V-Card Triathlon.">
+    <meta name="theme-color" content="#f4f1e8">
+    <title>Viernheim Triathlon Times</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Viernheim Triathlon Times home">
+        <span class="brand-mark" aria-hidden="true">VT</span>
+        <span>Viernheim Times</span>
+      </a>
+      <p class="distance-label">Olympic distance · 2023–2025</p>
+    </header>
+
+    <main>
+      <section class="filter-panel" aria-labelledby="filter-heading">
+        <div class="filter-heading">
+          <div>
+            <p class="eyebrow">Shape the field</p>
+            <h2 id="filter-heading">Filters</h2>
+          </div>
+          <button class="reset-button" id="reset-filters" type="button">Reset all</button>
+        </div>
+
+        <div class="filter-grid">
+          <label class="filter-control" for="year-filter">
+            <span>Year</span>
+            <span class="select-wrap">
+              <select id="year-filter">
+                <option value="all">All years</option>
+              </select>
+            </span>
+          </label>
+
+          <label class="filter-control" for="gender-filter">
+            <span>Gender</span>
+            <span class="select-wrap">
+              <select id="gender-filter">
+                <option value="all">All genders</option>
+              </select>
+            </span>
+          </label>
+
+          <label class="filter-control" for="age-filter">
+            <span>Age group</span>
+            <span class="select-wrap">
+              <select id="age-filter">
+                <option value="all">All age groups</option>
+              </select>
+            </span>
+          </label>
+        </div>
+
+        <div class="active-summary" aria-live="polite">
+          <span class="pulse" aria-hidden="true"></span>
+          <strong id="result-count">Loading results…</strong>
+          <span id="active-description">Preparing the field</span>
+        </div>
+      </section>
+
+      <section class="summary-section" aria-labelledby="summary-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">At a glance</p>
+            <h2 id="summary-heading">The selected field</h2>
+          </div>
+          <p>Median performances for the current filters</p>
+        </div>
+        <div class="summary-grid" id="summary-grid">
+          <article class="summary-card">
+            <span>Finishers</span>
+            <strong id="stat-finishers">—</strong>
+            <small id="stat-finishers-note">with recorded results</small>
+          </article>
+          <article class="summary-card accent-card">
+            <span>Median finish</span>
+            <strong id="stat-total">—</strong>
+            <small id="stat-total-note">middle of the field</small>
+          </article>
+          <article class="summary-card">
+            <span>Median swim</span>
+            <strong id="stat-swim">—</strong>
+            <small id="stat-swim-note">to the water exit</small>
+          </article>
+          <article class="summary-card">
+            <span>Median bike</span>
+            <strong id="stat-bike">—</strong>
+            <small id="stat-bike-note">longest race split</small>
+          </article>
+          <article class="summary-card">
+            <span>Median run</span>
+            <strong id="stat-run">—</strong>
+            <small id="stat-run-note">final discipline</small>
+          </article>
+        </div>
+      </section>
+
+      <section class="charts-section" aria-labelledby="charts-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Distribution</p>
+            <h2 id="charts-heading">Where times cluster</h2>
+          </div>
+          <p>Higher curves mean more athletes finished near that time</p>
+        </div>
+
+        <div class="chart-grid" id="chart-grid">
+          <article class="chart-card chart-card-wide" data-metric="total">
+            <div class="chart-title-row">
+              <div>
+                <span class="discipline-number">01</span>
+                <h3>Total time</h3>
+              </div>
+              <p class="chart-median">Median <strong>—</strong></p>
+            </div>
+            <div class="chart" role="img" aria-label="Density plot of total finish times"></div>
+            <div class="chart-range"><span>—</span><span>—</span></div>
+          </article>
+
+          <article class="chart-card" data-metric="swim">
+            <div class="chart-title-row">
+              <div>
+                <span class="discipline-number">02</span>
+                <h3>Swim</h3>
+              </div>
+              <p class="chart-median">Median <strong>—</strong></p>
+            </div>
+            <div class="chart" role="img" aria-label="Density plot of swim times"></div>
+            <div class="chart-range"><span>—</span><span>—</span></div>
+          </article>
+
+          <article class="chart-card" data-metric="t1">
+            <div class="chart-title-row">
+              <div>
+                <span class="discipline-number">03</span>
+                <h3>Transition 1</h3>
+              </div>
+              <p class="chart-median">Median <strong>—</strong></p>
+            </div>
+            <div class="chart" role="img" aria-label="Density plot of first transition times"></div>
+            <div class="chart-range"><span>—</span><span>—</span></div>
+          </article>
+
+          <article class="chart-card" data-metric="bike">
+            <div class="chart-title-row">
+              <div>
+                <span class="discipline-number">04</span>
+                <h3>Bike</h3>
+              </div>
+              <p class="chart-median">Median <strong>—</strong></p>
+            </div>
+            <div class="chart" role="img" aria-label="Density plot of bike times"></div>
+            <div class="chart-range"><span>—</span><span>—</span></div>
+          </article>
+
+          <article class="chart-card" data-metric="t2">
+            <div class="chart-title-row">
+              <div>
+                <span class="discipline-number">05</span>
+                <h3>Transition 2</h3>
+              </div>
+              <p class="chart-median">Median <strong>—</strong></p>
+            </div>
+            <div class="chart" role="img" aria-label="Density plot of second transition times"></div>
+            <div class="chart-range"><span>—</span><span>—</span></div>
+          </article>
+
+          <article class="chart-card" data-metric="run">
+            <div class="chart-title-row">
+              <div>
+                <span class="discipline-number">06</span>
+                <h3>Run</h3>
+              </div>
+              <p class="chart-median">Median <strong>—</strong></p>
+            </div>
+            <div class="chart" role="img" aria-label="Density plot of run times"></div>
+            <div class="chart-range"><span>—</span><span>—</span></div>
+          </article>
+        </div>
+
+        <div class="empty-state" id="empty-state" hidden>
+          <span aria-hidden="true">∿</span>
+          <h3>No matching results</h3>
+          <p>Try widening one of the filters above.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Viernheimer V-Card Triathlon · Results from 2023–2025</p>
+      <p>Every curve represents finishers with a recorded split.</p>
+    </footer>
+
+    <div class="tooltip" id="chart-tooltip" role="status" hidden>
+      <strong></strong>
+      <span></span>
+    </div>
+  </body>
+</html>
