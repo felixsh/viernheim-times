@@ -29,8 +29,18 @@ const controls = {
 };
 
 const tooltip = document.querySelector("#chart-tooltip");
+let activeTooltipBar = null;
+let pinnedTooltip = null;
 let resizeTimer;
 let syncResultsHeader = () => {};
+
+function clearChartTooltip() {
+  activeTooltipBar?.classList.remove("is-active");
+  pinnedTooltip?.bar.classList.remove("is-active");
+  activeTooltipBar = null;
+  pinnedTooltip = null;
+  tooltip.hidden = true;
+}
 
 function parseCSV(text) {
   const rows = [];
@@ -441,8 +451,10 @@ function renderChart(card, metric, rows) {
     placedFinishers += bin.count;
     const lastPlace = placedFinishers;
 
-    function showTooltip(event) {
+    function showTooltip() {
       const bounds = bar.getBoundingClientRect();
+      const chartBounds = chart.getBoundingClientRect();
+      activeTooltipBar?.classList.remove("is-active");
       tooltip.querySelector("strong").textContent =
         `${formatTime(bin.start, true)}–${formatTime(bin.end, true)}`;
       tooltip.querySelector(".tooltip-count").textContent = state.year !== "all"
@@ -451,20 +463,62 @@ function renderChart(card, metric, rows) {
       const performanceLine = tooltip.querySelector(".tooltip-performance");
       performanceLine.textContent = performance ?? "";
       performanceLine.hidden = !performance;
-      tooltip.style.left = `${event.clientX ?? bounds.left + bounds.width / 2}px`;
-      tooltip.style.top = `${event.clientY ?? bounds.top}px`;
       tooltip.hidden = false;
+      const tooltipBounds = tooltip.getBoundingClientRect();
+      const horizontalPadding = 8;
+      const minimumLeft = tooltipBounds.width / 2 + horizontalPadding;
+      const maximumLeft = window.innerWidth - tooltipBounds.width / 2 - horizontalPadding;
+      const barCenter = bounds.left + bounds.width / 2;
+      tooltip.style.left = `${Math.min(Math.max(barCenter, minimumLeft), maximumLeft)}px`;
+      tooltip.style.top = `${Math.max(chartBounds.top + 8, 8)}px`;
       bar.classList.add("is-active");
+      activeTooltipBar = bar;
     }
 
     function hideTooltip() {
-      tooltip.hidden = true;
+      if (pinnedTooltip) {
+        return;
+      }
       bar.classList.remove("is-active");
+      activeTooltipBar = null;
+      tooltip.hidden = true;
     }
 
-    hitArea.addEventListener("pointerenter", showTooltip);
-    hitArea.addEventListener("pointermove", showTooltip);
+    function showHoverTooltip() {
+      if (!pinnedTooltip) {
+        showTooltip();
+      }
+    }
+
+    function pinTooltip(event) {
+      event.stopPropagation();
+      if (pinnedTooltip?.bar === bar) {
+        pinnedTooltip = null;
+        return;
+      }
+      pinnedTooltip?.bar.classList.remove("is-active");
+      pinnedTooltip = { bar };
+      showTooltip();
+    }
+
+    hitArea.addEventListener("pointerenter", showHoverTooltip);
+    hitArea.addEventListener("pointermove", showHoverTooltip);
     hitArea.addEventListener("pointerleave", hideTooltip);
+    hitArea.addEventListener("click", pinTooltip);
+    hitArea.addEventListener("focus", showHoverTooltip);
+    hitArea.addEventListener("blur", hideTooltip);
+    hitArea.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        pinTooltip(event);
+      }
+    });
+    hitArea.setAttribute("role", "button");
+    hitArea.setAttribute("tabindex", "0");
+    hitArea.setAttribute(
+      "aria-label",
+      `${formatTime(bin.start, true)} to ${formatTime(bin.end, true)}, ${bin.count} ${bin.count === 1 ? "finisher" : "finishers"}`,
+    );
     bars.append(bar, hitArea);
   });
 
@@ -489,6 +543,7 @@ function renderChart(card, metric, rows) {
 }
 
 function render() {
+  clearChartTooltip();
   const rows = filteredRows();
   const chartGrid = document.querySelector("#chart-grid");
   const emptyState = document.querySelector("#empty-state");
@@ -728,6 +783,7 @@ function bindEvents() {
   document.querySelectorAll(".view-tab").forEach((tab) => {
     tab.addEventListener("click", () => switchDashboardView(tab.dataset.viewTarget));
   });
+  document.addEventListener("click", clearChartTooltip);
   document.addEventListener("click", handleTableSort);
   controls.tableYear.addEventListener("click", handleTableToggle);
   controls.tableGender.addEventListener("click", handleTableToggle);

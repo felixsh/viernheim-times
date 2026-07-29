@@ -493,7 +493,7 @@ select:focus-visible {
 }
 
 .histogram-bars {
-  cursor: crosshair;
+  cursor: pointer;
 }
 
 .histogram-hit-area {
@@ -548,7 +548,7 @@ select:focus-visible {
   border-radius: 0.55rem;
   box-shadow: var(--shadow);
   pointer-events: none;
-  transform: translate(-50%, calc(-100% - 12px));
+  transform: translateX(-50%);
 }
 
 .tooltip strong {
