@@ -6,7 +6,7 @@ column. Gender is read from the site's icon metadata, but images, media,
 certificate links, photo links, and URLs are not exported.
 
 Usage:
-    python crawl_trialog_results_2021_2025.py [-o results.csv]
+    python crawl_trialog_results_2023_2025.py [-o results.csv]
 
 Dependencies:
     requests
