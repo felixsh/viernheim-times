@@ -1,12 +1,12 @@
 const DATA_URL = "trialogevent_results_2023_2025.csv";
 
 const metrics = {
-  total: { column: "Totalzeit", label: "Total time", color: "#d8ff55" },
-  swim: { column: "Schwimmen", label: "Swim", color: "#9edbf4" },
-  t1: { column: "Wechsel_1", label: "Transition 1", color: "#ffd266" },
-  bike: { column: "Rad", label: "Bike", color: "#62c58b" },
-  t2: { column: "Wechsel_2", label: "Transition 2", color: "#ffb5a8" },
-  run: { column: "Lauf", label: "Run", color: "#a7baff" },
+  total: { column: "Totalzeit", label: "Total time", color: "#e885bf" },
+  swim: { column: "Schwimmen", label: "Swim", color: "#00bee5" },
+  t1: { column: "Wechsel_1", label: "Transition 1", color: "#de9c31" },
+  bike: { column: "Rad", label: "Bike", color: "#62c37a" },
+  t2: { column: "Wechsel_2", label: "Transition 2", color: "#f68675" },
+  run: { column: "Lauf", label: "Run", color: "#a29dfc" },
 };
 
 const state = {
