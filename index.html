@@ -27,173 +27,156 @@
       <button class="view-tab" type="button" data-view-target="results" aria-pressed="false">Race results</button>
       <button class="view-tab" type="button" data-view-target="links" aria-pressed="false">Links</button>
     </nav>
-    <section class="chart-filter-section" data-dashboard-view="charts" aria-label="Chart filters">
-      <div class="table-filter-panel">
-        <div class="table-filter">
-          <span class="table-filter-label">Year</span>
-          <div class="segmented-control" id="chart-year-toggle" data-chart-filter="year" role="group"
-            aria-label="Filter charts by year">
-            <button class="is-active" type="button" data-value="all" aria-pressed="true">All</button>
+    <section class="dashboard-view charts-view" id="charts-view" data-dashboard-view="charts"
+      aria-label="Charts">
+      <section class="chart-filter-section" aria-label="Chart filters">
+        <div class="table-filter-panel">
+          <div class="table-filter">
+            <span class="table-filter-label">Year</span>
+            <div class="segmented-control" id="chart-year-toggle" data-chart-filter="year" role="group"
+              aria-label="Filter charts by year">
+              <button class="is-active" type="button" data-value="all" aria-pressed="true">All</button>
+            </div>
           </div>
-        </div>
-        <div class="table-filter">
-          <span class="table-filter-label">Gender</span>
-          <div class="segmented-control" id="chart-gender-toggle" data-chart-filter="gender" role="group"
-            aria-label="Filter charts by gender">
-            <button class="is-active" type="button" data-value="all" aria-pressed="true">All</button>
+          <div class="table-filter">
+            <span class="table-filter-label">Gender</span>
+            <div class="segmented-control" id="chart-gender-toggle" data-chart-filter="gender" role="group"
+              aria-label="Filter charts by gender">
+              <button class="is-active" type="button" data-value="all" aria-pressed="true">All</button>
+            </div>
           </div>
+          <label class="table-filter" for="chart-age-filter">
+            <span class="table-filter-label">Age group</span>
+            <span class="select-wrap table-select-wrap">
+              <select id="chart-age-filter">
+                <option value="all">All age groups</option>
+              </select>
+            </span>
+          </label>
+          <button class="table-reset" id="reset-filters" type="button">Reset</button>
         </div>
-        <label class="table-filter" for="chart-age-filter">
-          <span class="table-filter-label">Age group</span>
-          <span class="select-wrap table-select-wrap">
-            <select id="chart-age-filter">
-              <option value="all">All age groups</option>
-            </select>
-          </span>
-        </label>
-        <button class="table-reset" id="reset-filters" type="button">Reset</button>
-      </div>
 
-      <div class="table-status chart-filter-status" aria-live="polite">
-        <strong id="result-count">Loading results…</strong>
-        <span id="active-description">Preparing the field</span>
-      </div>
+        <div class="table-status chart-filter-status" aria-live="polite">
+          <strong id="result-count">Loading results…</strong>
+          <span id="active-description">Preparing the field</span>
+        </div>
+      </section>
+
+      <section class="summary-section" aria-label="Selected field summary">
+        <div class="summary-grid" id="summary-grid">
+          <article class="summary-card">
+            <span>Finishers</span>
+            <strong id="stat-finishers">—</strong>
+            <small id="stat-finishers-note">with recorded results</small>
+          </article>
+          <article class="summary-card accent-card">
+            <span>Median finish</span>
+            <strong id="stat-total">—</strong>
+            <small id="stat-total-note">middle of the field</small>
+          </article>
+          <article class="summary-card">
+            <span>Median swim <em>1,500 m</em></span>
+            <strong id="stat-swim">—</strong>
+            <small class="summary-performance"><b id="stat-swim-performance">—</b></small>
+          </article>
+          <article class="summary-card">
+            <span>Median bike <em>37.4 km</em></span>
+            <strong id="stat-bike">—</strong>
+            <small class="summary-performance"><b id="stat-bike-performance">—</b></small>
+          </article>
+          <article class="summary-card">
+            <span>Median run <em>10 km</em></span>
+            <strong id="stat-run">—</strong>
+            <small class="summary-performance"><b id="stat-run-performance">—</b></small>
+          </article>
+        </div>
+      </section>
+
+      <section class="charts-section" aria-label="Time distributions">
+        <div class="chart-grid" id="chart-grid">
+          <article class="chart-card chart-card-wide" data-metric="total">
+            <div class="chart-title-row">
+              <div>
+                <span class="discipline-number">01</span>
+                <h3>Total time</h3>
+              </div>
+              <p class="chart-median">Median <strong>—</strong></p>
+            </div>
+            <div class="chart" role="img" aria-label="Histogram of total finish times"></div>
+            <div class="chart-range"><span>—</span><span>—</span></div>
+          </article>
+
+          <article class="chart-card" data-metric="swim">
+            <div class="chart-title-row">
+              <div>
+                <span class="discipline-number">02</span>
+                <h3>Swim</h3>
+              </div>
+              <p class="chart-median">Median <strong>—</strong></p>
+            </div>
+            <div class="chart" role="img" aria-label="Histogram of swim times"></div>
+            <div class="chart-range"><span>—</span><span>—</span></div>
+          </article>
+
+          <article class="chart-card" data-metric="t1">
+            <div class="chart-title-row">
+              <div>
+                <span class="discipline-number">03</span>
+                <h3>Transition 1</h3>
+              </div>
+              <p class="chart-median">Median <strong>—</strong></p>
+            </div>
+            <div class="chart" role="img" aria-label="Histogram of first transition times"></div>
+            <div class="chart-range"><span>—</span><span>—</span></div>
+          </article>
+
+          <article class="chart-card" data-metric="bike">
+            <div class="chart-title-row">
+              <div>
+                <span class="discipline-number">04</span>
+                <h3>Bike</h3>
+              </div>
+              <p class="chart-median">Median <strong>—</strong></p>
+            </div>
+            <div class="chart" role="img" aria-label="Histogram of bike times"></div>
+            <div class="chart-range"><span>—</span><span>—</span></div>
+          </article>
+
+          <article class="chart-card" data-metric="t2">
+            <div class="chart-title-row">
+              <div>
+                <span class="discipline-number">05</span>
+                <h3>Transition 2</h3>
+              </div>
+              <p class="chart-median">Median <strong>—</strong></p>
+            </div>
+            <div class="chart" role="img" aria-label="Histogram of second transition times"></div>
+            <div class="chart-range"><span>—</span><span>—</span></div>
+          </article>
+
+          <article class="chart-card" data-metric="run">
+            <div class="chart-title-row">
+              <div>
+                <span class="discipline-number">06</span>
+                <h3>Run</h3>
+              </div>
+              <p class="chart-median">Median <strong>—</strong></p>
+            </div>
+            <div class="chart" role="img" aria-label="Histogram of run times"></div>
+            <div class="chart-range"><span>—</span><span>—</span></div>
+          </article>
+        </div>
+
+        <div class="empty-state" id="empty-state" hidden>
+          <span aria-hidden="true">∿</span>
+          <h3>No matching results</h3>
+          <p>Try widening one of the filters above.</p>
+        </div>
+      </section>
     </section>
 
-    <section class="summary-section" data-dashboard-view="charts" aria-labelledby="summary-heading">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">At a glance</p>
-          <h2 id="summary-heading">The selected field</h2>
-        </div>
-      </div>
-      <div class="summary-grid" id="summary-grid">
-        <article class="summary-card">
-          <span>Finishers</span>
-          <strong id="stat-finishers">—</strong>
-          <small id="stat-finishers-note">with recorded results</small>
-        </article>
-        <article class="summary-card accent-card">
-          <span>Median finish</span>
-          <strong id="stat-total">—</strong>
-          <small id="stat-total-note">middle of the field</small>
-        </article>
-        <article class="summary-card">
-          <span>Median swim <em>1,500 m</em></span>
-          <strong id="stat-swim">—</strong>
-          <small class="summary-performance"><b id="stat-swim-performance">—</b></small>
-        </article>
-        <article class="summary-card">
-          <span>Median bike <em>37.4 km</em></span>
-          <strong id="stat-bike">—</strong>
-          <small class="summary-performance"><b id="stat-bike-performance">—</b></small>
-        </article>
-        <article class="summary-card">
-          <span>Median run <em>10 km</em></span>
-          <strong id="stat-run">—</strong>
-          <small class="summary-performance"><b id="stat-run-performance">—</b></small>
-        </article>
-      </div>
-    </section>
-
-    <section class="charts-section" data-dashboard-view="charts" aria-labelledby="charts-heading">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">Distribution</p>
-          <h2 id="charts-heading">Where times cluster</h2>
-        </div>
-      </div>
-
-      <div class="chart-grid" id="chart-grid">
-        <article class="chart-card chart-card-wide" data-metric="total">
-          <div class="chart-title-row">
-            <div>
-              <span class="discipline-number">01</span>
-              <h3>Total time</h3>
-            </div>
-            <p class="chart-median">Median <strong>—</strong></p>
-          </div>
-          <div class="chart" role="img" aria-label="Histogram of total finish times"></div>
-          <div class="chart-range"><span>—</span><span>—</span></div>
-        </article>
-
-        <article class="chart-card" data-metric="swim">
-          <div class="chart-title-row">
-            <div>
-              <span class="discipline-number">02</span>
-              <h3>Swim</h3>
-            </div>
-            <p class="chart-median">Median <strong>—</strong></p>
-          </div>
-          <div class="chart" role="img" aria-label="Histogram of swim times"></div>
-          <div class="chart-range"><span>—</span><span>—</span></div>
-        </article>
-
-        <article class="chart-card" data-metric="t1">
-          <div class="chart-title-row">
-            <div>
-              <span class="discipline-number">03</span>
-              <h3>Transition 1</h3>
-            </div>
-            <p class="chart-median">Median <strong>—</strong></p>
-          </div>
-          <div class="chart" role="img" aria-label="Histogram of first transition times"></div>
-          <div class="chart-range"><span>—</span><span>—</span></div>
-        </article>
-
-        <article class="chart-card" data-metric="bike">
-          <div class="chart-title-row">
-            <div>
-              <span class="discipline-number">04</span>
-              <h3>Bike</h3>
-            </div>
-            <p class="chart-median">Median <strong>—</strong></p>
-          </div>
-          <div class="chart" role="img" aria-label="Histogram of bike times"></div>
-          <div class="chart-range"><span>—</span><span>—</span></div>
-        </article>
-
-        <article class="chart-card" data-metric="t2">
-          <div class="chart-title-row">
-            <div>
-              <span class="discipline-number">05</span>
-              <h3>Transition 2</h3>
-            </div>
-            <p class="chart-median">Median <strong>—</strong></p>
-          </div>
-          <div class="chart" role="img" aria-label="Histogram of second transition times"></div>
-          <div class="chart-range"><span>—</span><span>—</span></div>
-        </article>
-
-        <article class="chart-card" data-metric="run">
-          <div class="chart-title-row">
-            <div>
-              <span class="discipline-number">06</span>
-              <h3>Run</h3>
-            </div>
-            <p class="chart-median">Median <strong>—</strong></p>
-          </div>
-          <div class="chart" role="img" aria-label="Histogram of run times"></div>
-          <div class="chart-range"><span>—</span><span>—</span></div>
-        </article>
-      </div>
-
-      <div class="empty-state" id="empty-state" hidden>
-        <span aria-hidden="true">∿</span>
-        <h3>No matching results</h3>
-        <p>Try widening one of the filters above.</p>
-      </div>
-    </section>
-    <section class="results-section" id="results-view" data-dashboard-view="results" aria-labelledby="results-heading"
-      hidden>
-      <div class="section-heading results-heading">
-        <div>
-          <p class="eyebrow">Every finisher</p>
-          <h2 id="results-heading">Race results</h2>
-        </div>
-        <p>Compare athletes and every recorded split</p>
-      </div>
-
+    <section class="dashboard-view results-section" id="results-view" data-dashboard-view="results"
+      aria-label="Race results" hidden>
       <div class="table-filter-panel">
         <div class="table-filter">
           <span class="table-filter-label">Year</span>
@@ -253,15 +236,8 @@
       </div>
     </section>
 
-    <section class="links-section" id="links-view" data-dashboard-view="links" aria-labelledby="links-heading" hidden>
-      <div class="section-heading links-heading">
-        <div>
-          <p class="eyebrow">Race resources</p>
-          <h2 id="links-heading">Useful links</h2>
-        </div>
-        <p>Official information for athletes and spectators</p>
-      </div>
-
+    <section class="dashboard-view links-section" id="links-view" data-dashboard-view="links"
+      aria-label="Useful links" hidden>
       <div class="links-grid">
         <a class="resource-link" href="https://triathlonviernheim.de/viernheimer-triathlon/" target="_blank" rel="noopener noreferrer">
           <span class="resource-number">01</span>

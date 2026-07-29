@@ -588,7 +588,7 @@ footer p {
 .view-tabs {
   display: inline-flex;
   gap: 0.25rem;
-  margin-top: clamp(2rem, 5vw, 4rem);
+  margin-block: clamp(1rem, 3vw, 1.5rem);
   padding: 0.3rem;
   background: rgba(251, 250, 245, 0.7);
   border: 1px solid var(--line);
@@ -618,12 +618,13 @@ footer p {
   background: var(--ink);
 }
 
-.links-section {
-  margin-top: clamp(2.5rem, 6vw, 5rem);
+.dashboard-view {
+  width: 100%;
 }
 
-.links-heading {
-  margin-bottom: 1.4rem;
+.charts-view .summary-section,
+.charts-view .charts-section {
+  padding-top: clamp(1.5rem, 3vw, 2.5rem);
 }
 
 .links-grid {
@@ -695,19 +696,9 @@ footer p {
   font-size: 1.15rem;
 }
 
-.results-section {
-  width: 100%;
-  margin-top: clamp(2.5rem, 6vw, 5rem);
-}
-
 .chart-filter-section {
   position: relative;
   z-index: 5;
-  margin-top: 1rem;
-}
-
-.results-heading {
-  margin-bottom: 1.4rem;
 }
 
 .table-filter-panel {
