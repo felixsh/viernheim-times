@@ -14,9 +14,15 @@ const athleteNameCollator = new Intl.Collator(undefined, {
   numeric: true,
 });
 const raceStatusOrder = ["DNS", "DNF", "DSQ"];
+const urlStateKeys = ["tab", "year", "gender", "age"];
+const filterDefaults = {
+  charts: { year: "all", gender: "all", age: "all" },
+  results: { year: "all", gender: "all", age: "all" },
+};
 
 const state = {
   rows: [],
+  view: "charts",
   year: "all",
   gender: "all",
   age: "all",
@@ -221,9 +227,11 @@ function populateFilters() {
   setToggleValue(controls.gender, state.gender);
   addOptions(controls.tableAge, ageGroups);
   addToggleOptions(controls.tableYear, years);
-  state.table.year = years.at(-1);
+  filterDefaults.results.year = years.at(-1) ?? "all";
+  state.table.year = filterDefaults.results.year;
   setToggleValue(controls.tableYear, state.table.year);
   addToggleOptions(controls.tableGender, genders, formatGender);
+  setToggleValue(controls.tableGender, state.table.gender);
 }
 
 function quantile(sortedValues, position) {
@@ -776,6 +784,91 @@ function setToggleValue(container, value) {
   });
 }
 
+function controlsForView(view) {
+  return view === "results"
+    ? { year: controls.tableYear, gender: controls.tableGender, age: controls.tableAge }
+    : { year: controls.year, gender: controls.gender, age: controls.age };
+}
+
+function filterStateForView(view) {
+  return view === "results" ? state.table : state;
+}
+
+function ageUrlValue(value) {
+  return value.replaceAll("–", "-");
+}
+
+function availableFilterValue(view, filter, requestedValue) {
+  if (!requestedValue) {
+    return null;
+  }
+
+  const control = controlsForView(view)[filter];
+  if (filter === "age") {
+    return [...control.options]
+      .map((option) => option.value)
+      .find((value) => ageUrlValue(value) === ageUrlValue(requestedValue)) ?? null;
+  }
+
+  return [...control.querySelectorAll("button[data-value]")]
+    .map((button) => button.dataset.value)
+    .find((value) => value === requestedValue) ?? null;
+}
+
+function syncFilterControls(view) {
+  const filterState = filterStateForView(view);
+  const viewControls = controlsForView(view);
+  setToggleValue(viewControls.year, filterState.year);
+  setToggleValue(viewControls.gender, filterState.gender);
+  viewControls.age.value = filterState.age;
+}
+
+function applyUrlState() {
+  const parameters = new URL(window.location.href).searchParams;
+  const requestedView = parameters.get("tab") ?? "charts";
+  state.view = ["charts", "results", "links"].includes(requestedView)
+    ? requestedView
+    : "charts";
+
+  if (state.view === "links") {
+    return;
+  }
+
+  const filterState = filterStateForView(state.view);
+  const defaults = filterDefaults[state.view];
+  ["year", "gender", "age"].forEach((filter) => {
+    filterState[filter] =
+      availableFilterValue(state.view, filter, parameters.get(filter))
+      ?? defaults[filter];
+  });
+  syncFilterControls(state.view);
+}
+
+function updateUrl(push = false) {
+  const url = new URL(window.location.href);
+  urlStateKeys.forEach((key) => url.searchParams.delete(key));
+
+  if (state.view !== "charts") {
+    url.searchParams.set("tab", state.view);
+  }
+
+  if (state.view !== "links") {
+    const filterState = filterStateForView(state.view);
+    const defaults = filterDefaults[state.view];
+    ["year", "gender", "age"].forEach((filter) => {
+      if (filterState[filter] !== defaults[filter]) {
+        const value = filter === "age"
+          ? ageUrlValue(filterState[filter])
+          : filterState[filter];
+        url.searchParams.set(filter, value);
+      }
+    });
+  }
+
+  const method = push ? "pushState" : "replaceState";
+  window.history[method]({}, "", `${url.pathname}${url.search}${url.hash}`);
+}
+
 function handleTableToggle(event) {
   const button = event.target.closest("button[data-value]");
   if (!button) {
@@ -786,6 +879,7 @@ function handleTableToggle(event) {
   state.table[filter] = button.dataset.value;
   setToggleValue(container, button.dataset.value);
   renderTable();
+  updateUrl();
 }
 
 function updateTableSortControls() {
@@ -891,7 +985,8 @@ function setupResultsHeader() {
   wrapper.addEventListener("scroll", syncResultsHeader, { passive: true });
 }
 
-function switchDashboardView(view) {
+function switchDashboardView(view, { syncUrl = true, pushUrl = false } = {}) {
+  state.view = view;
   document.querySelectorAll(".view-tab").forEach((tab) => {
     const selected = tab.dataset.viewTarget === view;
     tab.classList.toggle("is-active", selected);
@@ -906,6 +1001,9 @@ function switchDashboardView(view) {
     renderTable();
   }
   syncResultsHeader();
+  if (syncUrl) {
+    updateUrl(pushUrl);
+  }
 }
 
 function handleChartToggle(event) {
@@ -917,6 +1015,7 @@ function handleChartToggle(event) {
   state[container.dataset.chartFilter] = button.dataset.value;
   setToggleValue(container, button.dataset.value);
   render();
+  updateUrl();
 }
 
 function bindEvents() {
@@ -928,10 +1027,14 @@ function bindEvents() {
   controls.age.addEventListener("change", () => {
     state.age = controls.age.value;
     render();
+    updateUrl();
   });
 
   document.querySelectorAll(".view-tab").forEach((tab) => {
-    tab.addEventListener("click", () => switchDashboardView(tab.dataset.viewTarget));
+    tab.addEventListener("click", () => {
+      const view = tab.dataset.viewTarget;
+      switchDashboardView(view, { pushUrl: view !== state.view });
+    });
   });
   document.addEventListener("click", clearChartTooltip);
   document.addEventListener("click", handleTableSort);
@@ -942,6 +1045,7 @@ function bindEvents() {
   controls.tableAge.addEventListener("change", () => {
     state.table.age = controls.tableAge.value;
     renderTable();
+    updateUrl();
   });
   controls.tableReset.addEventListener("click", () => {
     state.table.year = controls.tableYear.querySelector("button:last-child").dataset.value;
@@ -953,6 +1057,7 @@ function bindEvents() {
     setToggleValue(controls.tableGender, "all");
     controls.tableAge.value = "all";
     renderTable();
+    updateUrl();
   });
 
   controls.reset.addEventListener("click", () => {
@@ -963,6 +1068,12 @@ function bindEvents() {
     setToggleValue(controls.gender, "all");
     controls.age.value = "all";
     render();
+    updateUrl();
+  });
+
+  window.addEventListener("popstate", () => {
+    applyUrlState();
+    switchDashboardView(state.view, { syncUrl: false });
   });
 
   window.addEventListener("resize", () => {
@@ -983,10 +1094,11 @@ async function init() {
     }
     state.rows = prepareRows(parseCSV(await response.text()));
     populateFilters();
+    applyUrlState();
     bindEvents();
     setupResultsHeader();
-    render();
-    renderTable();
+    switchDashboardView(state.view, { syncUrl: false });
+    updateUrl();
   } catch (error) {
     document.querySelector("#result-count").textContent = "Results unavailable";
     document.querySelector("#active-description").textContent = error.message;
