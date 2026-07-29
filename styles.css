@@ -25,6 +25,7 @@ html {
 
 body {
   min-width: 320px;
+  overflow-x: hidden;
   margin: 0;
   color: var(--ink);
   background:
@@ -147,7 +148,7 @@ h1 em {
 .filter-panel {
   position: relative;
   z-index: 5;
-  margin-top: clamp(2rem, 5vw, 4rem);
+  margin-top: 1rem;
   padding: clamp(1.25rem, 3vw, 2rem);
   color: #f8f8f0;
   background: var(--ink);
@@ -217,6 +218,7 @@ h1 em {
 
 .select-wrap {
   position: relative;
+  color: var(--ink);
 }
 
 .select-wrap::after {
@@ -578,6 +580,384 @@ footer p {
   margin: 0;
 }
 
+
+[hidden] {
+  display: none !important;
+}
+
+.view-tabs {
+  display: inline-flex;
+  gap: 0.25rem;
+  margin-top: clamp(2rem, 5vw, 4rem);
+  padding: 0.3rem;
+  background: rgba(251, 250, 245, 0.7);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+
+.view-tab {
+  padding: 0.7rem 1.15rem;
+  color: var(--ink-soft);
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 800;
+  transition: 160ms ease;
+}
+
+.view-tab:hover,
+.view-tab:focus-visible {
+  color: var(--ink);
+  outline: none;
+}
+
+.view-tab.is-active {
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.results-section {
+  width: 100%;
+  margin-top: clamp(2.5rem, 6vw, 5rem);
+}
+
+.results-heading {
+  margin-bottom: 1.4rem;
+}
+
+.table-filter-panel {
+  display: grid;
+  grid-template-columns: minmax(0, auto) minmax(0, auto) minmax(12rem, 1fr) auto;
+  gap: 1rem;
+  align-items: end;
+  padding: 1.2rem;
+  color: #f8f8f0;
+  background: var(--ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.table-filter {
+  display: grid;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+.table-filter-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.segmented-control {
+  display: flex;
+  gap: 0.2rem;
+  padding: 0.25rem;
+  background: rgba(255, 255, 255, 0.09);
+  border-radius: 0.7rem;
+}
+
+.segmented-control button {
+  min-width: 2.8rem;
+  padding: 0.68rem 0.75rem;
+  color: rgba(255, 255, 255, 0.72);
+  background: transparent;
+  border: 0;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 750;
+  transition: 150ms ease;
+}
+
+.segmented-control button:hover,
+.segmented-control button:focus-visible {
+  color: #fff;
+  outline: none;
+}
+
+.segmented-control button.is-active {
+  color: var(--ink);
+  background: var(--lime);
+}
+
+.table-select-wrap select {
+  min-height: 2.65rem;
+}
+
+.table-reset {
+  min-height: 2.65rem;
+  padding: 0.65rem 1rem;
+  color: #fff;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 0.7rem;
+  cursor: pointer;
+  font-size: 0.76rem;
+  font-weight: 750;
+}
+
+.table-reset:hover,
+.table-reset:focus-visible {
+  color: var(--ink);
+  background: var(--lime);
+  border-color: var(--lime);
+  outline: none;
+}
+
+.table-status {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0.2rem 0.7rem;
+  color: var(--ink-soft);
+  font-size: 0.72rem;
+}
+
+.table-status strong {
+  color: var(--ink);
+}
+
+.results-table-wrap {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow-x: auto;
+  overflow-y: visible;
+  box-shadow: var(--shadow);
+  -webkit-overflow-scrolling: touch;
+}
+
+.results-table-wrap:focus-visible {
+  outline: 3px solid var(--coral);
+  outline-offset: 3px;
+}
+
+.floating-results-header {
+  position: fixed;
+  top: 0;
+  z-index: 40;
+  overflow: hidden;
+  background: var(--ink);
+  box-shadow: 0 8px 24px rgba(20, 47, 43, 0.2);
+}
+
+.floating-results-header .results-table {
+  table-layout: fixed;
+  transform-origin: left top;
+}
+
+.floating-results-header .results-table th {
+  position: static;
+}
+
+.sort-button {
+  display: inline-flex;
+  gap: 0.25rem;
+  align-items: center;
+  padding: 0.3rem 0;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+}
+
+.sort-button:hover,
+.sort-button:focus-visible,
+.sort-button.is-active {
+  color: #fff;
+  outline: none;
+}
+
+.sort-indicator {
+  display: inline-block;
+  width: 0.7rem;
+  color: var(--lime);
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.results-table {
+  width: 100%;
+  min-width: 780px;
+  border-spacing: 0;
+  border-collapse: separate;
+  font-size: 0.76rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.results-table th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding: 0.75rem 0.6rem;
+  color: rgba(255, 255, 255, 0.72);
+  background: var(--ink);
+  font-size: 0.65rem;
+  letter-spacing: 0.07em;
+  text-align: left;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.results-table td {
+  padding: 0.7rem 0.6rem;
+  color: var(--ink-soft);
+  background: var(--surface);
+  border-bottom: 1px solid rgba(201, 206, 194, 0.72);
+  white-space: nowrap;
+}
+
+.results-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.results-table tbody tr:hover td {
+  background: #f1f5df;
+}
+
+.results-table .athlete-cell {
+  width: 10.5rem;
+  min-width: 10.5rem;
+  max-width: 10.5rem;
+}
+
+.athlete-cell strong,
+.athlete-cell small {
+  display: block;
+}
+
+.athlete-cell strong {
+  overflow: hidden;
+  color: var(--ink);
+  font-size: 0.8rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.athlete-cell small {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 0.15rem;
+  overflow: hidden;
+  color: var(--ink-soft);
+  font-size: 0.66rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.results-table .group-cell,
+.results-table .place-cell,
+.results-table .total-cell {
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.results-table th:nth-child(1),
+.results-table .place-cell {
+  width: 3rem;
+}
+
+.results-table th:nth-child(3),
+.results-table .group-cell {
+  width: 3.4rem;
+}
+
+.results-table th:nth-child(4),
+.results-table .total-cell {
+  width: 5.2rem;
+}
+
+.results-table .transition-cell {
+  color: var(--coral);
+}
+
+.results-table .table-empty-cell {
+  height: 12rem;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .view-tabs {
+    display: flex;
+    width: 100%;
+  }
+
+  .view-tab {
+    flex: 1;
+  }
+
+  .table-filter-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .segmented-control {
+    overflow-x: auto;
+  }
+
+  .segmented-control button {
+    flex: 1 0 auto;
+  }
+
+  .table-reset {
+    width: 100%;
+  }
+
+  .results-table-wrap {
+    position: relative;
+    left: 50%;
+    width: 100vw;
+    margin-left: -50vw;
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+  }
+
+  .results-table {
+    min-width: 720px;
+    font-size: 0.7rem;
+  }
+
+  .results-table th,
+  .results-table td {
+    padding-right: 0.38rem;
+    padding-left: 0.38rem;
+  }
+
+  .results-table .athlete-cell {
+    width: 8.5rem;
+    min-width: 8.5rem;
+    max-width: 8.5rem;
+  }
+
+  .results-table th:nth-child(1),
+  .results-table .place-cell {
+    width: 2.4rem;
+  }
+
+  .results-table th:nth-child(3),
+  .results-table .group-cell {
+    width: 2.7rem;
+  }
+
+  .results-table th:nth-child(4),
+  .results-table .total-cell {
+    width: 4.5rem;
+  }
+
+  .table-status span {
+    display: none;
+  }
+}
 @media (max-width: 860px) {
   .intro {
     grid-template-columns: 1fr;

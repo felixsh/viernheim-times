@@ -7,6 +7,7 @@ browser and displays:
 - Filters for year, gender, and normalized age group
 - Median finish, swim, bike, and run times
 - Adaptive histograms with finisher counts for total, swim, T1, bike, T2, and run times
+- A separate race-results table with independent year, gender, and age filters
 - Responsive layouts for phones, tablets, and desktop screens
 
 ## Run locally

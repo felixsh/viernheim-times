@@ -14,6 +14,7 @@ const state = {
   year: "all",
   gender: "all",
   age: "all",
+  table: { year: "all", gender: "all", age: "all", sortKey: "total", sortDirection: "asc" },
 };
 
 const controls = {
@@ -21,10 +22,15 @@ const controls = {
   gender: document.querySelector("#gender-filter"),
   age: document.querySelector("#age-filter"),
   reset: document.querySelector("#reset-filters"),
+  tableYear: document.querySelector("#table-year-toggle"),
+  tableGender: document.querySelector("#table-gender-toggle"),
+  tableAge: document.querySelector("#table-age-filter"),
+  tableReset: document.querySelector("#reset-table-filters"),
 };
 
 const tooltip = document.querySelector("#chart-tooltip");
 let resizeTimer;
+let syncResultsHeader = () => {};
 
 function parseCSV(text) {
   const rows = [];
@@ -123,10 +129,17 @@ function normalizeAgeGroup(value) {
 function prepareRows(rawRows) {
   return rawRows.map((row) => ({
     year: row.Year,
+    place: row.Platz,
+    bib: row.Startnummer,
+    name: row.Name,
+    club: row.Verein,
     gender: row.Gender.toLowerCase(),
     age: normalizeAgeGroup(row.Altersklasse),
     times: Object.fromEntries(
       Object.entries(metrics).map(([key, metric]) => [key, parseTime(row[metric.column])]),
+    ),
+    timeLabels: Object.fromEntries(
+      Object.entries(metrics).map(([key, metric]) => [key, row[metric.column]]),
     ),
   }));
 }
@@ -149,6 +162,28 @@ function addOptions(select, values, labelFormatter = (value) => value) {
   });
 }
 
+function formatGender(gender) {
+  const labels = { female: "Women", male: "Men", mixed: "Mixed", nonbinary: "Non-binary" };
+  return labels[gender] ?? gender;
+}
+
+function formatRaceGroup(row) {
+  const genderCode = row.gender === "female" ? "W" : row.gender === "male" ? "M" : "X";
+  const ageNumber = row.age.match(/\d+/);
+  return `${genderCode}${ageNumber ? ageNumber[0] : row.age}`;
+}
+
+function addToggleOptions(container, values, labelFormatter = (value) => value) {
+  values.forEach((value) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.dataset.value = value;
+    button.setAttribute("aria-pressed", "false");
+    button.textContent = labelFormatter(value);
+    container.append(button);
+  });
+}
+
 function populateFilters() {
   const years = [...new Set(state.rows.map((row) => row.year))].sort();
   const genders = [...new Set(state.rows.map((row) => row.gender))].sort();
@@ -157,11 +192,13 @@ function populateFilters() {
     .sort(numericSort);
 
   addOptions(controls.year, years);
-  addOptions(controls.gender, genders, (gender) => {
-    const labels = { female: "Women", male: "Men", mixed: "Mixed", nonbinary: "Non-binary" };
-    return labels[gender] ?? gender;
-  });
+  addOptions(controls.gender, genders, formatGender);
   addOptions(controls.age, ageGroups);
+  addOptions(controls.tableAge, ageGroups);
+  addToggleOptions(controls.tableYear, years);
+  state.table.year = years.at(-1);
+  setToggleValue(controls.tableYear, state.table.year);
+  addToggleOptions(controls.tableGender, genders, formatGender);
 }
 
 function quantile(sortedValues, position) {
@@ -470,6 +507,214 @@ function render() {
   });
 }
 
+function filteredTableRows() {
+  const direction = state.table.sortDirection === "asc" ? 1 : -1;
+  return state.rows
+    .filter(
+      (row) =>
+        (state.table.year === "all" || row.year === state.table.year)
+        && (state.table.gender === "all" || row.gender === state.table.gender)
+        && (state.table.age === "all" || row.age === state.table.age),
+    )
+    .sort((left, right) => {
+      const leftTime = left.times[state.table.sortKey];
+      const rightTime = right.times[state.table.sortKey];
+      if (!Number.isFinite(leftTime) && !Number.isFinite(rightTime)) {
+        return left.name.localeCompare(right.name);
+      }
+      if (!Number.isFinite(leftTime)) return 1;
+      if (!Number.isFinite(rightTime)) return -1;
+      return (leftTime - rightTime) * direction || left.name.localeCompare(right.name);
+    });
+}
+
+function appendTableCell(tableRow, value, className = "") {
+  const cell = document.createElement("td");
+  cell.textContent = value || "—";
+  if (className) {
+    cell.className = className;
+  }
+  tableRow.append(cell);
+  return cell;
+}
+
+function renderTable() {
+  const rows = filteredTableRows();
+  const body = document.querySelector("#results-table-body");
+  const fragment = document.createDocumentFragment();
+  body.replaceChildren();
+  document.querySelector("#table-result-count").textContent =
+    `${rows.length.toLocaleString()} ${rows.length === 1 ? "result" : "results"}`;
+
+  if (!rows.length) {
+    const tableRow = document.createElement("tr");
+    const cell = appendTableCell(tableRow, "No matching results", "table-empty-cell");
+    cell.colSpan = 9;
+    fragment.append(tableRow);
+  } else {
+    rows.forEach((row) => {
+      const tableRow = document.createElement("tr");
+      appendTableCell(tableRow, row.place, "place-cell");
+
+      const athleteCell = document.createElement("td");
+      athleteCell.className = "athlete-cell";
+      const athleteName = document.createElement("strong");
+      athleteName.textContent = row.name || "Unknown athlete";
+      const athleteDetail = document.createElement("small");
+      athleteDetail.textContent = row.club || (row.bib ? `Bib ${row.bib}` : "Independent");
+      if (row.club) {
+        athleteDetail.title = row.club;
+      }
+      athleteCell.append(athleteName, athleteDetail);
+      tableRow.append(athleteCell);
+
+      appendTableCell(tableRow, formatRaceGroup(row), "group-cell");
+      appendTableCell(tableRow, row.timeLabels.total, "time-cell total-cell");
+      appendTableCell(tableRow, row.timeLabels.swim, "time-cell");
+      appendTableCell(tableRow, row.timeLabels.t1, "time-cell transition-cell");
+      appendTableCell(tableRow, row.timeLabels.bike, "time-cell");
+      appendTableCell(tableRow, row.timeLabels.t2, "time-cell transition-cell");
+      appendTableCell(tableRow, row.timeLabels.run, "time-cell");
+      fragment.append(tableRow);
+    });
+  }
+
+  body.append(fragment);
+  updateTableSortControls();
+  syncResultsHeader();
+}
+
+function setToggleValue(container, value) {
+  container.querySelectorAll("button").forEach((button) => {
+    const selected = button.dataset.value === value;
+    button.classList.toggle("is-active", selected);
+    button.setAttribute("aria-pressed", String(selected));
+  });
+}
+
+function handleTableToggle(event) {
+  const button = event.target.closest("button[data-value]");
+  if (!button) {
+    return;
+  }
+  const container = event.currentTarget;
+  const filter = container.dataset.tableFilter;
+  state.table[filter] = button.dataset.value;
+  setToggleValue(container, button.dataset.value);
+  renderTable();
+}
+
+function updateTableSortControls() {
+  const labels = { total: "total time", swim: "swim", t1: "T1", bike: "bike", t2: "T2", run: "run" };
+  const directionLabel = state.table.sortDirection === "asc" ? "ascending" : "descending";
+  document.querySelector("#table-sort-description").textContent =
+    `Sorted by ${labels[state.table.sortKey]} · ${directionLabel}`;
+
+  document.querySelectorAll(".sort-button").forEach((button) => {
+    const selected = button.dataset.sort === state.table.sortKey;
+    const header = button.closest("th");
+    button.classList.toggle("is-active", selected);
+    button.querySelector(".sort-indicator").textContent = selected
+      ? state.table.sortDirection === "asc" ? "↑" : "↓"
+      : "";
+    if (selected) {
+      header.setAttribute("aria-sort", directionLabel);
+    } else {
+      header.removeAttribute("aria-sort");
+    }
+  });
+}
+
+function handleTableSort(event) {
+  const button = event.target.closest(".sort-button");
+  if (!button) {
+    return;
+  }
+  const sortKey = button.dataset.sort;
+  if (state.table.sortKey === sortKey) {
+    state.table.sortDirection = state.table.sortDirection === "asc" ? "desc" : "asc";
+  } else {
+    state.table.sortKey = sortKey;
+    state.table.sortDirection = "asc";
+  }
+  renderTable();
+}
+
+function setupResultsHeader() {
+  const wrapper = document.querySelector(".results-table-wrap");
+  const sourceTable = document.querySelector(".results-table");
+  const floatingHeader = document.createElement("div");
+  const floatingTable = document.createElement("table");
+  let animationFrame = null;
+
+  floatingHeader.className = "floating-results-header";
+  floatingHeader.hidden = true;
+  floatingHeader.setAttribute("aria-label", "Sticky race result sorting");
+  floatingTable.className = "results-table";
+  floatingTable.append(sourceTable.tHead.cloneNode(true));
+  floatingHeader.append(floatingTable);
+  document.body.append(floatingHeader);
+
+  function updateHeader() {
+    animationFrame = null;
+    const resultsView = document.querySelector("#results-view");
+    if (resultsView.hidden) {
+      floatingHeader.hidden = true;
+      return;
+    }
+
+    const wrapperBounds = wrapper.getBoundingClientRect();
+    const headerHeight = sourceTable.tHead.getBoundingClientRect().height;
+    const shouldFloat = wrapperBounds.top < 0 && wrapperBounds.bottom > headerHeight;
+    floatingHeader.hidden = !shouldFloat;
+    if (!shouldFloat) {
+      return;
+    }
+
+    const sourceHeaders = sourceTable.tHead.querySelectorAll("th");
+    const floatingHeaders = floatingTable.tHead.querySelectorAll("th");
+    sourceHeaders.forEach((header, index) => {
+      const width = header.getBoundingClientRect().width;
+      floatingHeaders[index].style.width = `${width}px`;
+      floatingHeaders[index].style.minWidth = `${width}px`;
+      floatingHeaders[index].style.maxWidth = `${width}px`;
+    });
+
+    floatingHeader.style.left = `${wrapperBounds.left}px`;
+    floatingHeader.style.width = `${wrapperBounds.width}px`;
+    floatingHeader.style.height = `${headerHeight}px`;
+    floatingTable.style.width = `${sourceTable.getBoundingClientRect().width}px`;
+    floatingTable.style.transform = `translateX(${-wrapper.scrollLeft}px)`;
+  }
+
+  syncResultsHeader = () => {
+    if (animationFrame === null) {
+      animationFrame = window.requestAnimationFrame(updateHeader);
+    }
+  };
+
+  window.addEventListener("scroll", syncResultsHeader, { passive: true });
+  window.addEventListener("resize", syncResultsHeader);
+  wrapper.addEventListener("scroll", syncResultsHeader, { passive: true });
+}
+
+function switchDashboardView(view) {
+  document.querySelectorAll(".view-tab").forEach((tab) => {
+    const selected = tab.dataset.viewTarget === view;
+    tab.classList.toggle("is-active", selected);
+    tab.setAttribute("aria-pressed", String(selected));
+  });
+  document.querySelectorAll("[data-dashboard-view]").forEach((section) => {
+    section.hidden = section.dataset.dashboardView !== view;
+  });
+  if (view === "charts") {
+    render();
+  } else {
+    renderTable();
+  }
+  syncResultsHeader();
+}
+
 function handleFilterChange(event) {
   state[event.target.id.replace("-filter", "")] = event.target.value;
   render();
@@ -478,6 +723,28 @@ function handleFilterChange(event) {
 function bindEvents() {
   [controls.year, controls.gender, controls.age].forEach((control) => {
     control.addEventListener("change", handleFilterChange);
+  });
+
+  document.querySelectorAll(".view-tab").forEach((tab) => {
+    tab.addEventListener("click", () => switchDashboardView(tab.dataset.viewTarget));
+  });
+  document.addEventListener("click", handleTableSort);
+  controls.tableYear.addEventListener("click", handleTableToggle);
+  controls.tableGender.addEventListener("click", handleTableToggle);
+  controls.tableAge.addEventListener("change", () => {
+    state.table.age = controls.tableAge.value;
+    renderTable();
+  });
+  controls.tableReset.addEventListener("click", () => {
+    state.table.year = controls.tableYear.querySelector("button:last-child").dataset.value;
+    state.table.gender = "all";
+    state.table.age = "all";
+    state.table.sortKey = "total";
+    state.table.sortDirection = "asc";
+    setToggleValue(controls.tableYear, state.table.year);
+    setToggleValue(controls.tableGender, "all");
+    controls.tableAge.value = "all";
+    renderTable();
   });
 
   controls.reset.addEventListener("click", () => {
@@ -492,7 +759,11 @@ function bindEvents() {
 
   window.addEventListener("resize", () => {
     window.clearTimeout(resizeTimer);
-    resizeTimer = window.setTimeout(render, 120);
+    resizeTimer = window.setTimeout(() => {
+      if (document.querySelector(".view-tab.is-active").dataset.viewTarget === "charts") {
+        render();
+      }
+    }, 120);
   });
 }
 
@@ -505,7 +776,9 @@ async function init() {
     state.rows = prepareRows(parseCSV(await response.text()));
     populateFilters();
     bindEvents();
+    setupResultsHeader();
     render();
+    renderTable();
   } catch (error) {
     document.querySelector("#result-count").textContent = "Results unavailable";
     document.querySelector("#active-description").textContent = error.message;

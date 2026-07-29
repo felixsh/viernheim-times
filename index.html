@@ -22,7 +22,11 @@
   </header>
 
   <main>
-    <section class="filter-panel" aria-labelledby="filter-heading">
+    <nav class="view-tabs" aria-label="Dashboard views">
+      <button class="view-tab is-active" type="button" data-view-target="charts" aria-pressed="true">Charts</button>
+      <button class="view-tab" type="button" data-view-target="results" aria-pressed="false">Race results</button>
+    </nav>
+    <section class="filter-panel" data-dashboard-view="charts" aria-labelledby="filter-heading">
       <div class="filter-heading">
         <div>
           <p class="eyebrow">Shape the field</p>
@@ -67,7 +71,7 @@
       </div>
     </section>
 
-    <section class="summary-section" aria-labelledby="summary-heading">
+    <section class="summary-section" data-dashboard-view="charts" aria-labelledby="summary-heading">
       <div class="section-heading">
         <div>
           <p class="eyebrow">At a glance</p>
@@ -103,7 +107,7 @@
       </div>
     </section>
 
-    <section class="charts-section" aria-labelledby="charts-heading">
+    <section class="charts-section" data-dashboard-view="charts" aria-labelledby="charts-heading">
       <div class="section-heading">
         <div>
           <p class="eyebrow">Distribution</p>
@@ -191,11 +195,75 @@
         <p>Try widening one of the filters above.</p>
       </div>
     </section>
+    <section class="results-section" id="results-view" data-dashboard-view="results" aria-labelledby="results-heading"
+      hidden>
+      <div class="section-heading results-heading">
+        <div>
+          <p class="eyebrow">Every finisher</p>
+          <h2 id="results-heading">Race results</h2>
+        </div>
+        <p>Compare athletes and every recorded split</p>
+      </div>
+
+      <div class="table-filter-panel">
+        <div class="table-filter">
+          <span class="table-filter-label">Year</span>
+          <div class="segmented-control" id="table-year-toggle" data-table-filter="year" role="group"
+            aria-label="Filter table by year">
+          </div>
+        </div>
+        <div class="table-filter">
+          <span class="table-filter-label">Gender</span>
+          <div class="segmented-control" id="table-gender-toggle" data-table-filter="gender" role="group"
+            aria-label="Filter table by gender">
+            <button class="is-active" type="button" data-value="all" aria-pressed="true">All</button>
+          </div>
+        </div>
+        <label class="table-filter" for="table-age-filter">
+          <span class="table-filter-label">Age group</span>
+          <span class="select-wrap table-select-wrap">
+            <select id="table-age-filter">
+              <option value="all">All age groups</option>
+            </select>
+          </span>
+        </label>
+        <button class="table-reset" id="reset-table-filters" type="button">Reset</button>
+      </div>
+
+      <div class="table-status" aria-live="polite">
+        <strong id="table-result-count">0 results</strong>
+        <span id="table-sort-description">Sorted by total time</span>
+      </div>
+
+      <div class="results-table-wrap" tabindex="0" aria-label="Scrollable race results table">
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th scope="col">Place</th>
+              <th scope="col">Athlete</th>
+              <th scope="col">Group</th>
+              <th scope="col"><button class="sort-button" type="button" data-sort="total">Total <span
+                    class="sort-indicator" aria-hidden="true"></span></button></th>
+              <th scope="col"><button class="sort-button" type="button" data-sort="swim">Swim <span
+                    class="sort-indicator" aria-hidden="true"></span></button></th>
+              <th scope="col"><button class="sort-button" type="button" data-sort="t1">T1 <span class="sort-indicator"
+                    aria-hidden="true"></span></button></th>
+              <th scope="col"><button class="sort-button" type="button" data-sort="bike">Bike <span
+                    class="sort-indicator" aria-hidden="true"></span></button></th>
+              <th scope="col"><button class="sort-button" type="button" data-sort="t2">T2 <span class="sort-indicator"
+                    aria-hidden="true"></span></button></th>
+              <th scope="col"><button class="sort-button" type="button" data-sort="run">Run <span class="sort-indicator"
+                    aria-hidden="true"></span></button></th>
+            </tr>
+          </thead>
+          <tbody id="results-table-body"></tbody>
+        </table>
+      </div>
+    </section>
   </main>
 
   <footer>
     <p>Viernheimer V-Card Triathlon · Results from 2023–2025</p>
-    <p>Every chart represents finishers with a recorded split.</p>
   </footer>
 
   <div class="tooltip" id="chart-tooltip" role="status" hidden>
