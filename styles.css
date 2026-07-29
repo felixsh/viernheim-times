@@ -757,6 +757,10 @@ footer p {
   background: #f1f5df;
 }
 
+.results-table tbody tr.is-selection-cleared:hover td {
+  background: var(--surface);
+}
+
 .results-table tbody tr[data-row-key] {
   cursor: pointer;
 }

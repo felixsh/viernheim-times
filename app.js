@@ -761,8 +761,15 @@ function toggleTableRowSelection(tableRow, blurWhenCleared = false) {
   state.table.selectedKey = clearingSelection ? null : tableRow.dataset.rowKey;
   updateTableRowSelection(tableRow);
   if (clearingSelection && blurWhenCleared) {
+    tableRow.classList.add("is-selection-cleared");
+    tableRow.addEventListener(
+      "pointerleave",
+      () => tableRow.classList.remove("is-selection-cleared"),
+      { once: true },
+    );
     tableRow.blur();
   } else {
+    tableRow.classList.remove("is-selection-cleared");
     tableRow.focus({ preventScroll: true });
   }
 }
