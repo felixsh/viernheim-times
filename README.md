@@ -1,36 +1,25 @@
 # Viernheim Triathlon Times
 
-A mobile-first, dependency-free results dashboard for the Viernheimer V-Card
-Triathlon. It reads `trialogevent_results_2023_2025.csv` directly in the
-browser and displays:
+An interactive view of the Viernheimer V-Card Triathlon, bringing race results,
+split distributions, and athlete performances together in one mobile-friendly
+dashboard.
 
-- Filters for year, gender, and normalized age group
-- Median finish, swim, bike, and run times
-- Adaptive histograms with finisher counts for total, swim, T1, bike, T2, and run times
-- A separate race-results table with independent year, gender, and age filters
-- Responsive layouts for phones, tablets, and desktop screens
+## Explore the race
 
-## Run locally
+- **Charts** show how finish, swim, transition, bike, and run times are distributed across the field.
+- **At a glance** highlights median times, swim and run pace, and average bike speed.
+- **Race results** provides a filterable, sortable table of athletes and every recorded split.
+- **Links** offers quick access to the official website, schedule, course maps, and start list.
 
-The CSV is loaded with `fetch`, so the site must be served over HTTP:
+Results can be filtered by year, gender, and age group to compare different parts
+of the field.
 
-```sh
-python3 -m http.server 8000
-```
+## Race distances
 
-Then open `http://localhost:8000`.
+- **Swim:** 1,500 m
+- **Bike:** 37.4 km
+- **Run:** 10 km
 
-## Publish with GitHub Pages
+## Data
 
-The workflow in `.github/workflows/pages.yml` deploys the site whenever
-`master` or `main` is pushed.
-
-In the GitHub repository, open **Settings → Pages** and set **Source** to
-**GitHub Actions**. The next matching push publishes the dashboard.
-
-Only the four site assets are included in the Pages artifact:
-
-- `index.html`
-- `styles.css`
-- `app.js`
-- `trialogevent_results_2023_2025.csv`
+The dashboard includes Viernheim race results from 2023, 2024, and 2025, obtained from [www.trialogevent.de](https://www.trialogevent.de/).
