@@ -709,7 +709,7 @@ function switchDashboardView(view) {
   });
   if (view === "charts") {
     render();
-  } else {
+  } else if (view === "results") {
     renderTable();
   }
   syncResultsHeader();
