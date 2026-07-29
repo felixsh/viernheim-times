@@ -1021,12 +1021,13 @@ footer p {
     padding: 0.8rem 0;
   }
 
-  .brand>span:last-child {
-    display: none;
-  }
-
   .distance-label {
     font-size: 0.62rem;
+  }
+
+  .distance-separator,
+  .distance-years {
+    display: none;
   }
 
   .summary-card {
@@ -1054,6 +1055,12 @@ footer p {
   footer {
     display: grid;
     gap: 0.45rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .distance-label {
+    display: none;
   }
 }
 
