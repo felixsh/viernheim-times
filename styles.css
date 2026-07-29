@@ -498,6 +498,7 @@ select:focus-visible {
 
 .histogram-hit-area {
   fill: transparent;
+  outline: none;
   pointer-events: all;
 }
 
