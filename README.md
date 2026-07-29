@@ -4,6 +4,8 @@ An interactive view of the Viernheimer V-Card Triathlon, bringing race results,
 split distributions, and athlete performances together in one mobile-friendly
 dashboard.
 
+[felixsh.github.io/viernheim-times](https://felixsh.github.io/viernheim-times/)
+
 ## Explore the race
 
 - **Charts** show how finish, swim, transition, bike, and run times are distributed across the field.
