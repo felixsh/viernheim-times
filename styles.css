@@ -67,15 +67,9 @@ a {
 }
 
 .brand-mark {
-  display: grid;
+  display: block;
   width: 2.35rem;
-  aspect-ratio: 1;
-  place-items: center;
-  color: var(--paper);
-  background: var(--ink);
-  border-radius: 50%;
-  font-size: 0.7rem;
-  letter-spacing: -0.05em;
+  height: 2.35rem;
 }
 
 .distance-label {
