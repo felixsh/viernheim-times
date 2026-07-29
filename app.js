@@ -8,6 +8,12 @@ const metrics = {
   t2: { column: "Wechsel_2", label: "Transition 2", color: "#f68675" },
   run: { column: "Lauf", label: "Run", color: "#a29dfc" },
 };
+const svgNamespace = "http://www.w3.org/2000/svg";
+const chartDimensions = {
+  minimumWidth: 280,
+  minimumHeight: 160,
+  padding: { top: 18, right: 4, bottom: 2, left: 31 },
+};
 
 const athleteNameCollator = new Intl.Collator(undefined, {
   sensitivity: "base",
@@ -53,6 +59,11 @@ const filterControls = {
 };
 
 const tooltip = document.querySelector("#chart-tooltip");
+const tooltipContent = {
+  range: tooltip.querySelector("strong"),
+  count: tooltip.querySelector(".tooltip-count"),
+  performance: tooltip.querySelector(".tooltip-performance"),
+};
 let activeTooltipBar = null;
 let pinnedTooltip = null;
 let resizeTimer;
@@ -386,30 +397,33 @@ function niceCountMaximum(value) {
 }
 
 function createSVGElement(name, attributes = {}) {
-  const element = document.createElementNS("http://www.w3.org/2000/svg", name);
+  const element = document.createElementNS(svgNamespace, name);
   Object.entries(attributes).forEach(([attribute, value]) => element.setAttribute(attribute, value));
   return element;
 }
 
-function renderChart(card, metric, rows) {
-  const chart = card.querySelector(".chart");
-  const range = card.querySelectorAll(".chart-range span");
-  const medianLabel = card.querySelector(".chart-median strong");
-  const values = valuesFor(rows, metric);
-  chart.replaceChildren();
+function renderSparseChart(chartElements, metric, values) {
+  const { chart, medianLabel, rangeStart, rangeEnd } = chartElements;
+  const hasResult = values.length === 1;
+  const valueLabel = hasResult ? formatTime(values[0], true) : "—";
+  medianLabel.textContent = valueLabel;
+  rangeStart.textContent = hasResult ? valueLabel : "No data";
+  rangeEnd.textContent = hasResult ? "1 result" : "";
+  chart.setAttribute(
+    "aria-label",
+    hasResult
+      ? `${metrics[metric].label} histogram for 1 result: ${formatTime(values[0])}.`
+      : `${metrics[metric].label} histogram: no recorded results.`,
+  );
+}
 
-  if (values.length < 2) {
-    medianLabel.textContent = values.length ? formatTime(values[0], true) : "—";
-    range[0].textContent = values.length ? formatTime(values[0], true) : "No data";
-    range[1].textContent = values.length ? "1 result" : "";
-    return;
-  }
-
-  const width = Math.max(chart.clientWidth, 280);
-  const height = Math.max(chart.clientHeight, 160);
-  const padding = { top: 18, right: 4, bottom: 2, left: 31 };
+function buildChartLayout(chart, values, metric) {
+  const width = Math.max(chart.clientWidth, chartDimensions.minimumWidth);
+  const height = Math.max(chart.clientHeight, chartDimensions.minimumHeight);
+  const padding = chartDimensions.padding;
   const plotWidth = width - padding.left - padding.right;
-  const { bins, minimum, maximum } = buildHistogram(values, plotWidth, metric);
+  const histogram = buildHistogram(values, plotWidth, metric);
+  const { bins, minimum, maximum } = histogram;
   const maximumCount = Math.max(...bins.map((bin) => bin.count));
   const yMaximum = niceCountMaximum(maximumCount);
   const baseline = height - padding.bottom;
@@ -417,13 +431,22 @@ function renderChart(card, metric, rows) {
     padding.left + ((value - minimum) / (maximum - minimum)) * plotWidth;
   const yScale = (value) =>
     padding.top + (1 - value / yMaximum) * (baseline - padding.top);
-  const median = quantile(values, 0.5);
-  const svg = createSVGElement("svg", {
-    viewBox: `0 0 ${width} ${height}`,
-    preserveAspectRatio: "none",
-    "aria-hidden": "true",
-  });
 
+  return {
+    ...histogram,
+    width,
+    height,
+    padding,
+    baseline,
+    maximumCount,
+    xScale,
+    yScale,
+    yMaximum,
+  };
+}
+
+function createCountGrid(layout) {
+  const { width, padding, yMaximum, yScale } = layout;
   const grid = createSVGElement("g", { class: "count-grid" });
   const axisTitle = createSVGElement("text", {
     class: "count-axis-title",
@@ -453,8 +476,80 @@ function renderChart(card, metric, rows) {
       label,
     );
   });
-  svg.append(grid);
+  return grid;
+}
 
+function positionChartTooltip(chart, bar) {
+  const barBounds = bar.getBoundingClientRect();
+  const chartBounds = chart.getBoundingClientRect();
+  const tooltipBounds = tooltip.getBoundingClientRect();
+  const horizontalPadding = 8;
+  const minimumLeft = tooltipBounds.width / 2 + horizontalPadding;
+  const maximumLeft = window.innerWidth - tooltipBounds.width / 2 - horizontalPadding;
+  const barCenter = barBounds.left + barBounds.width / 2;
+  tooltip.style.left = `${Math.min(Math.max(barCenter, minimumLeft), maximumLeft)}px`;
+  tooltip.style.top = `${Math.max(chartBounds.top + 8, 8)}px`;
+}
+
+function showChartTooltip(chart, bar, details) {
+  const { bin, firstPlace, lastPlace, performance } = details;
+  activeTooltipBar?.classList.remove("is-active");
+  tooltipContent.range.textContent =
+    `${formatTime(bin.start, true)}–${formatTime(bin.end, true)}`;
+  tooltipContent.count.textContent = state.filters.charts.year !== "all"
+    ? bin.count ? `Place ${firstPlace}–${lastPlace}` : "No finishers"
+    : `${bin.count} ${bin.count === 1 ? "finisher" : "finishers"}`;
+  tooltipContent.performance.textContent = performance ?? "";
+  tooltipContent.performance.hidden = !performance;
+  tooltip.hidden = false;
+  positionChartTooltip(chart, bar);
+  bar.classList.add("is-active");
+  activeTooltipBar = bar;
+}
+
+function hideChartTooltip(bar) {
+  if (pinnedTooltip) {
+    return;
+  }
+  bar.classList.remove("is-active");
+  activeTooltipBar = null;
+  tooltip.hidden = true;
+}
+
+function bindChartBarInteractions(hitArea, chart, bar, details) {
+  const showTooltip = () => showChartTooltip(chart, bar, details);
+  const showHoverTooltip = () => {
+    if (!pinnedTooltip) {
+      showTooltip();
+    }
+  };
+  const pinTooltip = (event) => {
+    event.stopPropagation();
+    if (pinnedTooltip?.bar === bar) {
+      pinnedTooltip = null;
+      return;
+    }
+    pinnedTooltip?.bar.classList.remove("is-active");
+    pinnedTooltip = { bar };
+    showTooltip();
+  };
+
+  hitArea.addEventListener("pointerenter", showHoverTooltip);
+  hitArea.addEventListener("pointermove", showHoverTooltip);
+  hitArea.addEventListener("pointerleave", () => hideChartTooltip(bar));
+  hitArea.addEventListener("click", pinTooltip);
+  hitArea.addEventListener("focus", showHoverTooltip);
+  hitArea.addEventListener("blur", () => hideChartTooltip(bar));
+  hitArea.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      pinTooltip(event);
+    }
+  });
+}
+
+function createHistogramBars(chart, metric, values, layout) {
+  const { bins, padding, baseline, xScale, yScale } = layout;
   const bars = createSVGElement("g", { class: "histogram-bars" });
   let placedFinishers = 0;
   bins.forEach((bin, binIndex) => {
@@ -482,95 +577,65 @@ function renderChart(card, metric, rows) {
     const firstPlace = placedFinishers + 1;
     placedFinishers += bin.count;
     const lastPlace = placedFinishers;
-
-    function showTooltip() {
-      const bounds = bar.getBoundingClientRect();
-      const chartBounds = chart.getBoundingClientRect();
-      activeTooltipBar?.classList.remove("is-active");
-      tooltip.querySelector("strong").textContent =
-        `${formatTime(bin.start, true)}–${formatTime(bin.end, true)}`;
-      tooltip.querySelector(".tooltip-count").textContent = state.filters.charts.year !== "all"
-        ? bin.count ? `Place ${firstPlace}–${lastPlace}` : "No finishers"
-        : `${bin.count} ${bin.count === 1 ? "finisher" : "finishers"}`;
-      const performanceLine = tooltip.querySelector(".tooltip-performance");
-      performanceLine.textContent = performance ?? "";
-      performanceLine.hidden = !performance;
-      tooltip.hidden = false;
-      const tooltipBounds = tooltip.getBoundingClientRect();
-      const horizontalPadding = 8;
-      const minimumLeft = tooltipBounds.width / 2 + horizontalPadding;
-      const maximumLeft = window.innerWidth - tooltipBounds.width / 2 - horizontalPadding;
-      const barCenter = bounds.left + bounds.width / 2;
-      tooltip.style.left = `${Math.min(Math.max(barCenter, minimumLeft), maximumLeft)}px`;
-      tooltip.style.top = `${Math.max(chartBounds.top + 8, 8)}px`;
-      bar.classList.add("is-active");
-      activeTooltipBar = bar;
-    }
-
-    function hideTooltip() {
-      if (pinnedTooltip) {
-        return;
-      }
-      bar.classList.remove("is-active");
-      activeTooltipBar = null;
-      tooltip.hidden = true;
-    }
-
-    function showHoverTooltip() {
-      if (!pinnedTooltip) {
-        showTooltip();
-      }
-    }
-
-    function pinTooltip(event) {
-      event.stopPropagation();
-      if (pinnedTooltip?.bar === bar) {
-        pinnedTooltip = null;
-        return;
-      }
-      pinnedTooltip?.bar.classList.remove("is-active");
-      pinnedTooltip = { bar };
-      showTooltip();
-    }
-
-    hitArea.addEventListener("pointerenter", showHoverTooltip);
-    hitArea.addEventListener("pointermove", showHoverTooltip);
-    hitArea.addEventListener("pointerleave", hideTooltip);
-    hitArea.addEventListener("click", pinTooltip);
-    hitArea.addEventListener("focus", showHoverTooltip);
-    hitArea.addEventListener("blur", hideTooltip);
-    hitArea.addEventListener("keydown", (event) => {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        pinTooltip(event);
-      }
-    });
     hitArea.setAttribute("role", "button");
     hitArea.setAttribute("tabindex", "0");
     hitArea.setAttribute(
       "aria-label",
       `${formatTime(bin.start, true)} to ${formatTime(bin.end, true)}, ${bin.count} ${bin.count === 1 ? "finisher" : "finishers"}`,
     );
+    bindChartBarInteractions(
+      hitArea,
+      chart,
+      bar,
+      { bin, firstPlace, lastPlace, performance },
+    );
     bars.append(bar, hitArea);
   });
+  return bars;
+}
 
+function renderChart(card, metric, rows) {
+  const chart = card.querySelector(".chart");
+  const range = card.querySelectorAll(".chart-range span");
+  const chartElements = {
+    chart,
+    medianLabel: card.querySelector(".chart-median strong"),
+    rangeStart: range[0],
+    rangeEnd: range[1],
+  };
+  const values = valuesFor(rows, metric);
+  chart.replaceChildren();
+
+  if (values.length < 2) {
+    renderSparseChart(chartElements, metric, values);
+    return;
+  }
+
+  const layout = buildChartLayout(chart, values, metric);
+  const median = quantile(values, 0.5);
+  const svg = createSVGElement("svg", {
+    viewBox: `0 0 ${layout.width} ${layout.height}`,
+    preserveAspectRatio: "none",
+    "aria-hidden": "true",
+  });
   svg.append(
-    bars,
+    createCountGrid(layout),
+    createHistogramBars(chart, metric, values, layout),
     createSVGElement("line", {
       class: "median-line",
-      x1: xScale(median),
-      x2: xScale(median),
-      y1: padding.top,
-      y2: baseline,
+      x1: layout.xScale(median),
+      x2: layout.xScale(median),
+      y1: layout.padding.top,
+      y2: layout.baseline,
     }),
   );
   chart.append(svg);
-  medianLabel.textContent = formatTime(median, true);
-  range[0].textContent = formatTime(values[0], true);
-  range[1].textContent = formatTime(values.at(-1), true);
+  chartElements.medianLabel.textContent = formatTime(median, true);
+  chartElements.rangeStart.textContent = formatTime(values[0], true);
+  chartElements.rangeEnd.textContent = formatTime(values.at(-1), true);
   chart.setAttribute(
     "aria-label",
-    `${metrics[metric].label} histogram for ${values.length} results. Median ${formatTime(median)}. Peak bin ${maximumCount} finishers.`,
+    `${metrics[metric].label} histogram for ${values.length} results. Median ${formatTime(median)}. Peak bin ${layout.maximumCount} finishers.`,
   );
 }
 
