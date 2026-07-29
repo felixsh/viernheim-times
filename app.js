@@ -14,7 +14,10 @@ const athleteNameCollator = new Intl.Collator(undefined, {
   numeric: true,
 });
 const raceStatusOrder = ["DNS", "DNF", "DSQ"];
-const urlStateKeys = ["tab", "year", "gender", "age"];
+const filterViews = ["charts", "results"];
+const filterKeys = ["year", "gender", "age"];
+const toggleFilterKeys = ["year", "gender"];
+const urlStateKeys = ["tab", ...filterKeys];
 const filterDefaults = {
   charts: { year: "all", gender: "all", age: "all" },
   results: { year: "all", gender: "all", age: "all" },
@@ -23,28 +26,30 @@ const filterDefaults = {
 const state = {
   rows: [],
   view: "charts",
-  year: "all",
-  gender: "all",
-  age: "all",
+  filters: {
+    charts: { ...filterDefaults.charts },
+    results: { ...filterDefaults.results },
+  },
   table: {
-    year: "all",
-    gender: "all",
-    age: "all",
     sortKey: "place",
     sortDirection: "asc",
     selectedKey: null,
   },
 };
 
-const controls = {
-  year: document.querySelector("#chart-year-toggle"),
-  gender: document.querySelector("#chart-gender-toggle"),
-  age: document.querySelector("#chart-age-filter"),
-  reset: document.querySelector("#reset-filters"),
-  tableYear: document.querySelector("#table-year-toggle"),
-  tableGender: document.querySelector("#table-gender-toggle"),
-  tableAge: document.querySelector("#table-age-filter"),
-  tableReset: document.querySelector("#reset-table-filters"),
+const filterControls = {
+  charts: {
+    year: document.querySelector("#chart-year-toggle"),
+    gender: document.querySelector("#chart-gender-toggle"),
+    age: document.querySelector("#chart-age-filter"),
+    reset: document.querySelector("#reset-filters"),
+  },
+  results: {
+    year: document.querySelector("#table-year-toggle"),
+    gender: document.querySelector("#table-gender-toggle"),
+    age: document.querySelector("#table-age-filter"),
+    reset: document.querySelector("#reset-table-filters"),
+  },
 };
 
 const tooltip = document.querySelector("#chart-tooltip");
@@ -220,18 +225,16 @@ function populateFilters() {
     .filter((age) => age !== "Unknown" && age !== "Junior")
     .sort(numericSort);
 
-  addOptions(controls.age, ageGroups);
-  addToggleOptions(controls.year, years);
-  setToggleValue(controls.year, state.year);
-  addToggleOptions(controls.gender, genders, formatGender);
-  setToggleValue(controls.gender, state.gender);
-  addOptions(controls.tableAge, ageGroups);
-  addToggleOptions(controls.tableYear, years);
   filterDefaults.results.year = years.at(-1) ?? "all";
-  state.table.year = filterDefaults.results.year;
-  setToggleValue(controls.tableYear, state.table.year);
-  addToggleOptions(controls.tableGender, genders, formatGender);
-  setToggleValue(controls.tableGender, state.table.gender);
+  state.filters.results.year = filterDefaults.results.year;
+
+  filterViews.forEach((view) => {
+    const controls = filterControls[view];
+    addOptions(controls.age, ageGroups);
+    addToggleOptions(controls.year, years);
+    addToggleOptions(controls.gender, genders, formatGender);
+    syncFilterControls(view);
+  });
 }
 
 function quantile(sortedValues, position) {
@@ -294,13 +297,14 @@ function formatPerformance(metric, seconds) {
   return null;
 }
 
-function filteredRows() {
-  return state.rows.filter(
-    (row) =>
-      (state.year === "all" || row.year === state.year)
-      && (state.gender === "all" || row.gender === state.gender)
-      && (state.age === "all" || row.age === state.age),
+function matchesFilters(row, filters) {
+  return filterKeys.every(
+    (filter) => filters[filter] === "all" || row[filter] === filters[filter],
   );
+}
+
+function filteredRows(view) {
+  return state.rows.filter((row) => matchesFilters(row, state.filters[view]));
 }
 
 function updateSummary(rows) {
@@ -327,15 +331,16 @@ function updateSummary(rows) {
 }
 
 function describeFilters() {
+  const filters = state.filters.charts;
   const labels = [];
-  if (state.year !== "all") {
-    labels.push(state.year);
+  if (filters.year !== "all") {
+    labels.push(filters.year);
   }
-  if (state.gender !== "all") {
-    labels.push(formatGender(state.gender));
+  if (filters.gender !== "all") {
+    labels.push(formatGender(filters.gender));
   }
-  if (state.age !== "all") {
-    labels.push(`age ${state.age}`);
+  if (filters.age !== "all") {
+    labels.push(`age ${filters.age}`);
   }
   return labels.length ? labels.join(" · ") : "All years, genders, and age groups";
 }
@@ -484,7 +489,7 @@ function renderChart(card, metric, rows) {
       activeTooltipBar?.classList.remove("is-active");
       tooltip.querySelector("strong").textContent =
         `${formatTime(bin.start, true)}–${formatTime(bin.end, true)}`;
-      tooltip.querySelector(".tooltip-count").textContent = state.year !== "all"
+      tooltip.querySelector(".tooltip-count").textContent = state.filters.charts.year !== "all"
         ? bin.count ? `Place ${firstPlace}–${lastPlace}` : "No finishers"
         : `${bin.count} ${bin.count === 1 ? "finisher" : "finishers"}`;
       const performanceLine = tooltip.querySelector(".tooltip-performance");
@@ -571,7 +576,7 @@ function renderChart(card, metric, rows) {
 
 function render() {
   clearChartTooltip();
-  const rows = filteredRows();
+  const rows = filteredRows("charts");
   const chartGrid = document.querySelector("#chart-grid");
   const emptyState = document.querySelector("#empty-state");
   const completedCount = valuesFor(rows, "total").length;
@@ -592,12 +597,7 @@ function render() {
 function filteredTableRows() {
   const direction = state.table.sortDirection === "asc" ? 1 : -1;
   return state.rows
-    .filter(
-      (row) =>
-        (state.table.year === "all" || row.year === state.table.year)
-        && (state.table.gender === "all" || row.gender === state.table.gender)
-        && (state.table.age === "all" || row.age === state.table.age),
-    )
+    .filter((row) => matchesFilters(row, state.filters.results))
     .sort((left, right) => {
       if (state.table.sortKey === "athlete") {
         return compareAthleteNames(left.name, right.name, direction)
@@ -784,16 +784,6 @@ function setToggleValue(container, value) {
   });
 }
 
-function controlsForView(view) {
-  return view === "results"
-    ? { year: controls.tableYear, gender: controls.tableGender, age: controls.tableAge }
-    : { year: controls.year, gender: controls.gender, age: controls.age };
-}
-
-function filterStateForView(view) {
-  return view === "results" ? state.table : state;
-}
-
 function ageUrlValue(value) {
   return value.replaceAll("–", "-");
 }
@@ -803,7 +793,7 @@ function availableFilterValue(view, filter, requestedValue) {
     return null;
   }
 
-  const control = controlsForView(view)[filter];
+  const control = filterControls[view][filter];
   if (filter === "age") {
     return [...control.options]
       .map((option) => option.value)
@@ -816,8 +806,8 @@ function availableFilterValue(view, filter, requestedValue) {
 }
 
 function syncFilterControls(view) {
-  const filterState = filterStateForView(view);
-  const viewControls = controlsForView(view);
+  const filterState = state.filters[view];
+  const viewControls = filterControls[view];
   setToggleValue(viewControls.year, filterState.year);
   setToggleValue(viewControls.gender, filterState.gender);
   viewControls.age.value = filterState.age;
@@ -834,9 +824,9 @@ function applyUrlState() {
     return;
   }
 
-  const filterState = filterStateForView(state.view);
+  const filterState = state.filters[state.view];
   const defaults = filterDefaults[state.view];
-  ["year", "gender", "age"].forEach((filter) => {
+  filterKeys.forEach((filter) => {
     filterState[filter] =
       availableFilterValue(state.view, filter, parameters.get(filter))
       ?? defaults[filter];
@@ -853,9 +843,9 @@ function updateUrl(push = false) {
   }
 
   if (state.view !== "links") {
-    const filterState = filterStateForView(state.view);
+    const filterState = state.filters[state.view];
     const defaults = filterDefaults[state.view];
-    ["year", "gender", "age"].forEach((filter) => {
+    filterKeys.forEach((filter) => {
       if (filterState[filter] !== defaults[filter]) {
         const value = filter === "age"
           ? ageUrlValue(filterState[filter])
@@ -867,19 +857,6 @@ function updateUrl(push = false) {
 
   const method = push ? "pushState" : "replaceState";
   window.history[method]({}, "", `${url.pathname}${url.search}${url.hash}`);
-}
-
-function handleTableToggle(event) {
-  const button = event.target.closest("button[data-value]");
-  if (!button) {
-    return;
-  }
-  const container = event.currentTarget;
-  const filter = container.dataset.tableFilter;
-  state.table[filter] = button.dataset.value;
-  setToggleValue(container, button.dataset.value);
-  renderTable();
-  updateUrl();
 }
 
 function updateTableSortControls() {
@@ -985,6 +962,14 @@ function setupResultsHeader() {
   wrapper.addEventListener("scroll", syncResultsHeader, { passive: true });
 }
 
+function renderView(view) {
+  if (view === "charts") {
+    render();
+  } else if (view === "results") {
+    renderTable();
+  }
+}
+
 function switchDashboardView(view, { syncUrl = true, pushUrl = false } = {}) {
   state.view = view;
   document.querySelectorAll(".view-tab").forEach((tab) => {
@@ -995,40 +980,51 @@ function switchDashboardView(view, { syncUrl = true, pushUrl = false } = {}) {
   document.querySelectorAll("[data-dashboard-view]").forEach((section) => {
     section.hidden = section.dataset.dashboardView !== view;
   });
-  if (view === "charts") {
-    render();
-  } else if (view === "results") {
-    renderTable();
-  }
+  renderView(view);
   syncResultsHeader();
   if (syncUrl) {
     updateUrl(pushUrl);
   }
 }
 
-function handleChartToggle(event) {
-  const button = event.target.closest("button[data-value]");
-  if (!button) {
-    return;
-  }
-  const container = event.currentTarget;
-  state[container.dataset.chartFilter] = button.dataset.value;
-  setToggleValue(container, button.dataset.value);
-  render();
+function updateFilter(view, filter, value) {
+  state.filters[view][filter] = value;
+  syncFilterControls(view);
+  renderView(view);
   updateUrl();
+}
+
+function resetFilters(view) {
+  Object.assign(state.filters[view], filterDefaults[view]);
+  if (view === "results") {
+    state.table.sortKey = "place";
+    state.table.sortDirection = "asc";
+  }
+  syncFilterControls(view);
+  renderView(view);
+  updateUrl();
+}
+
+function bindFilterEvents(view) {
+  const controls = filterControls[view];
+  toggleFilterKeys.forEach((filter) => {
+    controls[filter].addEventListener("click", (event) => {
+      const button = event.target.closest("button[data-value]");
+      if (button) {
+        updateFilter(view, filter, button.dataset.value);
+      }
+    });
+  });
+  controls.age.addEventListener("change", () => {
+    updateFilter(view, "age", controls.age.value);
+  });
+  controls.reset.addEventListener("click", () => resetFilters(view));
 }
 
 function bindEvents() {
   const resultsTableBody = document.querySelector("#results-table-body");
 
-  [controls.year, controls.gender].forEach((control) => {
-    control.addEventListener("click", handleChartToggle);
-  });
-  controls.age.addEventListener("change", () => {
-    state.age = controls.age.value;
-    render();
-    updateUrl();
-  });
+  filterViews.forEach(bindFilterEvents);
 
   document.querySelectorAll(".view-tab").forEach((tab) => {
     tab.addEventListener("click", () => {
@@ -1040,36 +1036,6 @@ function bindEvents() {
   document.addEventListener("click", handleTableSort);
   resultsTableBody.addEventListener("click", handleTableRowSelection);
   resultsTableBody.addEventListener("keydown", handleTableRowSelectionKeydown);
-  controls.tableYear.addEventListener("click", handleTableToggle);
-  controls.tableGender.addEventListener("click", handleTableToggle);
-  controls.tableAge.addEventListener("change", () => {
-    state.table.age = controls.tableAge.value;
-    renderTable();
-    updateUrl();
-  });
-  controls.tableReset.addEventListener("click", () => {
-    state.table.year = controls.tableYear.querySelector("button:last-child").dataset.value;
-    state.table.gender = "all";
-    state.table.age = "all";
-    state.table.sortKey = "place";
-    state.table.sortDirection = "asc";
-    setToggleValue(controls.tableYear, state.table.year);
-    setToggleValue(controls.tableGender, "all");
-    controls.tableAge.value = "all";
-    renderTable();
-    updateUrl();
-  });
-
-  controls.reset.addEventListener("click", () => {
-    state.year = "all";
-    state.gender = "all";
-    state.age = "all";
-    setToggleValue(controls.year, "all");
-    setToggleValue(controls.gender, "all");
-    controls.age.value = "all";
-    render();
-    updateUrl();
-  });
 
   window.addEventListener("popstate", () => {
     applyUrlState();
@@ -1079,7 +1045,7 @@ function bindEvents() {
   window.addEventListener("resize", () => {
     window.clearTimeout(resizeTimer);
     resizeTimer = window.setTimeout(() => {
-      if (document.querySelector(".view-tab.is-active").dataset.viewTarget === "charts") {
+      if (state.view === "charts") {
         render();
       }
     }, 120);
