@@ -1,7 +1,7 @@
 [project]
 name = "viernheim-times"
 version = "0.1.0"
-description = "Add your description here"
+description = "Interactive dashboard for exploring Viernheim Triathlon results, splits, and athlete performances from 2023 to 2025."
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
