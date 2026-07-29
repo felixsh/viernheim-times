@@ -375,6 +375,7 @@ function renderChart(card, metric, rows) {
   svg.append(grid);
 
   const bars = createSVGElement("g", { class: "histogram-bars" });
+  let placedFinishers = 0;
   bins.forEach((bin, binIndex) => {
     const x = xScale(bin.start);
     const nextX = xScale(bin.end);
@@ -397,13 +398,17 @@ function renderChart(card, metric, rows) {
       height: baseline - padding.top,
     });
     const performance = formatPerformance(metric, binIndex === 0 ? values[0] : bin.start);
+    const firstPlace = placedFinishers + 1;
+    placedFinishers += bin.count;
+    const lastPlace = placedFinishers;
 
     function showTooltip(event) {
       const bounds = bar.getBoundingClientRect();
       tooltip.querySelector("strong").textContent =
         `${formatTime(bin.start, true)}–${formatTime(bin.end, true)}`;
-      tooltip.querySelector(".tooltip-count").textContent =
-        `${bin.count} ${bin.count === 1 ? "finisher" : "finishers"}`;
+      tooltip.querySelector(".tooltip-count").textContent = state.year !== "all"
+        ? bin.count ? `Place ${firstPlace}–${lastPlace}` : "No finishers"
+        : `${bin.count} ${bin.count === 1 ? "finisher" : "finishers"}`;
       const performanceLine = tooltip.querySelector(".tooltip-performance");
       performanceLine.textContent = performance ?? "";
       performanceLine.hidden = !performance;
