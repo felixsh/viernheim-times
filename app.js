@@ -243,40 +243,50 @@ function describeFilters() {
   return labels.length ? labels.join(" · ") : "All years, genders, and age groups";
 }
 
-function kernelDensity(values, minimum, maximum, points = 90) {
-  const count = values.length;
-  const mean = values.reduce((sum, value) => sum + value, 0) / count;
-  const standardDeviation = Math.sqrt(
-    values.reduce((sum, value) => sum + (value - mean) ** 2, 0)
-      / Math.max(count - 1, 1),
-  );
-  const spread = Math.max(maximum - minimum, 1);
-  const bandwidth = Math.max(1.06 * standardDeviation * count ** -0.2, spread / 45);
-  const density = [];
+function buildHistogram(values, availableWidth, metric) {
+  const quantum = metric === "t1" || metric === "t2" ? 10 : 60;
+  const observedMinimum = values[0];
+  const observedMaximum = values.at(-1);
+  const minimum = Math.floor(observedMinimum / quantum) * quantum;
+  const alignedMaximum = Math.ceil(observedMaximum / quantum) * quantum;
+  const initialMaximum = alignedMaximum > minimum ? alignedMaximum : minimum + quantum;
+  const initialSpread = initialMaximum - minimum;
+  const interquartileRange = quantile(values, 0.75) - quantile(values, 0.25);
+  const freedmanDiaconisWidth = 2 * interquartileRange * values.length ** (-1 / 3);
+  const sturgesBins = Math.ceil(Math.log2(values.length) + 1);
+  const fallbackWidth = initialSpread / Math.max(sturgesBins * 2, 1);
+  const targetWidth = (freedmanDiaconisWidth > 0 ? freedmanDiaconisWidth : fallbackWidth) / 2;
+  const widthLimit = Math.max(8, Math.min(Math.floor(availableWidth / 14), 60));
+  const minimumWidthForScreen = Math.ceil(initialSpread / widthLimit / quantum) * quantum;
+  const snappedTargetWidth = Math.max(quantum, Math.round(targetWidth / quantum) * quantum);
+  const binWidth = Math.max(snappedTargetWidth, minimumWidthForScreen);
+  const binCount = Math.max(1, Math.ceil(initialSpread / binWidth));
+  const maximum = minimum + binCount * binWidth;
+  const bins = Array.from({ length: binCount }, (_, index) => ({
+    start: minimum + index * binWidth,
+    end: minimum + (index + 1) * binWidth,
+    count: 0,
+  }));
 
-  for (let index = 0; index < points; index += 1) {
-    const x = minimum + (index / (points - 1)) * (maximum - minimum);
-    const y =
-      values.reduce((sum, value) => {
-        const distance = (x - value) / bandwidth;
-        return sum + Math.exp(-0.5 * distance * distance);
-      }, 0)
-      / (count * bandwidth * Math.sqrt(2 * Math.PI));
-    density.push({ x, y });
-  }
-  return density;
+  values.forEach((value) => {
+    const index = Math.min(Math.floor((value - minimum) / binWidth), binCount - 1);
+    bins[index].count += 1;
+  });
+
+  return { bins, minimum, maximum };
+}
+
+function niceCountMaximum(value) {
+  const magnitude = 10 ** Math.floor(Math.log10(Math.max(value, 1)));
+  const normalized = value / magnitude;
+  const niceValue = normalized <= 1 ? 1 : normalized <= 2 ? 2 : normalized <= 5 ? 5 : 10;
+  return niceValue * magnitude;
 }
 
 function createSVGElement(name, attributes = {}) {
   const element = document.createElementNS("http://www.w3.org/2000/svg", name);
   Object.entries(attributes).forEach(([attribute, value]) => element.setAttribute(attribute, value));
   return element;
-}
-
-function linePath(points, xScale, yScale) {
-  return points
-    .map((point, index) => `${index === 0 ? "M" : "L"}${xScale(point.x).toFixed(2)},${yScale(point.y).toFixed(2)}`)
-    .join(" ");
 }
 
 function renderChart(card, metric, rows) {
@@ -295,51 +305,102 @@ function renderChart(card, metric, rows) {
 
   const width = Math.max(chart.clientWidth, 280);
   const height = Math.max(chart.clientHeight, 160);
-  const padding = { top: 12, right: 4, bottom: 2, left: 4 };
-  const firstPercentile = quantile(values, 0.01);
-  const lastPercentile = quantile(values, 0.99);
-  const spread = Math.max(lastPercentile - firstPercentile, 1);
-  const minimum = Math.max(0, firstPercentile - spread * 0.06);
-  const maximum = lastPercentile + spread * 0.06;
-  const density = kernelDensity(values, minimum, maximum);
-  const maxDensity = Math.max(...density.map((point) => point.y));
+  const padding = { top: 18, right: 4, bottom: 2, left: 31 };
+  const plotWidth = width - padding.left - padding.right;
+  const { bins, minimum, maximum } = buildHistogram(values, plotWidth, metric);
+  const maximumCount = Math.max(...bins.map((bin) => bin.count));
+  const yMaximum = niceCountMaximum(maximumCount);
   const baseline = height - padding.bottom;
   const xScale = (value) =>
-    padding.left + ((value - minimum) / (maximum - minimum)) * (width - padding.left - padding.right);
+    padding.left + ((value - minimum) / (maximum - minimum)) * plotWidth;
   const yScale = (value) =>
-    padding.top + (1 - value / maxDensity) * (baseline - padding.top);
-  const path = linePath(density, xScale, yScale);
-  const areaPath = `${path} L${xScale(maximum)},${baseline} L${xScale(minimum)},${baseline} Z`;
+    padding.top + (1 - value / yMaximum) * (baseline - padding.top);
   const median = quantile(values, 0.5);
-  const lowerQuartile = quantile(values, 0.25);
-  const upperQuartile = quantile(values, 0.75);
   const svg = createSVGElement("svg", {
     viewBox: `0 0 ${width} ${height}`,
     preserveAspectRatio: "none",
     "aria-hidden": "true",
   });
 
-  svg.append(
-    createSVGElement("line", {
-      class: "baseline",
-      x1: padding.left,
-      x2: width - padding.right,
-      y1: baseline,
-      y2: baseline,
-    }),
-    createSVGElement("line", {
-      class: "quartile-line",
-      x1: xScale(lowerQuartile),
-      x2: xScale(upperQuartile),
-      y1: baseline - 5,
-      y2: baseline - 5,
-    }),
-    createSVGElement("path", {
-      class: "density-area",
-      d: areaPath,
+  const grid = createSVGElement("g", { class: "count-grid" });
+  const axisTitle = createSVGElement("text", {
+    class: "count-axis-title",
+    x: 0,
+    y: 9,
+  });
+  axisTitle.textContent = "finishers";
+  grid.append(axisTitle);
+
+  [...new Set([0, Math.ceil(yMaximum / 2), yMaximum])].forEach((count) => {
+    const y = yScale(count);
+    const label = createSVGElement("text", {
+      class: "count-axis-label",
+      x: padding.left - 7,
+      y: y + 3,
+      "text-anchor": "end",
+    });
+    label.textContent = count;
+    grid.append(
+      createSVGElement("line", {
+        class: "count-grid-line",
+        x1: padding.left,
+        x2: width - padding.right,
+        y1: y,
+        y2: y,
+      }),
+      label,
+    );
+  });
+  svg.append(grid);
+
+  const bars = createSVGElement("g", { class: "histogram-bars" });
+  bins.forEach((bin) => {
+    const x = xScale(bin.start);
+    const nextX = xScale(bin.end);
+    const barWidth = Math.max(nextX - x - 2, 1);
+    const y = yScale(bin.count);
+    const bar = createSVGElement("rect", {
+      class: "histogram-bar",
+      x: x + 1,
+      y,
+      width: barWidth,
+      height: Math.max(baseline - y, 0),
+      rx: Math.min(3, barWidth / 4),
       style: `fill: ${metrics[metric].color}`,
-    }),
-    createSVGElement("path", { class: "density-line", d: path }),
+    });
+    const hitArea = createSVGElement("rect", {
+      class: "histogram-hit-area",
+      x,
+      y: padding.top,
+      width: nextX - x,
+      height: baseline - padding.top,
+    });
+
+    function showTooltip(event) {
+      const bounds = bar.getBoundingClientRect();
+      tooltip.querySelector("strong").textContent =
+        `${formatTime(bin.start, true)}–${formatTime(bin.end, true)}`;
+      tooltip.querySelector("span").textContent =
+        `${bin.count} ${bin.count === 1 ? "finisher" : "finishers"}`;
+      tooltip.style.left = `${event.clientX ?? bounds.left + bounds.width / 2}px`;
+      tooltip.style.top = `${event.clientY ?? bounds.top}px`;
+      tooltip.hidden = false;
+      bar.classList.add("is-active");
+    }
+
+    function hideTooltip() {
+      tooltip.hidden = true;
+      bar.classList.remove("is-active");
+    }
+
+    hitArea.addEventListener("pointerenter", showTooltip);
+    hitArea.addEventListener("pointermove", showTooltip);
+    hitArea.addEventListener("pointerleave", hideTooltip);
+    bars.append(bar, hitArea);
+  });
+
+  svg.append(
+    bars,
     createSVGElement("line", {
       class: "median-line",
       x1: xScale(median),
@@ -348,56 +409,13 @@ function renderChart(card, metric, rows) {
       y2: baseline,
     }),
   );
-
-  const hoverLine = createSVGElement("line", {
-    class: "hover-line",
-    x1: 0,
-    x2: 0,
-    y1: padding.top,
-    y2: baseline,
-    visibility: "hidden",
-  });
-  const hitArea = createSVGElement("rect", {
-    class: "chart-hit-area",
-    x: padding.left,
-    y: 0,
-    width: width - padding.left - padding.right,
-    height,
-  });
-
-  function showTooltip(event) {
-    const bounds = svg.getBoundingClientRect();
-    const relativeX = Math.min(Math.max(event.clientX - bounds.left, 0), bounds.width);
-    const value = minimum + (relativeX / bounds.width) * (maximum - minimum);
-    const nearbyCount = values.filter(
-      (time) => Math.abs(time - value) <= (maximum - minimum) * 0.025,
-    ).length;
-    const svgX = (relativeX / bounds.width) * width;
-
-    hoverLine.setAttribute("x1", svgX);
-    hoverLine.setAttribute("x2", svgX);
-    hoverLine.setAttribute("visibility", "visible");
-    tooltip.querySelector("strong").textContent = formatTime(value, true);
-    tooltip.querySelector("span").textContent = `${nearbyCount} nearby ${nearbyCount === 1 ? "result" : "results"}`;
-    tooltip.style.left = `${event.clientX}px`;
-    tooltip.style.top = `${event.clientY}px`;
-    tooltip.hidden = false;
-  }
-
-  hitArea.addEventListener("pointermove", showTooltip);
-  hitArea.addEventListener("pointerleave", () => {
-    hoverLine.setAttribute("visibility", "hidden");
-    tooltip.hidden = true;
-  });
-
-  svg.append(hoverLine, hitArea);
   chart.append(svg);
   medianLabel.textContent = formatTime(median, true);
-  range[0].textContent = `${formatTime(minimum, true)} faster`;
-  range[1].textContent = `${formatTime(maximum, true)} slower`;
+  range[0].textContent = formatTime(values[0], true);
+  range[1].textContent = formatTime(values.at(-1), true);
   chart.setAttribute(
     "aria-label",
-    `${metrics[metric].label} density plot for ${values.length} results. Median ${formatTime(median)}.`,
+    `${metrics[metric].label} histogram for ${values.length} results. Median ${formatTime(median)}. Peak bin ${maximumCount} finishers.`,
   );
 }
 

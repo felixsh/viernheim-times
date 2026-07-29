@@ -6,7 +6,7 @@ browser and displays:
 
 - Filters for year, gender, and normalized age group
 - Median finish, swim, bike, and run times
-- Interactive density plots for total, swim, T1, bike, T2, and run times
+- Adaptive histograms with finisher counts for total, swim, T1, bike, T2, and run times
 - Responsive layouts for phones, tablets, and desktop screens
 
 ## Run locally
