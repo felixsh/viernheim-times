@@ -339,6 +339,31 @@ select:focus-visible {
   font-size: 0.7rem;
 }
 
+.summary-card > span em {
+  display: block;
+  margin-top: 0.3rem;
+  color: var(--coral);
+  font-size: 0.64rem;
+  font-style: normal;
+  letter-spacing: 0.04em;
+}
+
+.summary-performance {
+  display: flex;
+  gap: 0.4rem;
+  align-items: baseline;
+  margin-top: 0.45rem;
+  padding-top: 0.55rem;
+  border-top: 1px solid var(--line);
+}
+
+.summary-performance b {
+  color: var(--ink);
+  font-size: 0.95rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.025em;
+}
+
 .accent-card {
   background: var(--lime);
 }
@@ -531,6 +556,11 @@ select:focus-visible {
 .tooltip span {
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.65rem;
+}
+
+.tooltip .tooltip-performance {
+  color: var(--lime);
+  font-weight: 700;
 }
 
 footer {

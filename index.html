@@ -86,19 +86,19 @@
           <small id="stat-total-note">middle of the field</small>
         </article>
         <article class="summary-card">
-          <span>Median swim</span>
+          <span>Median swim <em>1,500 m</em></span>
           <strong id="stat-swim">—</strong>
-          <small id="stat-swim-note">to the water exit</small>
+          <small class="summary-performance"><b id="stat-swim-performance">—</b></small>
         </article>
         <article class="summary-card">
-          <span>Median bike</span>
+          <span>Median bike <em>37.4 km</em></span>
           <strong id="stat-bike">—</strong>
-          <small id="stat-bike-note">longest race split</small>
+          <small class="summary-performance"><b id="stat-bike-performance">—</b></small>
         </article>
         <article class="summary-card">
-          <span>Median run</span>
+          <span>Median run <em>10 km</em></span>
           <strong id="stat-run">—</strong>
-          <small id="stat-run-note">final discipline</small>
+          <small class="summary-performance"><b id="stat-run-performance">—</b></small>
         </article>
       </div>
     </section>
@@ -195,12 +195,13 @@
 
   <footer>
     <p>Viernheimer V-Card Triathlon · Results from 2023–2025</p>
-    <p>Every curve represents finishers with a recorded split.</p>
+    <p>Every chart represents finishers with a recorded split.</p>
   </footer>
 
   <div class="tooltip" id="chart-tooltip" role="status" hidden>
     <strong></strong>
-    <span></span>
+    <span class="tooltip-count"></span>
+    <span class="tooltip-performance" hidden></span>
   </div>
 </body>
 

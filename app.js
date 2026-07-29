@@ -202,6 +202,22 @@ function formatTime(seconds, compact = false) {
   return `${minutes}:${paddedSeconds}`;
 }
 
+function formatPerformance(metric, seconds) {
+  if (!Number.isFinite(seconds)) {
+    return null;
+  }
+  if (metric === "swim") {
+    return `${formatTime(seconds / 15)} /100 m`;
+  }
+  if (metric === "bike") {
+    return `${(37.4 * 3600 / seconds).toFixed(1)} km/h`;
+  }
+  if (metric === "run") {
+    return `${formatTime(seconds / 10)} /km`;
+  }
+  return null;
+}
+
 function filteredRows() {
   return state.rows.filter(
     (row) =>
@@ -225,7 +241,12 @@ function updateSummary(rows) {
     completed.length === rows.length ? "with recorded results" : `from ${rows.length} selected athletes`;
 
   Object.entries(summaryMetrics).forEach(([metric, values]) => {
-    document.querySelector(`#stat-${metric}`).textContent = formatTime(quantile(values, 0.5));
+    const median = quantile(values, 0.5);
+    document.querySelector(`#stat-${metric}`).textContent = formatTime(median);
+    const performance = formatPerformance(metric, median);
+    if (metric !== "total") {
+      document.querySelector(`#stat-${metric}-performance`).textContent = performance ?? "No recorded split";
+    }
   });
 }
 
@@ -354,7 +375,7 @@ function renderChart(card, metric, rows) {
   svg.append(grid);
 
   const bars = createSVGElement("g", { class: "histogram-bars" });
-  bins.forEach((bin) => {
+  bins.forEach((bin, binIndex) => {
     const x = xScale(bin.start);
     const nextX = xScale(bin.end);
     const barWidth = Math.max(nextX - x - 2, 1);
@@ -375,13 +396,17 @@ function renderChart(card, metric, rows) {
       width: nextX - x,
       height: baseline - padding.top,
     });
+    const performance = formatPerformance(metric, binIndex === 0 ? values[0] : bin.start);
 
     function showTooltip(event) {
       const bounds = bar.getBoundingClientRect();
       tooltip.querySelector("strong").textContent =
         `${formatTime(bin.start, true)}–${formatTime(bin.end, true)}`;
-      tooltip.querySelector("span").textContent =
+      tooltip.querySelector(".tooltip-count").textContent =
         `${bin.count} ${bin.count === 1 ? "finisher" : "finishers"}`;
+      const performanceLine = tooltip.querySelector(".tooltip-performance");
+      performanceLine.textContent = performance ?? "";
+      performanceLine.hidden = !performance;
       tooltip.style.left = `${event.clientX ?? bounds.left + bounds.width / 2}px`;
       tooltip.style.top = `${event.clientY ?? bounds.top}px`;
       tooltip.hidden = false;
