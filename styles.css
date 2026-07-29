@@ -30,6 +30,7 @@ body {
   background:
     radial-gradient(circle at 85% 2%, rgba(216, 255, 85, 0.35), transparent 26rem),
     var(--paper);
+  background-repeat: no-repeat;
 }
 
 button,
@@ -242,9 +243,10 @@ select:focus-visible {
 
 .discipline-number {
   color: var(--coral);
-  font-family: Georgia, "Times New Roman", serif;
   font-size: 0.72rem;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: 0.04em;
 }
 
 .chart-title-row h3 {
@@ -496,9 +498,10 @@ footer p {
 .resource-number {
   align-self: start;
   color: var(--coral);
-  font-family: Georgia, "Times New Roman", serif;
   font-size: 0.75rem;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: 0.04em;
 }
 
 .resource-link strong,
