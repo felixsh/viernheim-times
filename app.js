@@ -4,7 +4,7 @@ const metrics = {
   total: { column: "Totalzeit", label: "Total time", color: "#d8ff55" },
   swim: { column: "Schwimmen", label: "Swim", color: "#9edbf4" },
   t1: { column: "Wechsel_1", label: "Transition 1", color: "#ffd266" },
-  bike: { column: "Rad", label: "Bike", color: "#d8ff55" },
+  bike: { column: "Rad", label: "Bike", color: "#62c58b" },
   t2: { column: "Wechsel_2", label: "Transition 2", color: "#ffb5a8" },
   run: { column: "Lauf", label: "Run", color: "#a7baff" },
 };
@@ -152,7 +152,9 @@ function addOptions(select, values, labelFormatter = (value) => value) {
 function populateFilters() {
   const years = [...new Set(state.rows.map((row) => row.year))].sort();
   const genders = [...new Set(state.rows.map((row) => row.gender))].sort();
-  const ageGroups = [...new Set(state.rows.map((row) => row.age))].sort(numericSort);
+  const ageGroups = [...new Set(state.rows.map((row) => row.age))]
+    .filter((age) => age !== "Unknown" && age !== "Junior")
+    .sort(numericSort);
 
   addOptions(controls.year, years);
   addOptions(controls.gender, genders, (gender) => {
