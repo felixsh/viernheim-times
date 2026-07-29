@@ -9,12 +9,25 @@ const metrics = {
   run: { column: "Lauf", label: "Run", color: "#a29dfc" },
 };
 
+const athleteNameCollator = new Intl.Collator(undefined, {
+  sensitivity: "base",
+  numeric: true,
+});
+const raceStatusOrder = ["DNS", "DNF", "DSQ"];
+
 const state = {
   rows: [],
   year: "all",
   gender: "all",
   age: "all",
-  table: { year: "all", gender: "all", age: "all", sortKey: "total", sortDirection: "asc" },
+  table: {
+    year: "all",
+    gender: "all",
+    age: "all",
+    sortKey: "place",
+    sortDirection: "asc",
+    selectedKey: null,
+  },
 };
 
 const controls = {
@@ -249,6 +262,10 @@ function formatTime(seconds, compact = false) {
     return `${remainingSeconds}s`;
   }
   return `${minutes}:${paddedSeconds}`;
+}
+
+function formatTableTime(value) {
+  return value ? value.replace(/^0(?=\d:)/, "") : "—";
 }
 
 function formatPerformance(metric, seconds) {
@@ -572,15 +589,67 @@ function filteredTableRows() {
         && (state.table.age === "all" || row.age === state.table.age),
     )
     .sort((left, right) => {
+      if (state.table.sortKey === "athlete") {
+        return compareAthleteNames(left.name, right.name, direction)
+          || compareRacePlaces(left.place, right.place);
+      }
+
+      if (state.table.sortKey === "place") {
+        return compareRacePlaces(left.place, right.place, direction)
+          || athleteNameCollator.compare(left.name, right.name);
+      }
+
       const leftTime = left.times[state.table.sortKey];
       const rightTime = right.times[state.table.sortKey];
       if (!Number.isFinite(leftTime) && !Number.isFinite(rightTime)) {
-        return left.name.localeCompare(right.name);
+        return athleteNameCollator.compare(left.name, right.name);
       }
       if (!Number.isFinite(leftTime)) return 1;
       if (!Number.isFinite(rightTime)) return -1;
-      return (leftTime - rightTime) * direction || left.name.localeCompare(right.name);
+      return (leftTime - rightTime) * direction
+        || athleteNameCollator.compare(left.name, right.name);
     });
+}
+
+function compareAthleteNames(leftName, rightName, direction) {
+  const left = String(leftName).trim();
+  const right = String(rightName).trim();
+  const leftUnknown = !left || /^unknown(?: athlete)?$/i.test(left);
+  const rightUnknown = !right || /^unknown(?: athlete)?$/i.test(right);
+
+  if (leftUnknown && rightUnknown) {
+    return 0;
+  }
+  if (leftUnknown) {
+    return direction;
+  }
+  if (rightUnknown) {
+    return -direction;
+  }
+  return athleteNameCollator.compare(left, right) * direction;
+}
+
+function compareRacePlaces(leftPlace, rightPlace, direction = 1) {
+  const left = String(leftPlace).trim().toUpperCase();
+  const right = String(rightPlace).trim().toUpperCase();
+  const leftNumber = /^\d+$/.test(left) ? Number(left) : null;
+  const rightNumber = /^\d+$/.test(right) ? Number(right) : null;
+
+  if (leftNumber !== null && rightNumber !== null) {
+    return (leftNumber - rightNumber) * direction;
+  }
+  if (leftNumber !== null) {
+    return -direction;
+  }
+  if (rightNumber !== null) {
+    return direction;
+  }
+
+  const leftStatusIndex = raceStatusOrder.indexOf(left);
+  const rightStatusIndex = raceStatusOrder.indexOf(right);
+  const leftStatusRank = leftStatusIndex === -1 ? raceStatusOrder.length : leftStatusIndex;
+  const rightStatusRank = rightStatusIndex === -1 ? raceStatusOrder.length : rightStatusIndex;
+  return leftStatusRank - rightStatusRank || left.localeCompare(right);
 }
 
 function appendTableCell(tableRow, value, className = "") {
@@ -591,6 +660,51 @@ function appendTableCell(tableRow, value, className = "") {
   }
   tableRow.append(cell);
   return cell;
+}
+
+function tableRowKey(row) {
+  return JSON.stringify([row.year, row.place, row.bib, row.name]);
+}
+
+function updateTableRowSelection(fallbackRow = null) {
+  const tableRows = [...document.querySelectorAll("#results-table-body tr[data-row-key]")];
+  const selectedRow = tableRows.find(
+    (tableRow) => tableRow.dataset.rowKey === state.table.selectedKey,
+  );
+  const keyboardRow = selectedRow ?? fallbackRow ?? tableRows[0];
+
+  tableRows.forEach((tableRow) => {
+    const selected = tableRow === selectedRow;
+    tableRow.classList.toggle("is-selected", selected);
+    tableRow.setAttribute("aria-selected", String(selected));
+    tableRow.tabIndex = tableRow === keyboardRow ? 0 : -1;
+  });
+}
+
+function toggleTableRowSelection(tableRow) {
+  state.table.selectedKey = state.table.selectedKey === tableRow.dataset.rowKey
+    ? null
+    : tableRow.dataset.rowKey;
+  updateTableRowSelection(tableRow);
+  tableRow.focus({ preventScroll: true });
+}
+
+function handleTableRowSelection(event) {
+  const tableRow = event.target.closest("tr[data-row-key]");
+  if (tableRow) {
+    toggleTableRowSelection(tableRow);
+  }
+}
+
+function handleTableRowSelectionKeydown(event) {
+  if (event.key !== "Enter" && event.key !== " ") {
+    return;
+  }
+  const tableRow = event.target.closest("tr[data-row-key]");
+  if (tableRow) {
+    event.preventDefault();
+    toggleTableRowSelection(tableRow);
+  }
 }
 
 function renderTable() {
@@ -609,6 +723,7 @@ function renderTable() {
   } else {
     rows.forEach((row) => {
       const tableRow = document.createElement("tr");
+      tableRow.dataset.rowKey = tableRowKey(row);
       appendTableCell(tableRow, row.place, "place-cell");
 
       const athleteCell = document.createElement("td");
@@ -624,17 +739,26 @@ function renderTable() {
       tableRow.append(athleteCell);
 
       appendTableCell(tableRow, formatRaceGroup(row), "group-cell");
-      appendTableCell(tableRow, row.timeLabels.total, "time-cell total-cell");
-      appendTableCell(tableRow, row.timeLabels.swim, "time-cell");
-      appendTableCell(tableRow, row.timeLabels.t1, "time-cell transition-cell");
-      appendTableCell(tableRow, row.timeLabels.bike, "time-cell");
-      appendTableCell(tableRow, row.timeLabels.t2, "time-cell transition-cell");
-      appendTableCell(tableRow, row.timeLabels.run, "time-cell");
+      appendTableCell(tableRow, formatTableTime(row.timeLabels.total), "time-cell total-cell");
+      appendTableCell(tableRow, formatTableTime(row.timeLabels.swim), "time-cell");
+      appendTableCell(
+        tableRow,
+        formatTableTime(row.timeLabels.t1),
+        "time-cell transition-cell",
+      );
+      appendTableCell(tableRow, formatTableTime(row.timeLabels.bike), "time-cell");
+      appendTableCell(
+        tableRow,
+        formatTableTime(row.timeLabels.t2),
+        "time-cell transition-cell",
+      );
+      appendTableCell(tableRow, formatTableTime(row.timeLabels.run), "time-cell");
       fragment.append(tableRow);
     });
   }
 
   body.append(fragment);
+  updateTableRowSelection();
   updateTableSortControls();
   syncResultsHeader();
 }
@@ -660,7 +784,16 @@ function handleTableToggle(event) {
 }
 
 function updateTableSortControls() {
-  const labels = { total: "total time", swim: "swim", t1: "T1", bike: "bike", t2: "T2", run: "run" };
+  const labels = {
+    place: "place",
+    athlete: "athlete",
+    total: "total time",
+    swim: "swim",
+    t1: "T1",
+    bike: "bike",
+    t2: "T2",
+    run: "run",
+  };
   const directionLabel = state.table.sortDirection === "asc" ? "ascending" : "descending";
   document.querySelector("#table-sort-description").textContent =
     `Sorted by ${labels[state.table.sortKey]} · ${directionLabel}`;
@@ -776,6 +909,8 @@ function handleFilterChange(event) {
 }
 
 function bindEvents() {
+  const resultsTableBody = document.querySelector("#results-table-body");
+
   [controls.year, controls.gender, controls.age].forEach((control) => {
     control.addEventListener("change", handleFilterChange);
   });
@@ -785,6 +920,8 @@ function bindEvents() {
   });
   document.addEventListener("click", clearChartTooltip);
   document.addEventListener("click", handleTableSort);
+  resultsTableBody.addEventListener("click", handleTableRowSelection);
+  resultsTableBody.addEventListener("keydown", handleTableRowSelectionKeydown);
   controls.tableYear.addEventListener("click", handleTableToggle);
   controls.tableGender.addEventListener("click", handleTableToggle);
   controls.tableAge.addEventListener("change", () => {
@@ -795,7 +932,7 @@ function bindEvents() {
     state.table.year = controls.tableYear.querySelector("button:last-child").dataset.value;
     state.table.gender = "all";
     state.table.age = "all";
-    state.table.sortKey = "total";
+    state.table.sortKey = "place";
     state.table.sortDirection = "asc";
     setToggleValue(controls.tableYear, state.table.year);
     setToggleValue(controls.tableGender, "all");

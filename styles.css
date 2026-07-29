@@ -862,13 +862,25 @@ footer p {
   line-height: 1;
 }
 
+.results-table th:first-child .sort-button {
+  position: relative;
+}
+
+.results-table th:first-child .sort-indicator {
+  position: absolute;
+  top: -0.35rem;
+  right: -0.55rem;
+  width: auto;
+}
+
 .results-table {
   width: 100%;
-  min-width: 780px;
+  min-width: 50.25rem;
   border-spacing: 0;
   border-collapse: separate;
   font-size: 0.76rem;
   font-variant-numeric: tabular-nums;
+  table-layout: fixed;
 }
 
 .results-table th {
@@ -901,6 +913,39 @@ footer p {
   background: #f1f5df;
 }
 
+.results-table tbody tr[data-row-key] {
+  cursor: pointer;
+}
+
+.results-table tbody tr.is-selected td {
+  background: #e8f3b8;
+}
+
+.results-table tbody tr.is-selected td:first-child {
+  box-shadow: inset 4px 0 var(--coral);
+}
+
+.results-table tbody tr.is-selected .athlete-cell strong,
+.results-table tbody tr.is-selected .athlete-cell small {
+  overflow: visible;
+  text-overflow: clip;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.results-table tbody tr:focus-visible {
+  outline: none;
+}
+
+.results-table tbody tr:focus-visible td {
+  background: #eef4d7;
+}
+
+.results-table tbody tr.is-selected:focus-visible td {
+  background: #e8f3b8;
+}
+
+.results-table th:nth-child(2),
 .results-table .athlete-cell {
   width: 10.5rem;
   min-width: 10.5rem;
@@ -945,12 +990,24 @@ footer p {
 
 .results-table th:nth-child(3),
 .results-table .group-cell {
-  width: 3.4rem;
+  width: 4rem;
 }
 
-.results-table th:nth-child(4),
-.results-table .total-cell {
-  width: 5.2rem;
+.results-table th:nth-child(n + 4),
+.results-table .time-cell {
+  width: 5.25rem;
+  text-align: right;
+}
+
+.results-table th:nth-child(n + 4) .sort-button {
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.results-table th:nth-child(5),
+.results-table td:nth-child(5) {
+  width: 6rem;
+  padding-left: 1.75rem;
 }
 
 .results-table .transition-cell {
@@ -1009,35 +1066,44 @@ footer p {
   }
 
   .results-table {
-    min-width: 720px;
+    --mobile-athlete-width: clamp(8.5rem, calc(100vw - 11.5rem), 11rem);
+    min-width: calc(36rem + var(--mobile-athlete-width));
     font-size: 0.7rem;
   }
 
   .results-table th,
   .results-table td {
-    padding-right: 0.38rem;
-    padding-left: 0.38rem;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
   }
 
+  .results-table th:nth-child(2),
   .results-table .athlete-cell {
-    width: 8.5rem;
-    min-width: 8.5rem;
-    max-width: 8.5rem;
+    width: var(--mobile-athlete-width);
+    min-width: var(--mobile-athlete-width);
+    max-width: var(--mobile-athlete-width);
   }
 
   .results-table th:nth-child(1),
   .results-table .place-cell {
-    width: 2.4rem;
+    width: 3rem;
+    padding-left: 0.75rem;
   }
 
   .results-table th:nth-child(3),
   .results-table .group-cell {
-    width: 2.7rem;
+    width: 3.5rem;
   }
 
-  .results-table th:nth-child(4),
-  .results-table .total-cell {
-    width: 4.5rem;
+  .results-table th:nth-child(n + 4),
+  .results-table .time-cell {
+    width: 4.75rem;
+  }
+
+  .results-table th:nth-child(5),
+  .results-table td:nth-child(5) {
+    width: 5.75rem;
+    padding-left: 2rem;
   }
 
   .table-status span {
