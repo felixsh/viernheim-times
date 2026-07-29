@@ -863,19 +863,17 @@ footer p {
 }
 
 .results-table th:first-child .sort-button {
-  position: relative;
+  gap: 0.1rem;
 }
 
 .results-table th:first-child .sort-indicator {
-  position: absolute;
-  top: -0.35rem;
-  right: -0.55rem;
-  width: auto;
+  flex: 0 0 0.5rem;
+  width: 0.5rem;
 }
 
 .results-table {
   width: 100%;
-  min-width: 50.25rem;
+  min-width: 51.5rem;
   border-spacing: 0;
   border-collapse: separate;
   font-size: 0.76rem;
@@ -903,6 +901,16 @@ footer p {
   background: var(--surface);
   border-bottom: 1px solid rgba(201, 206, 194, 0.72);
   white-space: nowrap;
+}
+
+.results-table th:first-child,
+.results-table td:first-child {
+  padding-left: 1.25rem;
+}
+
+.results-table th:last-child,
+.results-table td:last-child {
+  padding-right: 1.25rem;
 }
 
 .results-table tbody tr:last-child td {
@@ -985,7 +993,7 @@ footer p {
 
 .results-table th:nth-child(1),
 .results-table .place-cell {
-  width: 3rem;
+  width: 4.25rem;
 }
 
 .results-table th:nth-child(3),
@@ -1002,6 +1010,10 @@ footer p {
 .results-table th:nth-child(n + 4) .sort-button {
   justify-content: flex-end;
   width: 100%;
+}
+
+.results-table th:nth-child(n + 4) .sort-indicator {
+  order: -1;
 }
 
 .results-table th:nth-child(5),
@@ -1063,11 +1075,12 @@ footer p {
     border-right: 0;
     border-left: 0;
     border-radius: 0;
+    scroll-snap-type: x proximity;
   }
 
   .results-table {
-    --mobile-athlete-width: clamp(8.5rem, calc(100vw - 11.5rem), 11rem);
-    min-width: calc(36rem + var(--mobile-athlete-width));
+    width: 200vw;
+    min-width: 200vw;
     font-size: 0.7rem;
   }
 
@@ -1079,31 +1092,54 @@ footer p {
 
   .results-table th:nth-child(2),
   .results-table .athlete-cell {
-    width: var(--mobile-athlete-width);
-    min-width: var(--mobile-athlete-width);
-    max-width: var(--mobile-athlete-width);
+    width: 41vw;
+    min-width: 41vw;
+    max-width: 41vw;
   }
 
   .results-table th:nth-child(1),
   .results-table .place-cell {
-    width: 3rem;
-    padding-left: 0.75rem;
+    width: 18vw;
+    padding-right: 0.25rem;
+    padding-left: 1rem;
   }
 
   .results-table th:nth-child(3),
   .results-table .group-cell {
-    width: 3.5rem;
+    width: 15vw;
   }
 
-  .results-table th:nth-child(n + 4),
-  .results-table .time-cell {
-    width: 4.75rem;
+  .results-table th:nth-child(4),
+  .results-table .total-cell {
+    width: 26vw;
+    padding-right: 1rem;
+  }
+
+  .results-table th:nth-child(n + 5),
+  .results-table td:nth-child(n + 5) {
+    width: 20vw;
+  }
+
+  .results-table th:nth-child(n + 5) .sort-button {
+    justify-content: flex-end;
+    width: 100%;
+    text-align: right;
   }
 
   .results-table th:nth-child(5),
   .results-table td:nth-child(5) {
-    width: 5.75rem;
-    padding-left: 2rem;
+    width: 20vw;
+    padding-left: 0.75rem;
+  }
+
+  .results-table th:nth-child(9),
+  .results-table td:nth-child(9) {
+    padding-right: 1.25rem;
+  }
+
+  .results-table th:nth-child(1),
+  .results-table th:nth-child(5) {
+    scroll-snap-align: start;
   }
 
   .table-status span {

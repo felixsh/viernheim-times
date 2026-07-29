@@ -681,18 +681,21 @@ function updateTableRowSelection(fallbackRow = null) {
   });
 }
 
-function toggleTableRowSelection(tableRow) {
-  state.table.selectedKey = state.table.selectedKey === tableRow.dataset.rowKey
-    ? null
-    : tableRow.dataset.rowKey;
+function toggleTableRowSelection(tableRow, blurWhenCleared = false) {
+  const clearingSelection = state.table.selectedKey === tableRow.dataset.rowKey;
+  state.table.selectedKey = clearingSelection ? null : tableRow.dataset.rowKey;
   updateTableRowSelection(tableRow);
-  tableRow.focus({ preventScroll: true });
+  if (clearingSelection && blurWhenCleared) {
+    tableRow.blur();
+  } else {
+    tableRow.focus({ preventScroll: true });
+  }
 }
 
 function handleTableRowSelection(event) {
   const tableRow = event.target.closest("tr[data-row-key]");
   if (tableRow) {
-    toggleTableRowSelection(tableRow);
+    toggleTableRowSelection(tableRow, true);
   }
 }
 
