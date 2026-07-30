@@ -853,6 +853,14 @@ footer p {
   white-space: nowrap;
 }
 
+.athlete-cell .athlete-bib {
+  display: none;
+}
+
+.results-table tbody tr.is-selected .athlete-bib {
+  display: block;
+}
+
 .results-table .group-cell,
 .results-table .place-cell,
 .results-table .total-cell {

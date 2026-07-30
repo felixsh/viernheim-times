@@ -899,6 +899,12 @@ function renderTable() {
         athleteDetail.title = row.club;
       }
       athleteCell.append(athleteName, athleteDetail);
+      if (row.club && row.bib) {
+        const athleteBib = document.createElement("small");
+        athleteBib.className = "athlete-bib";
+        athleteBib.textContent = `Bib ${row.bib}`;
+        athleteCell.append(athleteBib);
+      }
       tableRow.append(athleteCell);
 
       appendTableCell(tableRow, formatRaceGroup(row), "group-cell");
