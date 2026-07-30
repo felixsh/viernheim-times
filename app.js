@@ -23,10 +23,10 @@ const raceStatusOrder = ["DNS", "DNF", "DSQ"];
 const filterViews = ["charts", "results"];
 const filterKeys = ["year", "gender", "age"];
 const toggleFilterKeys = ["year", "gender"];
-const urlStateKeys = ["tab", ...filterKeys];
+const urlStateKeys = ["tab", ...filterKeys, "q"];
 const filterDefaults = {
   charts: { year: "all", gender: "all", age: "all" },
-  results: { year: "all", gender: "all", age: "all" },
+  results: { year: "all", gender: "all", age: "all", search: "" },
 };
 
 const state = {
@@ -54,6 +54,7 @@ const filterControls = {
     year: document.querySelector("#table-year-toggle"),
     gender: document.querySelector("#table-gender-toggle"),
     age: document.querySelector("#table-age-filter"),
+    search: document.querySelector("#table-search"),
     reset: document.querySelector("#reset-table-filters"),
   },
 };
@@ -312,6 +313,80 @@ function matchesFilters(row, filters) {
   return filterKeys.every(
     (filter) => filters[filter] === "all" || row[filter] === filters[filter],
   );
+}
+
+function normalizeSearchText(value) {
+  return String(value ?? "")
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "")
+    .toLocaleLowerCase();
+}
+
+function tokenizeSearchText(value) {
+  return normalizeSearchText(value).match(/[\p{Letter}\p{Number}]+/gu) ?? [];
+}
+
+function editDistance(left, right) {
+  const distances = Array.from(
+    { length: left.length + 1 },
+    (_, row) => Array.from(
+      { length: right.length + 1 },
+      (_, column) => (row === 0 ? column : column === 0 ? row : 0),
+    ),
+  );
+
+  for (let row = 1; row <= left.length; row += 1) {
+    for (let column = 1; column <= right.length; column += 1) {
+      const substitutionCost = left[row - 1] === right[column - 1] ? 0 : 1;
+      distances[row][column] = Math.min(
+        distances[row - 1][column] + 1,
+        distances[row][column - 1] + 1,
+        distances[row - 1][column - 1] + substitutionCost,
+      );
+
+      if (
+        row > 1
+        && column > 1
+        && left[row - 1] === right[column - 2]
+        && left[row - 2] === right[column - 1]
+      ) {
+        distances[row][column] = Math.min(
+          distances[row][column],
+          distances[row - 2][column - 2] + 1,
+        );
+      }
+    }
+  }
+
+  return distances[left.length][right.length];
+}
+
+function fuzzyTermMatches(term, searchableText, tokens) {
+  if (searchableText.includes(term)) {
+    return true;
+  }
+  if (/^\p{Number}+$/u.test(term) || term.length < 4) {
+    return false;
+  }
+
+  const maximumDistance = term.length >= 8 ? 2 : 1;
+  return tokens.some(
+    (token) =>
+      Math.abs(token.length - term.length) <= maximumDistance
+      && editDistance(term, token) <= maximumDistance,
+  );
+}
+
+function matchesSearch(row, search) {
+  const terms = tokenizeSearchText(search);
+  if (!terms.length) {
+    return true;
+  }
+  const searchableText = normalizeSearchText(
+    [row.name, row.club, row.bib].filter(Boolean).join(" "),
+  );
+  const tokens = tokenizeSearchText(searchableText);
+  return terms.every((term) => fuzzyTermMatches(term, searchableText, tokens));
 }
 
 function filteredRows(view) {
@@ -662,7 +737,10 @@ function render() {
 function filteredTableRows() {
   const direction = state.table.sortDirection === "asc" ? 1 : -1;
   return state.rows
-    .filter((row) => matchesFilters(row, state.filters.results))
+    .filter(
+      (row) => matchesFilters(row, state.filters.results)
+        && matchesSearch(row, state.filters.results.search),
+    )
     .sort((left, right) => {
       if (state.table.sortKey === "athlete") {
         return compareAthleteNames(left.name, right.name, direction)
@@ -883,6 +961,9 @@ function syncFilterControls(view) {
   setToggleValue(viewControls.year, filterState.year);
   setToggleValue(viewControls.gender, filterState.gender);
   viewControls.age.value = filterState.age;
+  if (viewControls.search && viewControls.search.value !== filterState.search) {
+    viewControls.search.value = filterState.search;
+  }
 }
 
 function applyUrlState() {
@@ -903,6 +984,9 @@ function applyUrlState() {
       availableFilterValue(state.view, filter, parameters.get(filter))
       ?? defaults[filter];
   });
+  if (state.view === "results") {
+    filterState.search = parameters.get("q")?.trim() ?? "";
+  }
   syncFilterControls(state.view);
 }
 
@@ -925,6 +1009,12 @@ function updateUrl(push = false) {
         url.searchParams.set(filter, value);
       }
     });
+    if (state.view === "results") {
+      const search = filterState.search.trim();
+      if (search) {
+        url.searchParams.set("q", search);
+      }
+    }
   }
 
   const method = push ? "pushState" : "replaceState";
@@ -1090,6 +1180,11 @@ function bindFilterEvents(view) {
   controls.age.addEventListener("change", () => {
     updateFilter(view, "age", controls.age.value);
   });
+  if (controls.search) {
+    controls.search.addEventListener("input", () => {
+      updateFilter(view, "search", controls.search.value);
+    });
+  }
   controls.reset.addEventListener("click", () => resetFilters(view));
 }
 

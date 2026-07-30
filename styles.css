@@ -552,6 +552,35 @@ footer p {
   box-shadow: var(--shadow);
 }
 
+.results-search {
+  margin-bottom: 1rem;
+}
+
+.results-search-input {
+  width: 100%;
+  min-height: 2.9rem;
+  padding: 0.78rem 1rem;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 0.85rem;
+  box-shadow: var(--shadow);
+  outline: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.results-search-input::placeholder {
+  color: var(--ink-soft);
+  opacity: 0.72;
+}
+
+.results-search-input:focus-visible {
+  border-color: var(--lime);
+  outline: 3px solid var(--lime);
+  outline-offset: 2px;
+}
+
 .table-filter {
   display: grid;
   gap: 0.45rem;
